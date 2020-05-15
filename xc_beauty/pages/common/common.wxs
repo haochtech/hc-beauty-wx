@@ -1,0 +1,18 @@
+var filters = ({
+    toPhone: (function(value) {
+        if (value != "" && value != null) {
+            if (value.indexOf("iPhone X") != -1) {
+                return (true)
+            } else {
+                return (false)
+            }
+        }
+    }),
+    toFix: (function(value) {
+        return (value.toFixed(2))
+    }),
+});
+module.exports = ({
+    toPhone: filters.toPhone,
+    toFix: filters.toFix,
+});

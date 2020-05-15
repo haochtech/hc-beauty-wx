@@ -1,0 +1,98 @@
+<view class="page">
+    <view class="list">
+        <view class="item_t">
+            <image src="{{list.service_simg}}"></image>
+            <view class="item_r">
+                <view class="item">
+                    <view>{{list.service_name}}</view>
+                    <view>¥{{list.price}}</view>
+                </view>
+                <view class="item curr">
+                    <view>{{list.kind?list.kind:''}}</view>
+                    <view>¥{{list.o_price}}</view>
+                </view>
+                <view class="item curr">
+                    <view></view>
+                    <view></view>
+                    <view>×{{list.total}}</view>
+                </view>
+            </view>
+        </view>
+        <view class="userinfo">
+            <view wx:if="{{list.plan_date}}">到店时间：{{list.plan_date}}</view>
+            <view>预 约 人 ：{{list.userinfo.name}}</view>
+            <view>手机号码：{{list.userinfo.mobile}}</view>
+        </view>
+        <view bindtap="menu_on" class="item_c" style="margin-top:20rpx;">
+            <view>优惠券</view>
+            <view style="color:{{theme.color}};">{{coupon_price?'-'+coupon_price:''}}</view>
+            <view>></view>
+        </view>
+        <view class="item_c" wx:if="{{card.content.discount_status==1&&userinfo.card==1&&card.content.discount&&list.service_list.sale_status==1}}">
+            <view>会员折扣</view>
+            <view style="color:#333;">{{card.content.discount}}折</view>
+        </view>
+        <view class="item_c" style="margin-top:20rpx;" wx:if="{{list.prize}}">
+            <view>新人礼包</view>
+            <view style="color:{{theme.color}};">满{{list.prize.amount}}元减{{list.prize.price}}元</view>
+        </view>
+        <view class="item_c">
+            <view>小计</view>
+            <view style="color:#333;">¥{{list.amount}}</view>
+        </view>
+        <view class="item_b">
+            <view>备注</view>
+            <input bindinput="input" data-name="content" placeholder="备注内容" placeholderStyle="color:#999999;" type="text" value="{{content}}"></input>
+        </view>
+    </view>
+    <view class="btn_block"></view>
+    <view class="btn">
+        <view>应付款 <text style="color:{{theme.color}};">¥{{o_amount}}</text>
+        </view>
+        <view bindtap="pay_on" class="pay" style="background:{{theme.color}};">去付款</view>
+    </view>
+    <view class="shadow" wx:if="{{shadow}}"></view>
+    <view class="menu" wx:if="{{menu}}">
+        <view class="menu_top">
+            <view bindtap="menu_close" class="menu_close">×</view>
+            <view>选择优惠券</view>
+        </view>
+        <view class="menu_list" wx:if="{{coupon}}">
+            <view bindtap="coupon_choose" class="item" data-index="{{idx}}" wx:for="{{coupon}}" wx:for-index="idx" wx:key="idx">
+                <icon color="{{coupon_curr==idx?theme.color:'#999'}}" size="20" type="{{coupon_curr==idx?'success':'circle'}}"></icon>
+                <view>{{item.coupon.name}}元优惠券</view>
+            </view>
+        </view>
+        <view style="text-align: center;padding:20rpx;" wx:if="{{!coupon}}">无满足条件优惠券</view>
+        <view bindtap="menu_close" class="menu_btn" style="background:{{theme.color}};">确定</view>
+    </view>
+    <view class="menu" wx:if="{{pay}}">
+        <view class="menu_top">
+            <view bindtap="menu_close" class="menu_close">×</view>
+            <view>选择付款方式</view>
+        </view>
+        <view class="menu_list">
+            <view bindtap="pay_choose" class="item_c" data-index="2" wx:if="{{userinfo.card==1&&userinfo.money!=0}}">
+                <image src="../../resource/over.png"></image>
+                <view>余额支付(账户余额：¥{{userinfo.money}})</view>
+                <icon color="{{pay_type==2?'#41e086':'#999'}}" size="20" type="{{pay_type==2?'success':'circle'}}"></icon>
+                <view class="tip" style="color:{{theme.color}};" wx:if="{{tip}}">您的账户余额不足，还需微信支付¥{{tip_amount}}</view>
+            </view>
+            <view bindtap="pay_choose" class="item_c" data-index="1">
+                <image src="{{can_bimg.pay}}"></image>
+                <view>微信支付</view>
+                <icon color="{{pay_type==1?'#41e086':'#999'}}" size="20" type="{{pay_type==1?'success':'circle'}}"></icon>
+            </view>
+        </view>
+        <form reportSubmit bindsubmit="submit">
+            <button class="menu_btn" formType="submit" style="background:{{theme.color}};">立即付款</button>
+        </form>
+    </view>
+    <view class="sign" wx:if="{{sign}}">
+        <view style="color:{{theme.color}};">支付密码</view>
+        <input bindinput="input" data-name="password" password="true" placeholder="请输入支付密码" placeholderStyle="color:#aaa" type="number" value="{{password}}"></input>
+        <view class="sign_tip" wx:if="{{sign_error}}">密码错误</view>
+        <view bindtap="sign_btn" class="sign_btn" style="background:{{theme.color}};">确定</view>
+        <icon bindtap="sign_close" class="sign_close" color="#000" size="23" type="cancel"></icon>
+    </view>
+</view>

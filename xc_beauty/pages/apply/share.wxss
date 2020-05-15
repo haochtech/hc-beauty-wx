@@ -1,0 +1,137 @@
+page {
+    background: #F5F5FA;
+}
+
+.applyIndex {
+    padding: 40rpx 0;
+    box-sizing: border-box;
+}
+
+.applyForm {
+    margin: 0 24rpx;
+    background: #fff;
+    border-radius: 20rpx;
+    padding: 0 24rpx;
+}
+
+.applyForm .applyTit {
+    text-align: center;
+    line-height: 120rpx;
+    font-size: 5vw;
+    border-bottom: #EEEEEE 2rpx solid;
+}
+
+.applyForm .applyItem {
+    display: flex;
+    align-items: center;
+    padding: 20rpx 0;
+    border-bottom: #EEEEEE 2rpx solid;
+}
+
+.applyForm .applyItem .applyItemF {
+    flex: 1;
+    padding: 0 20rpx;
+}
+
+.applyForm .applyItem image {
+    width: 30rpx;
+}
+
+.applyForm .applyTip {
+    text-align: center;
+    color: #E8A6BD;
+    padding: 60rpx 0 160rpx;
+}
+
+.applyBtn {
+    margin: 200rpx 24rpx 0;
+    text-align: center;
+    line-height: 80rpx;
+    border-radius: 10rpx;
+    background: #E8A6BD;
+    color: #fff;
+}
+
+.applyXie {
+    text-align: center;
+    color: #AAAAAA;
+    margin-top: 20rpx;
+}
+
+.applyXie .sp1 {
+    color: #E8A6BD;
+}
+
+.applyPro {
+    min-height: 100vh;
+    background: #fff;
+}
+
+.applyPro .applyProDetil {
+    padding: 36rpx;
+}
+
+.applyProBtn {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    border-top: #EEEEEE 2rpx solid;
+    display: flex;
+    align-items: center;
+    height: 100rpx;
+}
+
+.applyProBtnBlock {
+    height: 102rpx;
+}
+
+.applyProBtn .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 10rpx 0 30rpx;
+}
+
+.applyProBtn .sp1 {
+    flex: 1;
+}
+
+.applyProBtn .sp2 {
+    width: 200rpx;
+    line-height: 100rpx;
+    background: #E8A6BD;
+    text-align: center;
+    color: #fff;
+    font-size: 4vw;
+}
+
+.applyIn {
+    min-height: 100vh;
+    background: #fff;
+    padding: 200rpx 0;
+    box-sizing: border-box;
+}
+
+.applyIn .sp1 {
+    width: 224rpx;
+    margin: 0 auto;
+}
+
+.applyIn .applyInTip {
+    text-align: center;
+    margin-top: 200rpx;
+    font-size: 4vw;
+    line-height: 8vw;
+}
+
+.applyIn .applyInBtn {
+    width: 200rpx;
+    text-align: center;
+    line-height: 60rpx;
+    color: #fff;
+    margin: 40rpx auto;
+    background: #E8A6BD;
+    border-radius: 10rpx;
+}

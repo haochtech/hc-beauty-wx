@@ -1,0 +1,40 @@
+<view class="page">
+    <view class="nav">
+        <view bindtap="tab" class="item" data-index="0">
+            <view style="width:{{curr==0?'12rpx':''}};height: {{curr==0?'12rpx':''}};border:{{curr==0?theme.color+' 6rpx solid':''}};"></view>
+            <view>
+                <text class="text" style="color:{{curr==0?theme.color:''}};">全部</text>({{detail.discuss_total}})</view>
+        </view>
+        <view bindtap="tab" class="item" data-index="1">
+            <view style="width:{{curr==1?'12rpx':''}};height: {{curr==1?'12rpx':''}};border:{{curr==1?theme.color+' 6rpx solid':''}};"></view>
+            <view>
+                <text class="text" style="color:{{curr==1?theme.color:''}};">满意</text>({{detail.good_total}})</view>
+        </view>
+        <view bindtap="tab" class="item" data-index="2">
+            <view style="width:{{curr==2?'12rpx':''}};height: {{curr==2?'12rpx':''}};border:{{curr==2?theme.color+' 6rpx solid':''}};"></view>
+            <view>
+                <text class="text" style="color:{{curr==2?theme.color:''}};">一般</text>({{detail.middle_total}})</view>
+        </view>
+        <view bindtap="tab" class="item" data-index="3">
+            <view style="width:{{curr==3?'12rpx':''}};height: {{curr==3?'12rpx':''}};border:{{curr==3?theme.color+' 6rpx solid':''}};"></view>
+            <view>
+                <text class="text" style="color:{{curr==3?theme.color:''}};">不满意</text>({{detail.bad_total}})</view>
+        </view>
+    </view>
+    <view class="nav_block"></view>
+    <view class="list {{theme.name}}">
+        <view class="item" wx:for="{{list}}" wx:for-index="idx" wx:key="idx">
+            <view class="item_t">
+                <image src="{{item.avatar}}"></image>
+                <view>{{item.nick}}</view>
+                <view>{{item.createtime}}</view>
+            </view>
+            <view class="item_b">
+                <view class="text">{{item.content}}</view>
+                <view class="img" wx:if="{{item.imgs}}">
+                    <image bindtap="previewImage" data-index="{{idx}}" data-indexs="{{idx2}}" src="{{item2}}" wx:for="{{item.imgs}}" wx:for-index="idx2" wx:for-item="item2" wx:key="idx"></image>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

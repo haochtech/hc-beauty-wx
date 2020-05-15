@@ -1,0 +1,77 @@
+page {
+    background: #f4f4f4;
+}
+
+.list {
+    padding: 30rpx;
+}
+
+.list .item {
+    display: flex;
+    background: #fff;
+    padding: 20rpx 0;
+    box-shadow: #b5b5b5 2rpx 2rpx 10rpx;
+}
+
+.list .item+.item {
+    margin-top: 20rpx;
+}
+
+.list .item .itemL {
+    width: 240rpx;
+    height: 270rpx;
+    margin: 0 10rpx;
+}
+
+.list .item .itemR {
+    flex: 1;
+    box-sizing: border-box;
+    padding: 20rpx;
+    width: 430rpx;
+}
+
+.list .item .itemR .title {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.list .item .itemR .title>view:nth-child(1) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    flex: 1;
+    font-size: 4vw;
+    line-height: 6vw;
+}
+
+.list .item .itemR .title>view:nth-child(2) {
+    color: #d9d9d9;
+}
+
+.list .item .sp1 {
+    margin-top: 10rpx;
+}
+
+.list .item .sp2 {
+    height: 90rpx;
+    overflow: scroll;
+}
+
+.list .item .sp2 .sps {
+    display: flex;
+    align-items: center;
+    line-height: 45rpx;
+    width: 100%;
+}
+
+.list .item .sp2 .sps>view:nth-child(1) {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.list .item .sp3 {
+    margin-top: 6rpx;
+}

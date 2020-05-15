@@ -1,0 +1,55 @@
+<import src="../common/common.wxml"></import>
+<view class="page">
+    <view class="nav">
+        <view bindtap="tab" data-index="-1" style="color:{{curr==-1?'#fff':''}};background:{{curr==-1?theme.color:''}};border-color:{{theme.color}};">未使用</view>
+        <view bindtap="tab" data-index="1" style="color:{{curr==1?'#fff':''}};background:{{curr==1?theme.color:''}};border-color:{{theme.color}};">已使用</view>
+        <view bindtap="tab" data-index="2" style="color:{{curr==2?'#fff':''}};background:{{curr==2?theme.color:''}};border-color:{{theme.color}};">兑换券</view>
+    </view>
+    <view class="nav_block"></view>
+    <view class="list" wx:if="{{curr==-1||curr==1}}">
+        <view class="item" style="color:{{curr==-1?'#fff':'#d0d0d0'}};background-image:{{config.coupon_bg?'url('+config.coupon_bg+')':''}};" wx:for="{{list}}" wx:for-index="idx" wx:key="idx">
+            <image class="itemBack" src="{{config.coupon_bg?config.coupon_bg:'../../resource/coupon01.png'}}" wx:if="{{curr==-1}}"></image>
+            <image class="itemBack" src="{{config.coupon_bg?config.coupon_bg:'../../resource/coupon02.png'}}" wx:if="{{curr!=-1}}"></image>
+            <view class="itemBox">
+                <view class="item_hd">
+                    <view class="tip" style="background:{{curr==-1?theme.color:'#d0d0d0'}};" wx:if="{{item.coupon.type==2}}">会员专享</view>
+                    <view class="tip" style="background:{{curr==-1?theme.color:'#d0d0d0'}};" wx:if="{{item.coupon.type==3}}">积分兑换</view>
+                    <view class="tip" style="background:{{curr==-1?theme.color:'#d0d0d0'}};" wx:if="{{item.coupon.type==4}}">抽奖</view>
+                    <view class="tip" style="background:{{curr==-1?theme.color:'#d0d0d0'}};" wx:if="{{item.coupon.type==5}}">新人专享</view>
+                    <view class="sp1">¥
+              <text class="price">{{item.coupon.name}}</text>
+                    </view>
+                </view>
+                <view class="item_bd">
+                    <view>{{item.coupon.condition?'满'+item.coupon.condition+'元可用':'无消费金额限制'}}</view>
+                    <view>有效期至{{item.coupon.failtime}}</view>
+                </view>
+                <view class="item_btn" style="color:#333;" wx:if="{{curr==-1}}">未使用</view>
+                <view class="item_btn" style="color:#fff;background:#cecece;border:#e8e8e8 8rpx solid;" wx:if="{{curr==1}}">已使用</view>
+            </view>
+        </view>
+    </view>
+    <view class="list" wx:if="{{curr==2}}">
+        <view class="item" style="color:{{item.status==-1?'#fff':'#d0d0d0'}};background-image:{{config.coupon_bg?'url('+config.coupon_bg+')':''}};" wx:for="{{list}}" wx:for-index="idx" wx:key="idx">
+            <image class="itemBack" src="{{config.coupon_bg?config.coupon_bg:'../../resource/coupon01.png'}}" wx:if="{{curr==-1}}"></image>
+            <image class="itemBack" src="{{config.coupon_bg?config.coupon_bg:'../../resource/coupon02.png'}}" wx:if="{{curr!=-1}}"></image>
+            <view class="itemBox">
+                <view class="item_hd">
+                    <view class="tip" style="background:{{item.status==-1?theme.color:'#d0d0d0'}};">兑换券</view>
+                    <view class="sp1">¥
+              <text class="price">{{item.service_price}}</text>
+                    </view>
+                </view>
+                <view class="item_bd">
+                    <view>{{item.service_name}}</view>
+                    <view>有效期至{{item.end_time}}</view>
+                </view>
+                <navigator class="item_btn" style="color:#333;" url="../mall/porder?&exchange={{item.id}}" wx:if="{{item.status==-1}}">兑换</navigator>
+                <view class="item_btn" style="color:#fff;background:#cecece;border:#e8e8e8 8rpx solid;" wx:if="{{item.status==1}}">已兑换</view>
+                <view class="item_btn" style="color:#fff;background:#cecece;border:#e8e8e8 8rpx solid;" wx:if="{{item.status==2}}">已过期</view>
+                <view class="item_btn" style="color:#fff;background:#cecece;border:#e8e8e8 8rpx solid;" wx:if="{{item.status==3}}">已下架</view>
+            </view>
+        </view>
+    </view>
+    <template is="get_userinfo" data="{{shadow:shadow,get_userinfo:get_userinfo,config:config,can_bimg:can_bimg,app_step1:app_step1,app_step2:app_step2}}"></template>
+</view>

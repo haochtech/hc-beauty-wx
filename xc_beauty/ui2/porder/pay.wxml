@@ -1,0 +1,102 @@
+<view class="page">
+    <view class="list">
+        <view class="title">
+            <view>{{list.order_type!=4?'订单信息':'预约信息'}}</view>
+            <view></view>
+        </view>
+        <view class="item" wx:if="{{list.store}}">
+            <view>服务店面</view>
+            <view>{{list.store_list.name}}</view>
+        </view>
+        <view class="item" wx:if="{{list.member}}">
+            <view>服务人员</view>
+            <view>{{list.member==-2?'店内安排':list.member_list.name}}</view>
+        </view>
+        <view class="item">
+            <view>服务项目</view>
+            <view>{{list.service_name}}</view>
+        </view>
+        <view class="item">
+            <view>数量</view>
+            <view>¥{{list.price}} X {{list.total}}</view>
+        </view>
+        <view class="item">
+            <view>预约人</view>
+            <view>{{list.userinfo.name}}  {{list.userinfo.mobile}}</view>
+        </view>
+        <view class="item" wx:if="{{list.service_type}}">
+            <view>服务方式</view>
+            <view>{{list.service_type==1?'上门服务':'到店服务'}}</view>
+        </view>
+        <view class="item" wx:if="{{list.plan_date}}">
+            <view>预约日期</view>
+            <view>{{list.plan_date}}</view>
+        </view>
+        <view class="item" wx:if="{{card.content.discount_status==1&&userinfo.card==1&&card.content.discount&&list.service_list.sale_status==1}}">
+            <view>会员折扣</view>
+            <view>{{card.content.discount}}折</view>
+        </view>
+        <view bindtap="menu_on" class="item">
+            <view>优惠券</view>
+            <view>{{coupon_price?'-'+coupon_price:''}}</view>
+            <view>></view>
+        </view>
+        <view class="item" wx:if="{{list.prize}}">
+            <view>新人礼包</view>
+            <view>满{{list.prize.amount}}元减{{list.prize.price}}元</view>
+        </view>
+        <view class="item">
+            <view>合计</view>
+            <view>¥{{list.amount}}</view>
+        </view>
+        <view class="item">
+            <input bindinput="input" data-name="content" placeholder="备注" placeholderStyle="color:#999;" type="text" value="{{content}}"></input>
+        </view>
+    </view>
+    <view class="list">
+        <view class="title">
+            <view>支付方式</view>
+            <view></view>
+        </view>
+        <view class="choose">
+            <view bindtap="pay_choose" class="choose_i" data-index="2" wx:if="{{userinfo.card==1}}">
+                <view class="{{pay_type==2?'curr':''}}"></view>
+                <view>余额支付(<text style="color:{{theme.color}};">¥:{{userinfo.money}}</text>)</view>
+            </view>
+            <view bindtap="pay_choose" class="choose_i" data-index="1">
+                <view class="{{pay_type==1?'curr':''}}"></view>
+                <view>微信支付</view>
+            </view>
+        </view>
+    </view>
+    <view class="btn_block"></view>
+    <view class="btn">
+        <view>应付款 <text style="color:{{theme.color}};">¥{{o_amount}}</text>
+        </view>
+        <form reportSubmit bindsubmit="submit">
+            <button class="pay" formType="submit" style="background:{{theme.color}};">立即支付</button>
+        </form>
+    </view>
+    <view class="shadow" wx:if="{{shadow}}"></view>
+    <view class="menu" wx:if="{{menu}}">
+        <view class="menu_top">
+            <view bindtap="menu_close" class="menu_close">×</view>
+            <view>选择优惠券</view>
+        </view>
+        <view class="menu_list" wx:if="{{coupon}}">
+            <view bindtap="coupon_choose" class="item" data-index="{{idx}}" wx:for="{{coupon}}" wx:for-index="idx" wx:key="idx">
+                <icon color="{{coupon_curr==idx?theme.color:'#999'}}" size="20" type="{{coupon_curr==idx?'success':'circle'}}"></icon>
+                <view>{{item.coupon.name}}元优惠券</view>
+            </view>
+        </view>
+        <view style="text-align: center;padding:20rpx;" wx:if="{{!coupon}}">无满足条件优惠券</view>
+        <view bindtap="menu_close" class="menu_btn" style="background:{{theme.color}};">确定</view>
+    </view>
+    <view class="sign" wx:if="{{sign}}">
+        <view style="color:{{theme.color}};">支付密码</view>
+        <input bindinput="input" data-name="password" password="true" placeholder="请输入支付密码" placeholderStyle="color:#aaa" type="number" value="{{password}}"></input>
+        <view class="sign_tip" wx:if="{{sign_error}}">密码错误</view>
+        <view bindtap="sign_btn" class="sign_btn" style="background:{{theme.color}};">确定</view>
+        <icon bindtap="sign_close" class="sign_close" color="#000" size="23" type="cancel"></icon>
+    </view>
+</view>

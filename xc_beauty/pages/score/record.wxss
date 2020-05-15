@@ -1,0 +1,66 @@
+.nav {
+    padding: 30rpx;
+    display: flex;
+    justify-content: center;
+    color: #999999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 99;
+    background: #fff;
+}
+
+.nav>view {
+    border: #e53770 2rpx solid;
+    width: 180rpx;
+    height: 60rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav>view:nth-child(1) {
+    border-radius: 60rpx 0 0 60rpx;
+}
+
+.nav>view:nth-child(2) {
+    border-radius: 0 60rpx 60rpx 0;
+}
+
+.nav_block {
+    height: 124rpx;
+}
+
+.list {
+    margin: 20rpx 30rpx;
+    border-radius: 20rpx;
+    box-shadow: 0px 0px 10rpx 2rpx #fdeef3;
+    padding: 0 20rpx;
+}
+
+.list.theme3 {
+    box-shadow: 0px 0px 10rpx 2rpx #ddd;
+}
+
+.list .item {
+    padding: 20rpx 0;
+}
+
+.list .item+.item {
+    border-top: #ddd 2rpx solid;
+}
+
+.list .item .item_t,.list .item .item_b {
+    display: flex;
+    align-content: center;
+}
+
+.list .item .item_t>view:nth-child(1),.list .item .item_b>view:nth-child(1) {
+    flex: 1;
+}
+
+.list .item .item_b {
+    font-size: 3vw;
+    color: #aaaaaa;
+}

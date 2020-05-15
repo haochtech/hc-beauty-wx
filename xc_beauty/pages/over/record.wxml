@@ -1,0 +1,26 @@
+<view class="page">
+    <view class="nav">
+        <view bindtap="tab" data-index="1" style="color:{{curr==1?'#fff':''}};background:{{curr==1?theme.color:''}};border-color:{{theme.color}};">充值记录</view>
+        <view bindtap="tab" data-index="2" style="color:{{curr==2?'#fff':''}};background:{{curr==2?theme.color:''}};border-color:{{theme.color}};">消费记录</view>
+    </view>
+    <view class="nav_block"></view>
+    <view class="list {{theme.name}}">
+        <view class="item" wx:for="{{list}}" wx:for-index="idx" wx:key="idx">
+            <view class="item_t">
+                <view wx:if="{{curr==1}}">充值</view>
+                <view wx:if="{{curr==2&&item.status==1}}">消费</view>
+                <view wx:if="{{curr==2&&item.status==2}}">退款</view>
+                <view style="color:{{theme.color}};" wx:if="{{curr==1}}">+{{item.amount}}</view>
+                <view style="color:{{theme.color}};" wx:if="{{curr==2&&item.status==1}}">-{{item.canpay}}</view>
+                <view style="color:{{theme.color}};" wx:if="{{curr==2&&item.status==2}}">+{{item.canpay}}</view>
+            </view>
+            <view class="item_b">
+                <view>{{item.createtime}}</view>
+                <view wx:if="{{curr==1}}">交易成功</view>
+                <view wx:if="{{curr==2&&item.status==1}}">交易成功</view>
+                <view wx:if="{{curr==2&&item.status==2&&item.refund_status==-1}}">退款中</view>
+                <view wx:if="{{curr==2&&item.status==2&&item.refund_status==1}}">退款成功</view>
+            </view>
+        </view>
+    </view>
+</view>

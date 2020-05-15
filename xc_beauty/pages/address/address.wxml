@@ -1,0 +1,20 @@
+<import src="../common/common.wxml"></import>
+<view class="page">
+    <view class="item" wx:for="{{list}}" wx:for-index="idx" wx:key="idx">
+        <view class="item_t">
+            <view>{{item.name}}</view>
+            <view>{{item.mobile}}</view>
+        </view>
+        <view class="address">{{item.address?item.address:''}}{{item.content?item.content:''}}</view>
+        <view class="item_b">
+            <view class="choose">
+                <icon bindtap="choose" color="{{item.status==1?theme.color:'#999'}}" data-index="{{idx}}" size="20" type="{{item.status==1?'success':'circle'}}"></icon>
+                <view bindtap="choose" data-index="{{idx}}">{{item.status==1?'默认地址':'设为默认地址'}}</view>
+            </view>
+            <view bindtap="address_edit" class="item_btn" data-index="{{idx}}">编辑</view>
+            <view bindtap="address_del" class="item_btn" data-index="{{idx}}">删除</view>
+        </view>
+    </view>
+    <view bindtap="to_add" class="btn" style="background:{{theme.color}};">增加地址</view>
+    <template is="get_userinfo" data="{{shadow:shadow,get_userinfo:get_userinfo,config:config,can_bimg:can_bimg,app_step1:app_step1,app_step2:app_step2}}"></template>
+</view>

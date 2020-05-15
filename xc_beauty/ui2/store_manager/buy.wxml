@@ -1,0 +1,89 @@
+<import src="../common/common.wxml"></import>
+<view class="page">
+    <view class="nav" style="background:{{theme.name!='theme3'?theme.color:''}};">
+        <navigator class="item" openType="reLaunch" url="../manage/store?&store_id={{store_id}}" wx:if="{{store_manager.code==1}}">
+            <image src="../../resource/theme3_38.png"></image>
+            <view>扫一扫</view>
+        </navigator>
+        <view class="item">
+            <image src="../../resource/theme3_57.png"></image>
+            <view style="color:#999;">收银台</view>
+        </view>
+        <navigator class="item" openType="reLaunch" url="code?&store_id={{store_id}}" wx:if="{{store_manager.pay_code==1}}">
+            <image src="../../resource/theme3_40.png"></image>
+            <view>收款码</view>
+        </navigator>
+        <navigator class="item" openType="reLaunch" url="recharge?&store_id={{store_id}}" wx:if="{{store_manager.recharge==1}}">
+            <image src="../../resource/theme3_47.png"></image>
+            <view>会员充值</view>
+        </navigator>
+        <navigator class="item" openType="reLaunch" url="../store_add/store_add?&store_id={{store_id}}" wx:if="{{store_manager.buy==1}}">
+            <image src="../../resource/store_add.png"></image>
+            <view>下单</view>
+        </navigator>
+    </view>
+    <view class="nav_block"></view>
+    <view class="search" style="background:{{theme.name!='theme3'?theme.color:''}};">
+        <view class="item">
+            <input bindinput="input" data-name="search" placeholder="请输入会员手机号码" placeholderStyle="color:#DDDDDD;" type="number" value="{{search}}"></input>
+            <image bindtap="submit" src="../../resource/theme3_50.png"></image>
+        </view>
+    </view>
+    <view class="userinfo" wx:if="{{userinfo}}">
+        <image src="{{userinfo.avatar}}"></image>
+        <view class="item_r">
+            <view>{{userinfo.name}}  {{userinfo.mobile}}</view>
+            <view>会员级别: <text class="price">{{userinfo.card==1&&userinfo.card_name?userinfo.card_name:'VIP会员'}}</text>   余额：<text class="price">{{userinfo.money}}</text>元</view>
+        </view>
+    </view>
+    <view class="list">
+        <view class="item">
+            <view style="font-size:4.5vw;">¥</view>
+            <input bindinput="input" data-name="amount" placeholder="消费金额（询问店员输入）" placeholderStyle="color:#999;" type="digit" value="{{amount}}"></input>
+        </view>
+        <view class="item" wx:if="{{userinfo.card==1&&card.content.discount_status==1&&config.buy_sale_status==1}}">
+            <view class="box" style="background:#ff4653;">折</view>
+            <view style="color:#ffcd55;">{{card.content.discount}}</view>
+        </view>
+        <view bindtap="menu_on" class="item">
+            <view class="box" style="background:#b75dfd;">券</view>
+            <view>{{coupon_price?'-'+coupon_price:''}}</view>
+        </view>
+        <view class="item">
+            <view></view>
+            <view>应付金额<text style="color:#ffcd55;">¥{{o_amount}}</text>
+            </view>
+        </view>
+    </view>
+    <view class="sign">
+        <view class="title">
+            <view style="color:{{theme.name!='theme3'?theme.color:''}};">支付方式</view>
+            <view style="background:{{theme.name!='theme3'?theme.color:''}};"></view>
+        </view>
+        <view class="item_t">
+            <icon size="20" type="success"></icon>
+            <view>余额支付(<text style="color:{{theme.color}};" wx:if="{{userinfo}}">¥:{{userinfo.money}}</text>)</view>
+        </view>
+        <view class="item">
+            <view>备注</view>
+            <input bindinput="input" data-name="content" placeholder="请填写备注信息（选填）" placeholderStyle="color:#DDDDDD;" type="text" value="{{content}}"></input>
+        </view>
+        <view bindtap="pay" class="btn" style="background:{{theme.name!='theme3'?theme.color:''}};">立即买单</view>
+    </view>
+    <view class="shadow" wx:if="{{shadow}}"></view>
+    <view class="menu" wx:if="{{menu}}">
+        <view class="menu_top">
+            <view bindtap="menu_close" class="menu_close">×</view>
+            <view>选择优惠券</view>
+        </view>
+        <view class="menu_list">
+            <view bindtap="coupon_choose" class="item" data-index="{{idx}}" wx:for="{{coupon}}" wx:for-index="idx" wx:key="idx">
+                <icon color="{{coupon_curr==idx?theme.color:'#999'}}" size="20" type="{{coupon_curr==idx?'success':'circle'}}"></icon>
+                <view>{{item.coupon.name}}元优惠券</view>
+            </view>
+        </view>
+        <view bindtap="menu_close" class="menu_btn" style="background:{{theme.color}};">确定</view>
+    </view>
+    <template is="manage" data="{{footer_curr:footer_curr,theme:theme,config:config,store_id:store_id,store_manager:store_manager}}" wx:if="{{theme.name=='theme3'}}"></template>
+    <template is="theme_manage" data="{{footer_curr:footer_curr,theme:theme,config:config,store_id:store_id,store_manager:store_manager}}" wx:if="{{theme.name!='theme3'}}"></template>
+</view>

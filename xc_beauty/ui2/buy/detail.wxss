@@ -1,0 +1,32 @@
+page {
+    background: #f7f7f7;
+    padding-top: 10rpx;
+    box-sizing: border-box;
+}
+
+.list {
+    background: #fff;
+    padding: 0 30rpx 20rpx;
+}
+
+.list .item {
+    padding: 20rpx 0;
+    color: #999;
+    border-bottom: #ddd 2rpx solid;
+}
+
+.list .online {
+    display: flex;
+    width: 80%;
+    margin: 20rpx auto 0;
+    padding: 20rpx;
+    color: #fff;
+    border-radius: 60rpx;
+    justify-content: center;
+}
+
+.list .online>image {
+    width: 40rpx;
+    height: 40rpx;
+    margin-right: 20rpx;
+}

@@ -1,0 +1,11 @@
+{
+	"libVersion": "1.2",
+	"appid": "wx5329e66bbf5c6e96",
+	"projectname": "%E8%B4%BA%E5%B7%9E%E7%BE%8E%E7%89%99",
+	"setting": {
+		"newFeature": true
+	},
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {}
+}

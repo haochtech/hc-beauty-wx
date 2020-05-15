@@ -1,0 +1,95 @@
+page {
+    background: #fbfaf8;
+}
+
+.list {
+    background: #fff;
+    padding: 0 30rpx;
+}
+
+.list .item {
+    padding: 30rpx 0;
+    display: flex;
+}
+
+.list .item+.item {
+    border-top: #ddd 2rpx solid;
+}
+
+.list .item>image {
+    width: 140rpx;
+    height: 140rpx;
+}
+
+.list .item .item_r {
+    margin-left: 20rpx;
+    width: 530rpx;
+}
+
+.list .item .item_r>view:nth-child(1) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.list .item .item_r>view:nth-child(2) {
+    color: #999999;
+}
+
+.list .item .item_btn {
+    display: flex;
+    margin-top: 10rpx;
+}
+
+.list .item .item_btn>view:nth-child(2) {
+    flex: 1;
+    text-align: right;
+    color: #999999;
+}
+
+.list .item .item_btn .code {
+    display: flex;
+    align-items: center;
+    color: #999999;
+}
+
+.list .item .item_btn .code>image {
+    width: 40rpx;
+    height: 40rpx;
+    margin-right: 10rpx;
+}
+
+.menu {
+    position: fixed;
+    width: 70vw;
+    top: 20vw;
+    left: 15vw;
+    background: #fff;
+    z-index: 1000;
+    box-sizing: border-box;
+    padding: 50rpx;
+    border-radius: 20rpx;
+}
+
+.menu .title {
+    text-align: center;
+    padding: 20rpx 0;
+    font-size: 4vw;
+}
+
+.menu .code {
+    width: 320rpx;
+    height: 320rpx;
+    margin: 30rpx auto;
+}
+
+.menu .code>canvas {
+    width: 100%;
+    height: 100%;
+}
+
+.menu .menu_close {
+    position: absolute;
+    top: 20rpx;
+    right: 20rpx;
+}

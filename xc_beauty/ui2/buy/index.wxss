@@ -1,0 +1,20 @@
+page {
+    padding-top: 10rpx;
+    box-sizing: border-box;
+    background: #f7f7f7;
+}
+
+.item {
+    background: #fff;
+    padding: 30rpx 20rpx;
+    display: flex;
+    color: #999;
+}
+
+.item+.item {
+    border-top: #ddd 2rpx solid;
+}
+
+.item .item_l {
+    flex: 1;
+}

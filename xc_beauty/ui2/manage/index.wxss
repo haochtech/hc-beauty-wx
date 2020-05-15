@@ -1,0 +1,153 @@
+page {
+    background: #f7f7f7;
+}
+
+.top {
+    height: 250rpx;
+    position: relative;
+    background: #000;
+}
+
+.top .top_t {
+    position: absolute;
+    width: 92vw;
+    top: 50rpx;
+    left: 4vw;
+    background: #212121;
+    border-radius: 20rpx;
+    height: 360rpx;
+}
+
+.top .year {
+    color: #575757;
+    text-align: center;
+    font-size: 6vw;
+    padding: 20rpx;
+}
+
+.top .month {
+    display: flex;
+    background: #000000;
+    color: #d6d6d6;
+    padding: 10rpx;
+}
+
+.top .month>view {
+    flex: 1;
+}
+
+.top .month view view {
+    width: 40rpx;
+    height: 40rpx;
+    text-align: center;
+    line-height: 40rpx;
+    border-radius: 100%;
+    margin: 0 auto;
+}
+
+.top .month view view.curr {
+    background: #aaaaaa;
+    color: #333333;
+}
+
+.top .amount {
+    display: flex;
+    color: #fff;
+    padding: 60rpx 30rpx;
+    font-size: 10vw;
+}
+
+.top .amount>view:nth-child(1) {
+    transform: rotateY(180deg);
+}
+
+.top .amount>view:nth-child(2) {
+    flex: 1;
+    text-align: center;
+}
+
+.top .back {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    border-radius: 0 0 20rpx 20rpx;
+}
+
+.top_block {
+    height: 160rpx;
+}
+
+.nav {
+    background: #fff;
+    padding: 20rpx 0;
+    margin-top: 20rpx;
+    display: flex;
+}
+
+.nav .item {
+    text-align: center;
+    flex: 1;
+}
+
+.nav .item_t {
+    text-align: center;
+    flex: 1;
+    color: #999999;
+}
+
+.nav .item+.item,.nav .item+.item_t {
+    border-left: #ddd 2rpx dashed;
+}
+
+.nav .item>view:nth-child(1) {
+    color: #191919;
+    font-size: 5vw;
+}
+
+.nav .item>view:nth-child(2) {
+    color: #999999;
+}
+
+.list {
+    background: #fff;
+    margin-top: 10rpx;
+    padding: 0 20rpx;
+}
+
+.list .title {
+    padding: 20rpx 0;
+    display: flex;
+}
+
+.list .title>view:nth-child(1) {
+    width: 8rpx;
+    height: 40rpx;
+    background: #444;
+    margin-right: 10rpx;
+}
+
+.list .item {
+    display: flex;
+    padding: 20rpx 0;
+    font-size: 4.5vw;
+    border-top: #ddd 2rpx dashed;
+}
+
+.list .item>image {
+    border-radius: 100%;
+    margin-right: 10rpx;
+}
+
+.list .item>view:nth-child(2) {
+    flex: 1;
+    line-height: 50rpx;
+    width: 300rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.list .item>view:nth-child(3) {
+    color: #999;
+}

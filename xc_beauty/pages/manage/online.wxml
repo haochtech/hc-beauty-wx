@@ -1,0 +1,102 @@
+<import src="../common/common.wxml"></import>
+<view class="page">
+    <view class="top" style="background:{{theme.color}};">
+        <view>{{map.content.store==1?store.name:config.title}}</view>
+        <view bindtap="qie" class="item_btn">
+            <image mode="widthFix" src="../../resource/store03.png"></image>
+            <view>切换</view>
+        </view>
+    </view>
+    <view class="sign">
+        <view class="content">
+            <view class="date">
+                <view bindtap="date_left" class="date_l">></view>
+                <view bindtap="date_choose" class="date_item" data-index="{{idx}}" style="color:{{date_curr==idx?theme.color:''}};border-bottom:{{date_curr==idx?theme.color+' 4rpx solid':''}};" wx:for="{{date}}" wx:for-index="idx" wx:key="idx">
+                    <view>{{item.name}}</view>
+                    <view>{{item.date}}</view>
+                </view>
+                <view bindtap="date_right" class="date_r">></view>
+            </view>
+            <view bindtap="online" class="sign_btn" style="color:{{online==1?'#aaa':theme.color}};border-color:{{online==1?'#aaa':theme.color}};">{{online==1?'开启预约':'关闭预约'}}</view>
+        </view>
+    </view>
+    <view class="list">
+        <view bindtap="menu_on" class="item" data-index="{{idx}}" wx:for="{{list}}" wx:for-index="idx" wx:key="idx">
+            <image catchtap="call" data-index="{{idx}}" src="{{item.simg}}"></image>
+            <view class="item_r">
+                <view class="item_t">
+                    <view>{{item.userinfo.name}}   {{item.userinfo.mobile}}</view>
+                    <view class="item_btn" style="background:{{item.use==1?'#aaa':theme.color}};">{{item.use==1?'已到店':'到店'}}</view>
+                </view>
+                <view class="item_b">
+                    <view>店员：<text style="color:{{theme.color}};">{{item.member_name}}</text>
+                    </view>
+                    <view>时间：<text style="color:{{theme.color}};">{{item.plan_date}}</text>
+                    </view>
+                    <view>服务：<text style="color:{{theme.color}};">{{item.service_name}}</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view bindtap="store_close" class="store_page" wx:if="{{store_page}}">
+        <view bindtap="store_choose" class="item" data-index="{{idx}}" wx:for="{{store_list}}" wx:for-index="idx" wx:key="idx">
+            <view class="item_t">
+                <image src="{{item.simg}}"></image>
+                <view class="item_l">
+                    <view>{{item.name}}</view>
+                    <view>电话：{{item.mobile}}</view>
+                    <view>地址：{{item.address}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="shadow" wx:if="{{shadow}}"></view>
+    <view class="menu" wx:if="{{menu}}">
+        <icon bindtap="menu_close" class="menu_close" color="#000" size="25" type="cancel"></icon>
+        <view class="title" style="color:{{theme.color}};">预约信息</view>
+        <view class="menu_content">
+            <view class="item">
+                <view>订单编号：</view>
+                <view>{{list[curr]['out_trade_no']}}</view>
+            </view>
+            <view class="item">
+                <view>下单时间：</view>
+                <view>{{list[curr]['createtime']}}</view>
+            </view>
+            <view class="item">
+                <view>
+                    <text decode="true">联&ensp;系&ensp;人：</text>
+                </view>
+                <view>{{list[curr]['userinfo']['name']}}   {{list[curr]['userinfo']['mobile']}}</view>
+            </view>
+            <view class="item">
+                <view>
+                    <text decode="true">产&emsp;&emsp;品：</text>
+                </view>
+                <view>{{list[curr]['service_name']}}</view>
+            </view>
+            <view class="item">
+                <view>
+                    <text decode="true">预约时间：</text>
+                </view>
+                <view>{{list[curr]['plan_date']}}</view>
+            </view>
+            <view class="item">
+                <view>
+                    <text decode="true">店&emsp;&emsp;员：</text>
+                </view>
+                <view>{{list[curr]['member_name']}}</view>
+            </view>
+        </view>
+        <view class="menu_tip">
+            <view>数量：<text style="color:{{theme.color}};">{{list[curr]['total']}}</text>
+            </view>
+            <view>金额：<text style="color:{{theme.color}};">¥{{list[curr]['o_amount']}}</text>
+            </view>
+        </view>
+        <view bindtap="submit" class="menu_btn" style="color:#fff;background:{{theme.color}};" wx:if="{{list[curr]['status']==1&&list[curr]['use']==-1}}">核销({{list[curr]['is_use']}}/{{list[curr]['can_use']}})</view>
+        <view class="menu_btn" wx:if="{{list[curr]['status']==1&&list[curr]['use']==1}}">已核销</view>
+    </view>
+    <template is="manage" data="{{footer_curr:footer_curr,theme:theme}}"></template>
+</view>

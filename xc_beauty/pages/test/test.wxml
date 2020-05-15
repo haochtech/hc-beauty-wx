@@ -1,0 +1,3 @@
+<view class="page">
+    <button bindtap="test" class="test" type="primary">手机型号</button>
+</view>

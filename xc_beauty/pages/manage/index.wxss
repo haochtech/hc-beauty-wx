@@ -1,0 +1,246 @@
+.top {
+    background: #f15789;
+    text-align: center;
+    padding-top: 30rpx;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.top .avatar {
+    width: 150rpx;
+    height: 150rpx;
+    border-radius: 100%;
+    border: #f9bbd0 4rpx solid;
+    margin: 0 auto;
+}
+
+.top .nick {
+    color: #fff;
+    font-size: 4vw;
+    margin-top: 20rpx;
+}
+
+.top .search {
+    display: flex;
+    margin-top: 20rpx;
+    padding: 20rpx 30rpx;
+}
+
+.top .search>image {
+    width: 60rpx;
+    height: 60rpx;
+}
+
+.top .search>input {
+    background: #fff;
+    flex: 1;
+    border-radius: 10rpx;
+    margin: 0 20rpx;
+    line-height: 60rpx;
+    min-height: 60rpx;
+}
+
+.top .search>icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.list {
+    margin: 20rpx 30rpx;
+    display: flex;
+    border-radius: 20rpx;
+    box-shadow: 0px 0px 10rpx 2rpx #fdeef3;
+    padding: 20rpx 0;
+}
+
+.list>view {
+    flex: 1;
+    text-align: center;
+}
+
+.list .item>view:nth-child(1) {
+    font-size: 4.5vw;
+}
+
+.list .item>view:nth-child(2) {
+    color: #999999;
+}
+
+.list .item2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.list .item2>view {
+    width: 80rpx;
+    height: 30rpx;
+    color: #999999;
+    border-radius: 10rpx;
+    border: #999999 2rpx solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.list .item2 view+view {
+    margin-top: 10rpx;
+}
+
+.order {
+    padding: 0 30rpx;
+}
+
+.order+.order {
+    margin-top: 20rpx;
+}
+
+.order .title {
+    padding: 20rpx 0;
+    display: flex;
+    border-bottom: #ddd 2rpx solid;
+}
+
+.order .title>view:nth-child(1) {
+    background: #f15789;
+    width: 10rpx;
+    height: 40rpx;
+    margin-right: 10rpx;
+}
+
+.order .title>view:nth-child(2) {
+    flex: 1;
+}
+
+.order .title>view:nth-child(3) {
+    color: #999999;
+}
+
+.order .income {
+    display: flex;
+    padding: 20rpx 0;
+    border-bottom: #ddd 2rpx solid;
+}
+
+.order .income>view:nth-child(1) {
+    color: #999999;
+    flex: 1;
+}
+
+.order .order_item {
+    padding: 20rpx 0;
+    display: flex;
+    border-bottom: #ddd 2rpx solid;
+}
+
+.order .order_item .item_l {
+    width: 150rpx;
+    padding-right: 20rpx;
+    border-right: #ddd 2rpx solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.order .order_item .item_l>view:nth-child(1) {
+    font-size: 4.5vw;
+}
+
+.order .order_item .item_l>view:nth-child(2) {
+    width: 150rpx;
+    box-sizing: border-box;
+    border: #ddd 2rpx solid;
+    height: 48rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10rpx;
+    margin-top: 10rpx;
+}
+
+.order .order_item .item_r {
+    width: 518rpx;
+    padding-left: 20rpx;
+    box-sizing: border-box;
+}
+
+.order .order_item .item_r>view {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.order .order_item .item_r text {
+    color: #999999;
+    width: 120rpx;
+}
+
+.menu {
+    position: fixed;
+    top: 15vh;
+    width: 92vw;
+    background: #fff;
+    border-radius: 10rpx;
+    z-index: 1000;
+    left: 4%;
+    box-sizing: border-box;
+    padding: 20rpx 40rpx;
+}
+
+.menu .title {
+    padding: 20rpx;
+    text-align: center;
+    font-size: 4.5vw;
+}
+
+.menu .menu_content {
+    padding: 20rpx 0;
+    max-height: 30vh;
+    overflow: scroll;
+}
+
+.menu .menu_content .item {
+    display: flex;
+    line-height: 6vw;
+}
+
+.menu .menu_content .item>view:nth-child(1) {
+    color: #999999;
+}
+
+.menu .menu_content .item>view:nth-child(2) {
+    flex: 1;
+}
+
+.menu .menu_tip {
+    display: flex;
+    padding: 20rpx 0;
+    border-top: #ddd 2rpx solid;
+    color: #999999;
+}
+
+.menu .menu_tip view+view {
+    margin-left: 20rpx;
+}
+
+.menu .menu_btn {
+    width: 400rpx;
+    height: 80rpx;
+    color: #fff;
+    background: #aaa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20rpx auto;
+    border-radius: 10rpx;
+    font-size: 4vw;
+}
+
+.menu .menu_close {
+    position: absolute;
+    top: 20rpx;
+    right: 20rpx;
+}

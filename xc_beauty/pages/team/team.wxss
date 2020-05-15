@@ -1,0 +1,80 @@
+.nav {
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #fff;
+}
+
+.nav .item {
+    flex: 1;
+    color: #999999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80rpx;
+}
+
+.nav .item>view:nth-child(1) {
+    width: 20rpx;
+    height: 20rpx;
+    border-radius: 100%;
+    border: #ddd 2rpx solid;
+    margin-right: 10rpx;
+}
+
+.nav .item .text {
+    color: #333333;
+}
+
+.nav_block {
+    height: 80rpx;
+}
+
+.list {
+    margin: 20rpx 30rpx;
+    border-radius: 20rpx;
+    box-shadow: 0px 0px 10rpx 2rpx #fdeef3;
+    padding: 0 30rpx;
+}
+
+.list.theme3 {
+    box-shadow: 0px 0px 10rpx 2rpx #ddd;
+}
+
+.list .item {
+    padding: 20rpx 0;
+    display: flex;
+    align-items: center;
+}
+
+.list .item+.item {
+    border-top: #eee 2rpx solid;
+}
+
+.list .item>image {
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 100%;
+}
+
+.list .item .item_t {
+    margin-left: 10rpx;
+    flex: 1;
+}
+
+.list .item .item_t>view:nth-child(2) {
+    color: #999999;
+    font-size: 3vw;
+}
+
+.list .item .item_b {
+    text-align: right;
+}
+
+.list .item .item_b>view:nth-child(2) {
+    color: #999999;
+    font-size: 3vw;
+}

@@ -1,0 +1,66 @@
+<import src="../common/common.wxml"></import>
+<view class="page">
+    <view class="nav" style="background:{{theme.name!='theme3'?theme.color:''}};">
+        <navigator class="item" openType="reLaunch" url="../manage/store?&store_id={{store_id}}" wx:if="{{store_manager.code==1}}">
+            <image src="../../resource/theme3_38.png"></image>
+            <view>扫一扫</view>
+        </navigator>
+        <navigator class="item" openType="reLaunch" url="buy?&store_id={{store_id}}" wx:if="{{store_manager.pay_yin==1}}">
+            <image src="../../resource/theme3_39.png"></image>
+            <view>收银台</view>
+        </navigator>
+        <navigator class="item" openType="reLaunch" url="code?&store_id={{store_id}}" wx:if="{{store_manager.pay_code==1}}">
+            <image src="../../resource/theme3_40.png"></image>
+            <view>收款码</view>
+        </navigator>
+        <view class="item">
+            <image src="../../resource/theme3_56.png"></image>
+            <view style="color:#999;">会员充值</view>
+        </view>
+        <navigator class="item" openType="reLaunch" url="../store_add/store_add?&store_id={{store_id}}" wx:if="{{store_manager.buy==1}}">
+            <image src="../../resource/store_add.png"></image>
+            <view>下单</view>
+        </navigator>
+    </view>
+    <view class="nav_block"></view>
+    <view class="search" style="background:{{theme.name!='theme3'?theme.color:''}};">
+        <view class="item">
+            <input bindinput="input" data-name="search" placeholder="请输入会员手机号码" placeholderStyle="color:#DDDDDD;" type="number" value="{{search}}"></input>
+            <image bindtap="submit" src="../../resource/theme3_50.png"></image>
+        </view>
+    </view>
+    <view class="userinfo" wx:if="{{userinfo}}">
+        <image src="{{userinfo.avatar}}"></image>
+        <view class="item_r">
+            <view>{{userinfo.name}}  {{userinfo.mobile}}</view>
+            <view>会员级别:<text class="price">VIP会员</text>   余额：<text class="price">{{userinfo.money}}</text>元</view>
+        </view>
+    </view>
+    <view class="content">
+        <view bindtap="choose" class="item" data-index="{{idx}}" style="border-color:{{over==idx?theme.color:' '}};" wx:for="{{card.content.recharge}}" wx:for-index="idx" wx:key="idx">
+            <view>{{item.r_price}}</view>
+            <view style="color:{{theme.color}};" wx:if="{{item.g_price}}">赠{{item.g_price}}</view>
+        </view>
+    </view>
+    <view class="sign">
+        <view class="title">
+            <view style="color:{{theme.name!='theme3'?theme.color:''}};">其他金额</view>
+            <view style="background:{{theme.name!='theme3'?theme.color:''}};"></view>
+        </view>
+        <view class="item">
+            <view>充值</view>
+            <input bindinput="input" data-name="amount" placeholder="请手动填写" placeholderStyle="color:#DDDDDD;" type="number" value="{{amount}}"></input>
+        </view>
+        <view class="item">
+            <view>赠送</view>
+            <input bindinput="input" data-name="gift" placeholder="请手动填写" placeholderStyle="color:#DDDDDD;" type="number" value="{{gift}}"></input>
+        </view>
+        <view class="item">
+            <view>备注</view>
+            <input bindinput="input" data-name="content" placeholder="请填写备注信息（选填）" placeholderStyle="color:#DDDDDD;" type="text" value="{{content}}"></input>
+        </view>
+        <view bindtap="pay" class="btn" style="background:{{theme.name!='theme3'?theme.color:''}};">立即充值</view>
+    </view>
+    <template is="manage" data="{{footer_curr:footer_curr,theme:theme,config:config,store_id:store_id,store_manager:store_manager}}" wx:if="{{theme.name=='theme3'}}"></template>
+    <template is="theme_manage" data="{{footer_curr:footer_curr,theme:theme,config:config,store_id:store_id,store_manager:store_manager}}" wx:if="{{theme.name!='theme3'}}"></template>
+</view>

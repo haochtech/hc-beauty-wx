@@ -1,0 +1,120 @@
+.list {
+    padding: 0 30rpx 20rpx;
+}
+
+.list .item {
+    padding: 0 20rpx;
+    border-radius: 20rpx;
+    box-shadow: 0px 0px 10rpx 2rpx #fdeef3;
+    margin-top: 20rpx;
+}
+
+.list .item.theme3 {
+    box-shadow: 0px 0px 10rpx 2rpx #ddd;
+}
+
+.list .item .item_t {
+    padding: 20rpx 0;
+}
+
+.list .item .item_t .flex-wap {
+    display: flex;
+}
+
+.list .item .item_t .flex-wap>view:nth-child(1) {
+    flex: 1;
+}
+
+.list .item .item_t>view:nth-child(2) {
+    color: #999999;
+    font-size: 3vw;
+}
+
+.list .item .item_c {
+    padding: 20rpx 0;
+    border-top: #ddd 2rpx solid;
+    border-bottom: #ddd 2rpx solid;
+    display: flex;
+}
+
+.list .item .item_c>image {
+    width: 100rpx;
+    height: 100rpx;
+    margin-right: 20rpx;
+}
+
+.list .item .item_c>view:nth-child(2) {
+    flex: 1;
+}
+
+.list .item .item_c .flex-wap {
+    display: flex;
+}
+
+.list .item .item_c .flex-wap>view:nth-child(1) {
+    flex: 1;
+}
+
+.list .item .item_c .flex-wap>view:nth-child(2) {
+    color: #999999;
+}
+
+.list .item .item_b {
+    padding: 20rpx 0;
+    display: flex;
+    align-items: center;
+}
+
+.list .item .item_b .tip {
+    flex: 1;
+}
+
+.list .item .item_b .btn {
+    height: 45rpx;
+    padding: 0 10rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10rpx;
+}
+
+.list .item .item_b .btn.btn1 {
+    color: #fff;
+}
+
+.list .item .item_b .btn.btn2 {
+    background: #fff;
+    color: #333333;
+    border: #999999 2rpx solid;
+    box-sizing: border-box;
+}
+
+.list .item .item_b .btn+.btn {
+    margin-left: 10rpx;
+}
+
+.list .item .item_b .imgs {
+    flex: 1;
+    display: flex;
+}
+
+.list .item .item_b .imgs>image {
+    width: 40rpx;
+    height: 40rpx;
+    border-radius: 100%;
+}
+
+.list .item .item_b .check {
+    flex: 1;
+}
+
+.list .item .item_b .check .item_check {
+    display: flex;
+    align-items: center;
+    color: #D55179;
+}
+
+.list .item .item_b .check .item_check image {
+    width: 30rpx;
+    margin-right: 10rpx;
+}

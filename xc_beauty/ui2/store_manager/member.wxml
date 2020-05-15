@@ -1,0 +1,21 @@
+<view class="page">
+    <view class="search" style="background:{{theme.name!='theme3'?theme.color:''}};" wx:if="{{curr==1}}">
+        <view class="item">
+            <input bindinput="input" placeholder="请输入绑定的会员手机号码" placeholderStyle="color:#DDDDDD;" type="number" value="{{search}}"></input>
+            <image bindtap="submit" src="../../resource/theme3_50.png"></image>
+        </view>
+    </view>
+    <view class="list">
+        <view class="item" wx:for="{{list}}" wx:key="idx">
+            <image class="item_l" src="{{item.avatar}}"></image>
+            <view class="item_c">
+                <view class="item_cc">
+                    <view>{{item.name?item.name:item.nick}}  {{item.mobile?item.mobile:''}}</view>
+                    <image bindtap="call" class="item_r" data-index="{{index}}" src="../../resource/theme3_51.png" wx:if="{{item.mobile}}"></image>
+                </view>
+                <view>会员级别:<text>{{item.card==1?'VIP会员':'普通成员'}}</text>  余额：<text>{{item.money}}</text>元 积分：<text>{{item.score}}</text>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

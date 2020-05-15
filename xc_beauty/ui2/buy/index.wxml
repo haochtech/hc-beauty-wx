@@ -1,0 +1,14 @@
+<view class="page">
+    <navigator class="item" url="detail?id={{item.id}}" wx:for="{{list}}" wx:key="idx">
+        <view class="item_l">
+            <view>支付单号:{{item.out_trade_no}}</view>
+            <view>收款门店:<text style="color:#333;">{{item.store_name}}</text>
+            </view>
+        </view>
+        <view class="item_r">
+            <view>{{item.createtime}}</view>
+            <view>实付金额:<text style="color:#333;">{{item.o_amount}}</text>
+            </view>
+        </view>
+    </navigator>
+</view>

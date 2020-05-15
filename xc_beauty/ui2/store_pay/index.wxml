@@ -1,0 +1,22 @@
+<import src="../common/common.wxml"></import>
+<view class="page">
+    <view class="banner" style="background:{{theme.color}};">
+        <picker bindchange="bindDateChange" fields="month" mode="date" value="{{date}}">
+            <view class="picker">{{date}}</view>
+        </picker>
+        <view bindtap="search" class="btn">查询</view>
+    </view>
+    <view class="nav">
+        <view class="sp1">本月本店员工提成合计：</view>
+        <view class="sp2">{{list.month}}</view>
+    </view>
+    <view class="list">
+        <navigator class="item" url="detail?&store_id={{store_id}}&id={{item.id}}&plan_date={{date}}" wx:for="{{list.member}}" wx:key="idx">
+            <view class="sp1">{{item.name}}<text class="sp2">【{{item.task}}】</text>
+            </view>
+            <view>{{item.amount}}</view>
+        </navigator>
+    </view>
+    <template is="manage" data="{{footer_curr:footer_curr,theme:theme,config:config,store_id:store_id,store_manager:store_manager}}" wx:if="{{theme.name=='theme3'}}"></template>
+    <template is="theme_manage" data="{{footer_curr:footer_curr,theme:theme,config:config,store_id:store_id,store_manager:store_manager}}" wx:if="{{theme.name!='theme3'}}"></template>
+</view>

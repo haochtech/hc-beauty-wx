@@ -1,0 +1,270 @@
+page {
+    background: #f7f7f7;
+}
+
+.nav {
+    display: flex;
+    background: #1A1A1A;
+    color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 99;
+}
+
+.nav_block {
+    height: 140rpx;
+}
+
+.nav .item {
+    flex: 1;
+    padding: 20rpx 0;
+    text-align: center;
+}
+
+.nav .item>image {
+    margin: 0 auto;
+    margin-bottom: 10rpx;
+}
+
+.nav.curr {
+    background: #fff;
+    color: #333;
+}
+
+.nav.curr .item {
+    padding: 40rpx 0;
+}
+
+.search {
+    background: #fff;
+    background: #1A1A1A;
+    padding: 20rpx 30rpx;
+}
+
+.search .item {
+    display: flex;
+    border: #ddd 2rpx solid;
+    border-radius: 10rpx;
+    padding: 20rpx;
+    background: #fff;
+}
+
+.search .item>input {
+    flex: 1;
+    text-align: center;
+}
+
+.userinfo {
+    background: #fff;
+    padding: 20rpx;
+    display: flex;
+}
+
+.userinfo>image {
+    height: 80rpx;
+    width: 80rpx;
+}
+
+.userinfo .item_r {
+    margin-left: 20rpx;
+    width: 610rpx;
+}
+
+.userinfo .item_r>view:nth-child(2) {
+    color: #999;
+}
+
+.userinfo .item_r .price {
+    color: #FFCC53;
+}
+
+.list {
+    background: #fff;
+    margin-top: 10rpx;
+    padding: 0 50rpx;
+}
+
+.list .item {
+    display: flex;
+    padding: 20rpx 0;
+    align-items: center;
+}
+
+.list .item+.item {
+    border-top: #ddd 2rpx solid;
+}
+
+.list .item>input {
+    text-align: center;
+    flex: 1;
+    line-height: 40rpx;
+    height: 40rpx;
+    min-height: 40rpx;
+}
+
+.list .item>view:nth-child(2) {
+    flex: 1;
+    text-align: right;
+}
+
+.list .item .box {
+    width: 40rpx;
+    height: 40rpx;
+    border-radius: 100%;
+    background: #000;
+    color: #fff;
+    line-height: 40rpx;
+    text-align: center;
+}
+
+.btn {
+    margin: 20rpx;
+    color: #fff;
+    line-height: 70rpx;
+    height: 70rpx;
+    text-align: center;
+    border-radius: 10rpx;
+}
+
+.sign {
+    background: #fff;
+    margin-top: 10rpx;
+    padding: 0 30rpx 40rpx;
+}
+
+.sign .title {
+    padding: 20rpx 0;
+    text-align: center;
+}
+
+.sign .title>view:nth-child(2) {
+    height: 4rpx;
+    width: 40rpx;
+    background: #444;
+    margin: 0 auto;
+}
+
+.sign .item {
+    padding: 20rpx 0;
+    display: flex;
+    align-items: center;
+    border-bottom: #ddd 2rpx dashed;
+}
+
+.sign .item>input {
+    padding: 0 20rpx;
+    flex: 1;
+    text-align: center;
+}
+
+.sign .item_t {
+    display: flex;
+    padding: 20rpx 0;
+    border-top: #ddd 2rpx dashed;
+    border-bottom: #ddd 2rpx dashed;
+}
+
+.sign .item_t>icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10rpx;
+    color: #B8B8B8;
+}
+
+.sign .btn {
+    height: 80rpx;
+    line-height: 80rpx;
+    color: #fff;
+    text-align: center;
+    border-radius: 10rpx;
+    background: #444444;
+    margin-top: 40rpx;
+}
+
+.menu {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: #fff;
+}
+
+.menu .menu_top {
+    padding: 20rpx 30rpx;
+    text-align: center;
+    position: relative;
+}
+
+.menu .menu_top .menu_close {
+    position: absolute;
+    left: 30rpx;
+    font-size: 4.5vw;
+    top: 50%;
+    transform: translate(0,-50%);
+}
+
+.menu .menu_list {
+    height: 40vh;
+    margin-top: 30rpx;
+    padding: 0 30rpx;
+}
+
+.menu .menu_list .item {
+    display: flex;
+    align-items: center;
+    padding: 20rpx 0;
+    border-bottom: #ddd 2rpx solid;
+}
+
+.menu .menu_list .item>icon {
+    display: flex;
+    align-items: center;
+    margin-right: 10rpx;
+}
+
+.menu .menu_btn {
+    height: 100rpx;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4.5vw;
+    border-radius: 0;
+    border: none;
+}
+
+.menu .menu_btn::after {
+    content: '';
+    border-radius: 0;
+    border: none;
+}
+
+.menu .item_c {
+    display: flex;
+    align-items: center;
+    padding: 20rpx 0;
+    border-bottom: #ddd 2rpx solid;
+    position: relative;
+}
+
+.menu .item_c .tip {
+    position: absolute;
+    bottom: 0;
+    font-size: 2.5vw;
+    left: 70rpx;
+}
+
+.menu .item_c>view:nth-child(2) {
+    flex: 1;
+    margin-left: 20rpx;
+}
+
+.menu .item_c>icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

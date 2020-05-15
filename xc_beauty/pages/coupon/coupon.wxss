@@ -1,0 +1,131 @@
+.nav {
+    padding: 30rpx;
+    display: flex;
+    justify-content: center;
+    color: #999999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 99;
+    background: #fff;
+}
+
+.nav>view {
+    border: #e53770 2rpx solid;
+    width: 180rpx;
+    height: 60rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav>view:nth-child(1) {
+    border-radius: 60rpx 0 0 60rpx;
+}
+
+.nav>view:nth-child(3) {
+    border-radius: 0 60rpx 60rpx 0;
+}
+
+.nav_block {
+    height: 124rpx;
+}
+
+.list {
+    background: #fff;
+    padding: 20rpx 30rpx;
+}
+
+.list .item {
+    width: 100%;
+    height: 23.466666666666vw;
+    background-size: 100% 100%;
+    margin-bottom: 20rpx;
+    position: relative;
+}
+
+.list .item .itemBack {
+    width: 100%;
+    height: 100%;
+}
+
+.list .item .itemBox {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    padding: 20rpx;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.list .item .item_hd {
+    padding: 0 10rpx;
+    font-size: 3vw;
+}
+
+.list .item .item_hd {
+    font-size: 4vw;
+    width: 120rpx;
+}
+
+.list .item .item_hd .sp1 {
+    white-space: nowrap;
+}
+
+.list .item .item_hd .price {
+    font-size: 8vw;
+}
+
+.list .item .item_bd {
+    padding: 0 30rpx;
+    font-size: 4vw;
+}
+
+.list .item .item_hd .tip {
+    width: 110rpx;
+    height: 40rpx;
+    border-radius: 30rpx;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3vw;
+    transform: translateY(-20rpx);
+}
+
+.list .item .item_bd>view:nth-child(2) {
+    font-size: 3.5vw;
+}
+
+.list .item .item_btn {
+    width: 120rpx;
+    height: 120rpx;
+    background: #fff;
+    border-radius: 100%;
+    color: #333;
+    box-sizing: border-box;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: #f3b2c7 8rpx solid;
+    position: absolute;
+    top: 50%;
+    right: 50rpx;
+    transform: translate(0,-50%);
+}
+
+.list .item .item_btn.curr {
+    border: #bcbcbc 8rpx solid;
+    color: #444444;
+}
+
+.list .item .item_btn.curr2 {
+    border: #d9d9d9 8rpx solid;
+    color: #444444;
+}

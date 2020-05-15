@@ -1,0 +1,22 @@
+<view class="body">
+    <view class="list">
+        <navigator class="item" url="detail?&id={{item.id}}" wx:for="{{list}}" wx:key="idx">
+            <image class="itemL" mode="aspectFill" src="{{item.simg}}"></image>
+            <view class="itemR">
+                <view class="title">
+                    <view>{{item.name}}</view>
+                    <view>详情</view>
+                </view>
+                <view class="sp1">套餐项目：</view>
+                <view class="sp2">
+                    <view class="sps" wx:for="{{item.service}}" wx:for-item="item2" wx:key="idx">
+                        <view>{{item2.name}}</view>
+                        <view>{{item2.times}}次</view>
+                    </view>
+                </view>
+                <view class="sp3" wx:if="{{item.time_type==1}}">有效期：{{item.start}}-{{item.end}}</view>
+                <view class="sp3" wx:if="{{item.time_type==2}}">有效期：{{item.plan_date}}天</view>
+            </view>
+        </navigator>
+    </view>
+</view>

@@ -1,0 +1,376 @@
+page {
+    line-height: 1;
+    color: #333;
+}
+
+.body {
+    position: relative;
+}
+
+.bottomBlank2 {
+    height: 121rpx;
+}
+
+.bottom2 {
+    font-size: 18rpx;
+    height: 100rpx;
+    border-top: 1rpx solid #dcdcdc;
+    background-color: #fff;
+    color: #b1b1b1;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 99;
+}
+
+.bottom2 .navBox {
+    display: block;
+    height: 100rpx;
+    box-sizing: border-box;
+    text-align: center;
+    position: relative;
+}
+
+.bottom2 .navBox image {
+    width: 100%;
+    height: 44rpx;
+    margin-bottom: 15rpx;
+    padding-top: 12rpx;
+}
+
+.bottom2 .navBox .nimg {
+    display: inline-block;
+}
+
+.bottom2 .navBox .himg {
+    display: none;
+}
+
+.bottom2 .navBox.curr {
+    color: #1aac19;
+}
+
+.bottom2 .navBox.curr .nimg {
+    display: none;
+}
+
+.bottom2 .navBox.curr .himg {
+    display: inline-block;
+}
+
+.bottom2 .navBox:nth-of-type(3) {
+    margin-top: -21rpx;
+    padding-top: 5rpx;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: 80rpx auto;
+}
+
+.bottom2 .navBox:nth-of-type(3) image {
+    height: 70rpx;
+    padding-top: 0;
+    margin-bottom: 8rpx;
+}
+
+.RC1 {
+    height: 370rpx;
+    position: relative;
+}
+
+.RC1 .RCback {
+    width: 100%;
+    height: 100%;
+}
+
+.RC1 .announce {
+    width: 500rpx;
+    height: 90rpx;
+    box-sizing: border-box;
+    margin: 0 auto;
+    border-radius: 90rpx;
+    background-color: rgba(255,255,255,0.5);
+    padding: 0 20rpx;
+    position: absolute;
+    top: 40rpx;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.RC1 .announce .icon {
+    width: 33rpx;
+    margin-right: 10rpx;
+}
+
+.RC1 swiper {
+    height: 60rpx;
+    line-height: 30rpx;
+    overflow: hidden;
+    font-size: 26rpx;
+    color: #fff;
+    margin: 15rpx 0;
+}
+
+.RC1 swiper .sp1 {
+    color: #ffdc44;
+}
+
+.RC1 swiper swiper-item {
+    height: 60rpx;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+
+.RC2 {
+    width: 630rpx;
+    margin: 0 auto;
+    border-radius: 5px;
+    margin-top: -144rpx;
+    background-color: #fff;
+    position: relative;
+    padding: 112rpx 30rpx 70rpx;
+    box-shadow: 1px 1px 3px #999,-1px -1px 3px #999;
+}
+
+.RC2 .userImg {
+    text-align: center;
+    width: 124rpx;
+    height: 124rpx;
+    padding: 3rpx;
+    background-color: #fff;
+    box-shadow: 1px 1px 3px #666,-1px -1px 3px #666;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    margin-left: -65rpx;
+    top: -65rpx;
+}
+
+.RC2 .userImg image {
+    width: 124rpx;
+    height: 124rpx;
+    border-radius: 50%;
+}
+
+.RC2 .signBlocks {
+    text-align: center;
+}
+
+.RC2 .signBlocks .sBlock {
+    display: inline-block;
+    width: 80rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    border-radius: 3px;
+    box-shadow: 1px 1px 3px #999,-1px -1px 3px #999;
+    margin: 0 20rpx;
+    font-size: 48rpx;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 40rpx;
+}
+
+.RC2 .signBlocks .sBlock image {
+    position: absolute;
+    width: 80rpx;
+    height: 80rpx;
+    left: 0;
+    top: 0;
+}
+
+.RC2 .signBtn {
+    width: 210rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 30rpx;
+    font-size: 24rpx;
+    color: #fff;
+    background-color: #e74479;
+    border-radius: 30rpx;
+}
+
+.RC2 .signBtn2 {
+    width: 210rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 30rpx;
+    font-size: 24rpx;
+    color: #fff;
+    background-color: #d4d3d1;
+    border-radius: 30rpx;
+}
+
+.RC2 .signText1 {
+    margin-bottom: 15rpx;
+    text-align: center;
+    font-size: 22rpx;
+    color: #e74479;
+}
+
+.RC2 .signText2 {
+    font-size: 22rpx;
+    line-height: 30rpx;
+    text-align: center;
+}
+
+.RC2 .signText2 .sp1 {
+    color: #e74479;
+}
+
+.plate-wrap-box {
+    position: relative;
+    z-index: 98;
+    width: 500rpx;
+    height: 500rpx;
+    border-radius: 50%;
+    margin: 30rpx auto 40rpx;
+}
+
+.plate-border {
+    position: relative;
+    z-index: 9;
+    width: 500rpx;
+    height: 500rpx;
+    background-color: #e54c37;
+    border-radius: 50%;
+}
+
+.plate-wrap {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 9;
+    width: 440rpx;
+    height: 440rpx;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: auto;
+}
+
+.plate-light {
+    z-index: 1;
+    width: 500rpx;
+    height: 500rpx;
+    border: none;
+}
+
+.plate-box {
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    width: 0;
+    height: 0;
+    font-size: 24rpx;
+}
+
+.bulb {
+    position: absolute;
+    width: 16rpx;
+    height: 16rpx;
+    left: 50%;
+    top: -242rpx;
+    transform: translate(-50%,0);
+    border-radius: 50%;
+    background-color: #fff0c7;
+    filter: blur(0.5rpx);
+}
+
+.text-box {
+    position: absolute;
+    text-align: center;
+    display: inline-block;
+    width: 100rpx;
+    top: -180rpx;
+    transform: translate(-50%,0);
+    font-size: 28rpx;
+    line-height: 1.2;
+}
+
+.plate-btn-wrap {
+    position: absolute;
+    z-index: 10;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    width: 110rpx;
+    height: 110rpx;
+    border-radius: 50%;
+}
+
+.plate-btn-wrap::before {
+    content: '';
+    position: absolute;
+    z-index: 9;
+    left: calc(50% - 10rpx);
+    top: -40rpx;
+    transform: translate(-50%,0);
+    width: 0;
+    height: 0;
+    border-bottom: 80rpx solid #e7211b;
+    border-left: 20rpx solid transparent;
+}
+
+.plate-btn-wrap::after {
+    content: '';
+    position: absolute;
+    z-index: 9;
+    left: calc(50% + 10rpx);
+    top: -40rpx;
+    transform: translate(-50%,0);
+    width: 0;
+    height: 0;
+    border-bottom: 80rpx solid #ca1518;
+    border-right: 20rpx solid transparent;
+}
+
+.plate-btn-box {
+    position: relative;
+    z-index: 11;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: #e62d2d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.plate-inner-btn {
+    position: relative;
+    z-index: 999;
+    width: 90rpx;
+    height: 90rpx;
+    border-radius: 50%;
+    background-color: #ca1518;
+    font-size: 28rpx;
+    color: #fdcf03;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.RC2 .signNotice {
+    font-size: 24rpx;
+}
+
+.RC2 .signNotice .h1 {
+    font-size: 26rpx;
+    color: #e74479;
+    margin-bottom: 15rpx;
+}
+
+.RC2 .signNotice .p {
+    line-height: 40rpx;
+    padding-left: 40rpx;
+    display: block;
+}
+
+.RC2 .signNotice .sp1 {
+    color: #e74479;
+}

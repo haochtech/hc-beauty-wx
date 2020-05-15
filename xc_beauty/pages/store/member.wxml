@@ -1,0 +1,19 @@
+<view class="page">
+    <view class="list">
+        <navigator class="item" url="member_detail?&id={{item.id}}" wx:for="{{list}}" wx:for-index="idx" wx:key="idx">
+            <image src="{{item.simg}}"></image>
+            <view class="item_r">
+                <view class="name">{{item.name}} <text class="task">【{{item.task}}】</text>
+                </view>
+                <view class="tip">
+                    <view>服务：</view>
+                    <view class="tip_b" wx:for="{{item.service}}" wx:for-index="idx2" wx:for-item="item2" wx:key="idx2">{{item2.name}}</view>
+                </view>
+                <view class="zan">
+                    <image src="../../resource/zan2.png"></image>
+                    <view>{{item.zan}}</view>
+                </view>
+            </view>
+        </navigator>
+    </view>
+</view>

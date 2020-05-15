@@ -1,0 +1,45 @@
+<import src="../common/common.wxml"></import>
+<view class="body">
+    <view class="navBlock flex-display flex-alignC" style="background-color:#fff;">
+        <block wx:for="{{tab}}" wx:key="*this">
+            <view bindtap="tabChange" class="navBox flex-flex1 {{index==tabCurr?'curr':''}}" id="{{index}}" style="color:{{index==tabCurr?theme.color:''}};border-bottom-color:{{index==tabCurr?theme.color:''}};">{{item}}</view>
+            <view class="border"></view>
+        </block>
+    </view>
+    <view class="orderCont">
+        <scroll-view scrollY bindscrolltolower="loadingFunc" class="listBlock" wx:if="{{list.length>0}}">
+            <view class="listBox" style="background-color:#fff" wx:for="{{list}}" wx:key="unique">
+                <view class="box0 flex-display flex-alignC">
+                    <view class="text flex-flex1">积分兑换</view>
+                    <view class="status" wx:if="{{item.status==-1}}">待核销</view>
+                    <view class="status" wx:if="{{item.status==1}}">已核销</view>
+                </view>
+                <navigator class="box1 flex-display flex-alignC" url="detail?&id={{item.id}}">
+                    <view class="imgBlock">
+                        <image mode="aspectFill" src="{{item.simg}}"></image>
+                    </view>
+                    <view class="text flex-flex1">
+                        <view class="h1">{{item.service_name}}</view>
+                        <view class="h2"></view>
+                        <view class="h2 flex-display flex-alignC">
+                            <view class="flex-flex1">数量：
+                  <text class="sp1" style="color:{{theme.color}};">{{item.member}}</text>
+                            </view>
+                            <view class="flex-flex1">兑换积分：
+                  <text class="sp1" style="color:{{theme.color}};">{{item.score}}</text>
+                            </view>
+                        </view>
+                    </view>
+                </navigator>
+                <view class="box2 flex-display flex-alignC">
+                    <view class="evas flex-flex1"></view>
+                    <view bindtap="shFunc" class="btn" data-index="{{index}}" style="background-color:{{theme.color}};border-color:{{theme.color}};" wx:if="{{item.status==-1}}">核销</view>
+                    <view class="btn disable" wx:if="{{item.status==-1}}">未核销</view>
+                    <view class="btn disable" wx:if="{{item.status==1}}">已核销</view>
+                </view>
+            </view>
+        </scroll-view>
+    </view>
+    <template is="manage" data="{{footer_curr:footer_curr,theme:theme,config:config,store_id:store_id,store_manager:store_manager}}" wx:if="{{theme.name=='theme3'}}"></template>
+    <template is="theme_manage" data="{{footer_curr:footer_curr,theme:theme,config:config,store_id:store_id,store_manager:store_manager}}" wx:if="{{theme.name!='theme3'}}"></template>
+</view>

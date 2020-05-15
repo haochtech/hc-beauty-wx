@@ -1,0 +1,68 @@
+<view class="body">
+    <view class="nav">
+        <view bindtap="tab" class="item" data-index="1" style="background:{{curr==1?theme.color:''}};color:{{curr==1?'#fff':''}};">
+            <image src="../../resource/index01.png" wx:if="{{curr==2}}"></image>
+            <image src="../../resource/index03.png" wx:if="{{curr==1}}"></image>
+            <view>套餐列表</view>
+        </view>
+        <view bindtap="tab" class="item" data-index="2" style="background:{{curr==2?theme.color:''}};color:{{curr==2?'#fff':''}};">
+            <image src="../../resource/index02.png" wx:if="{{curr==1}}"></image>
+            <image src="../../resource/index04.png" wx:if="{{curr==2}}"></image>
+            <view>使用记录</view>
+        </view>
+    </view>
+    <view class="nav_block"></view>
+    <view class="list" wx:if="{{curr==1}}">
+        <view class="item2 {{item.fail==-1?'on':''}}" wx:for="{{list}}" wx:key="idx">
+            <view class="itemTop">
+                <view>{{item.title}}</view>
+                <image bindtap="setcode" class="simg" data-index="{{index}}" src="../../resource/icon30.png"></image>
+            </view>
+            <view class="itemC" wx:if="{{item.up==1}}">
+                <view class="sp">
+                    <view>套餐项目</view>
+                    <view>总次数</view>
+                    <view>已使用</view>
+                    <view>剩余次数</view>
+                    <view></view>
+                </view>
+                <view class="sp" wx:for="{{item.list}}" wx:for-index="index2" wx:for-item="item2" wx:key="idx">
+                    <view>{{item2.name}}</view>
+                    <view>{{item2.member}}</view>
+                    <view>{{item2.is_member}}</view>
+                    <view>{{item2.member-item2.is_member}}</view>
+                    <view>
+                        <view bindtap="link" class="btn" data-id="{{item2.id}}" data-index="{{item.id}}" style="background:{{theme.color}};" wx:if="{{item2.member-item2.is_member>0&&item2.status==-1}}">使用</view>
+                    </view>
+                </view>
+            </view>
+            <view bindtap="up" class="itemBo" data-index="{{index}}">
+                <view>
+                    <text class="sp1">有效期：</text>{{item.start}}-{{item.end}}</view>
+                <view>详情</view>
+                <image class="sp2 {{item.up==1?'':'on'}}" src="../../resource/up.png"></image>
+            </view>
+        </view>
+    </view>
+    <view class="list2" wx:if="{{curr==2}}">
+        <view class="item" wx:for="{{list}}" wx:key="idx">
+            <view class="itemT">
+                <text class="sp1" style="background:{{theme.color}};">{{item.title}}</text>
+                <view wx:if="{{item.member}}">核销人：{{item.member}}</view>
+            </view>
+            <view class="itemB">
+                <view>{{item.name}}</view>
+                <view>1次</view>
+                <view>使用时间:{{item.createtime}}</view>
+            </view>
+        </view>
+    </view>
+    <view bindtap="canshow" class="canshow" wx:if="{{canshow}}"></view>
+    <view class="menu" hidden="{{!menu}}">
+        <image class="menu_back" src="../../resource/back02.png"></image>
+        <view class="menux">
+            <view class="title"></view>
+            <canvas canvasId="mycanvas" class="quanma"></canvas>
+        </view>
+    </view>
+</view>

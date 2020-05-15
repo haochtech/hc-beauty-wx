@@ -1,0 +1,8 @@
+<view bindtap="user_close" class="shadow" wx:if="{{shadow}}"></view>
+    <view class="get_userinfo" wx:if="{{get_userinfo}}">
+      <view>请授权用户信息</view>
+      <view class="userinfo_btn">
+        <view bindtap="user_close" class="userinfo_b">取消</view>
+        <button bindgetuserinfo="updateUserInfo" bindtap="user_close" class="userinfo_b" openType="getUserInfo" size="mini">确定</button>
+    </view>
+</view>

@@ -1,0 +1,14 @@
+<view class="page">
+    <view class="list {{theme.name}}">
+        <view class="item" wx:for="{{list}}" wx:for-index="idx" wx:key="idx">
+            <view class="item_t">
+                <image src="{{item.avatar}}"></image>
+                <view>{{item.nick}}</view>
+                <view>{{item.createtime}}</view>
+            </view>
+            <view class="item_b">
+                <view class="text">{{item.content}}</view>
+            </view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,267 @@
+page {
+    background: #f4f4f4;
+}
+
+.nav {
+    height: 100rpx;
+    line-height: 100rpx;
+    display: flex;
+    align-items: center;
+    background: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+.nav .item {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    justify-content: center;
+    font-size: 4.5vw;
+}
+
+.nav .item>image {
+    width: 50rpx;
+    height: 50rpx;
+    display: block;
+    margin-right: 20rpx;
+}
+
+.nav_block {
+    height: 100rpx;
+}
+
+.list {
+    padding: 30rpx;
+    background: #fff;
+    margin-top: 6rpx;
+}
+
+.list .item {
+    background: #fff;
+    box-shadow: #b5b5b5 2rpx 2rpx 10rpx;
+}
+
+.list .item+.item {
+    margin-top: 20rpx;
+}
+
+.list .item .itemT {
+    padding: 20rpx;
+    font-size: 4vw;
+    line-height: 6vw;
+}
+
+.list .item .itemC {
+    padding: 10rpx 20rpx;
+    border-top: #ddd 2rpx dashed;
+    border-bottom: #ddd 2rpx dashed;
+}
+
+.list .item .itemC .sp {
+    padding: 10rpx 0;
+    display: flex;
+    align-items: center;
+}
+
+.list .item .itemC .sp>view {
+    width: 20%;
+    text-align: center;
+}
+
+.list .item .itemC .btn {
+    width: 100rpx;
+    text-align: center;
+    color: #fff;
+    height: 50rpx;
+    border-radius: 50rpx;
+    line-height: 50rpx;
+    margin: 0 auto;
+}
+
+.list .item .itemB {
+    padding: 20rpx;
+}
+
+.list2 {
+    margin-top: 20rpx;
+    background: #fff;
+}
+
+.list2 .item {
+    padding: 20rpx;
+}
+
+.list2 .item+.item {
+    border-top: #ddd 2rpx dashed;
+}
+
+.list2 .item .itemT {
+    display: flex;
+    align-items: center;
+}
+
+.list2 .item .itemT>view:nth-child(2) {
+    text-align: right;
+    flex: 1;
+}
+
+.list2 .item .itemT .sp1 {
+    color: #fff;
+    padding: 4rpx 20rpx;
+    border-radius: 20rpx;
+}
+
+.list2 .item .itemB {
+    display: flex;
+    align-items: center;
+    margin-top: 10rpx;
+}
+
+.list2 .item .itemB>view:nth-child(1) {
+    flex: 1;
+}
+
+.list2 .item .itemB>view:nth-child(2) {
+    padding: 0 20rpx;
+}
+
+.list .item2 {
+}
+
+.list .item2+.item2 {
+    margin-top: 20rpx;
+}
+
+.list .item2 .itemTop {
+    background: #ff9282;
+    display: flex;
+    align-items: center;
+    padding: 40rpx 30rpx;
+    border-radius: 10rpx 10rpx 0 0;
+}
+
+.list .item2.on .itemTop {
+    background: #e3e3e3;
+}
+
+.list .item2 .itemTop>view:nth-child(1) {
+    flex: 1;
+    color: #fff;
+    font-size: 5vw;
+    line-height: 7vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.list .item2 .itemTop .simg {
+    width: 70rpx;
+    height: 70rpx;
+}
+
+.list .item2 .itemBo {
+    background: #000;
+    display: flex;
+    align-items: center;
+    line-height: 70rpx;
+    padding: 0 20rpx;
+    color: #fff;
+    border-radius: 0 0 10rpx 10rpx;
+}
+
+.list .item2 .itemBo .sp1 {
+    color: #777777;
+}
+
+.list .item2 .itemBo>view:nth-child(1) {
+    flex: 1;
+}
+
+.list .item2 .itemBo .sp2 {
+    width: 30rpx;
+    height: 30rpx;
+    margin-left: 10rpx;
+}
+
+.list .item2 .itemBo .sp2.on {
+    transform: rotate(-180deg);
+}
+
+.list .item2 .itemC {
+    padding: 10rpx 20rpx;
+    background: #f4f4f4;
+}
+
+.list .item2 .itemC .sp {
+    padding: 10rpx 0;
+    display: flex;
+    align-items: center;
+}
+
+.list .item2 .itemC .sp>view {
+    width: 20%;
+    text-align: center;
+}
+
+.list .item2 .itemC .btn {
+    width: 100rpx;
+    text-align: center;
+    color: #fff;
+    height: 50rpx;
+    border-radius: 50rpx;
+    line-height: 50rpx;
+    margin: 0 auto;
+}
+
+.menu {
+    position: fixed;
+    width: 350rpx;
+    height: 400rpx;
+    left: 200rpx;
+    top: 300rpx;
+    z-index: 2000;
+}
+
+.menu .menu_back {
+    width: 100%;
+    height: 100%;
+}
+
+.menu .menux {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 0 20rpx;
+    line-height: 94rpx;
+}
+
+.menu .menux .title {
+    height: 94rpx;
+    border-bottom: #ddd 2rpx dashed;
+    text-align: center;
+}
+
+.menu .menux .quanma {
+    width: 300rpx;
+    height: 300rpx;
+    display: block;
+    margin: 0 auto;
+}
+
+.canshow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: #000;
+    opacity: 0.5;
+    z-index: 1200;
+}

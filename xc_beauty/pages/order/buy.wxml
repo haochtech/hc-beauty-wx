@@ -1,0 +1,160 @@
+<import src="../common/common.wxml"></import>
+<view class="page {{theme.name}}">
+    <view class="top" style="background:{{theme.color}};">
+        <view class="top_t">
+            <view class="item_t" wx:if="{{id}}">
+                <image src="{{id==-1?theme.icon[0]:list.simg}}"></image>
+                <view class="item_l">
+                    <view>{{id==-1?config.title:list.name}}</view>
+                    <view>电话：{{id==-1?map.content.mobile:list.mobile}}</view>
+                    <view>地址：{{id==-1?map.content.address:list.address}}</view>
+                </view>
+            </view>
+            <view class="item_t curr" wx:if="{{!id}}">
+                <view bindtap="qie" class="item_choose" style="background:{{theme.color}};">点击选择店面</view>
+            </view>
+            <view class="item_b">
+                <view bindtap="map" style="background:{{id?'':'#ccc'}};">
+                    <image src="../../resource/store02.png"></image>
+                    <view>立即导航</view>
+                </view>
+                <view bindtap="call" style="background:{{id?theme.color:'#bbbbbb'}};">
+                    <image src="../../resource/store01.png"></image>
+                    <view>电话咨询</view>
+                </view>
+            </view>
+            <view bindtap="qie" class="item_btn" style="background:{{theme.color}};" wx:if="{{id&&more_store==1}}">
+                <image mode="widthFix" src="../../resource/store03.png"></image>
+                <view>切换</view>
+            </view>
+        </view>
+    </view>
+    <view class="top_block"></view>
+    <view class="userinfo">
+        <image src="{{userinfo.avatar}}"></image>
+        <view class="item_r">
+            <view>{{userinfo.nick}}  <text style="color:#FFCD55;" wx:if="{{userinfo.card_name}}">{{userinfo.card_name}}</text>
+            </view>
+            <view>{{userinfo.mobile?userinfo.mobile:''}}</view>
+        </view>
+    </view>
+    <view class="list">
+        <view class="item">
+            <view style="font-size:4.5vw;">¥</view>
+            <input bindinput="input" data-name="amount" placeholder="消费金额（询问店员输入）" placeholderStyle="color:#999;" type="digit" value="{{amount}}"></input>
+        </view>
+        <view class="item" wx:if="{{userinfo.card==1&&card.content.discount_status==1&&config.buy_sale_status==1}}">
+            <view class="box" style="background:#ff4653;">折</view>
+            <view style="color:#ffcd55;">{{card.content.discount}}</view>
+        </view>
+        <view bindtap="menu_on" class="item">
+            <view class="box" style="background:#b75dfd;">券</view>
+            <view>{{coupon_price?'-'+coupon_price:''}}</view>
+        </view>
+        <view class="item">
+            <view class="box" style="background:#fbd14b;">¥</view>
+            <view>余额<text style="color:#ffcd55;">{{userinfo.money}}</text>元</view>
+        </view>
+        <view bindtap="member_on" class="item">
+            <view>店员</view>
+            <view style="color:#999;" wx:if="{{!member_id}}">点击选择</view>
+            <view style="color:#333;" wx:if="{{member_id}}">{{member_name}}</view>
+            <view>></view>
+        </view>
+        <view class="item">
+            <view></view>
+            <input bindinput="input" data-name="content" placeholder="备注" placeholderStyle="color:#999;" type="text" value="{{content}}"></input>
+        </view>
+        <view class="item">
+            <view></view>
+            <view>应付金额<text style="color:#ffcd55;">¥{{o_amount}}</text>
+            </view>
+        </view>
+    </view>
+    <view bindtap="pay_on" class="btn" style="background:{{submit?theme.color:'#aaa'}};">立即支付</view>
+    <view class="shadow" wx:if="{{shadow}}"></view>
+    <view class="menu" wx:if="{{menu}}">
+        <view class="menu_top">
+            <view bindtap="menu_close" class="menu_close">×</view>
+            <view>选择优惠券</view>
+        </view>
+        <view class="menu_list" wx:if="{{coupon}}">
+            <view bindtap="coupon_choose" class="item" data-index="{{idx}}" wx:for="{{coupon}}" wx:for-index="idx" wx:key="idx">
+                <icon color="{{coupon_curr==idx?theme.color:'#999'}}" size="20" type="{{coupon_curr==idx?'success':'circle'}}"></icon>
+                <view>{{item.coupon.name}}元优惠券</view>
+            </view>
+        </view>
+        <view style="text-align: center;padding:20rpx;" wx:if="{{!coupon}}">无满足条件优惠券</view>
+        <view bindtap="menu_close" class="menu_btn" style="background:{{theme.color}};">确定</view>
+    </view>
+    <view class="menu" wx:if="{{pay}}">
+        <view class="menu_top">
+            <view bindtap="menu_close" class="menu_close">×</view>
+            <view>选择付款方式</view>
+        </view>
+        <view class="menu_list">
+            <view bindtap="pay_choose" class="item_c" data-index="2" wx:if="{{userinfo.card==1&&userinfo.money!=0}}">
+                <image src="../../resource/over.png"></image>
+                <view>余额支付(账户余额：¥{{userinfo.money}})</view>
+                <icon color="{{pay_type==2?'#41e086':'#999'}}" size="20" type="{{pay_type==2?'success':'circle'}}"></icon>
+                <view class="tip" style="color:{{theme.color}};" wx:if="{{tip}}">您的账户余额不足，还需微信支付¥{{tip_amount}}</view>
+            </view>
+            <view bindtap="pay_choose" class="item_c" data-index="1">
+                <image src="{{can_bimg.pay}}"></image>
+                <view>微信支付</view>
+                <icon color="{{pay_type==1?'#41e086':'#999'}}" size="20" type="{{pay_type==1?'success':'circle'}}"></icon>
+            </view>
+        </view>
+        <form reportSubmit bindsubmit="submit">
+            <button class="menu_btn" formType="submit" style="background:{{theme.color}};">立即付款</button>
+        </form>
+    </view>
+    <view class="sign" wx:if="{{sign}}">
+        <view style="color:{{theme.color}};">支付密码</view>
+        <input bindinput="input" data-name="password" password="true" placeholder="请输入支付密码" placeholderStyle="color:#aaa" type="number" value="{{password}}"></input>
+        <view class="sign_tip" wx:if="{{sign_error}}">密码错误</view>
+        <view bindtap="sign_btn" class="sign_btn" style="background:{{theme.color}};">确定</view>
+        <icon bindtap="sign_close" class="sign_close" color="#000" size="23" type="cancel"></icon>
+    </view>
+    <view bindtap="store_close" class="store_page" wx:if="{{store_page}}">
+        <view catchtap="store_choose" class="item" data-index="{{idx}}" wx:for="{{store_list}}" wx:for-index="idx" wx:key="idx">
+            <view class="item_t">
+                <image src="{{item.simg}}"></image>
+                <view class="item_l">
+                    <view>{{item.name}}</view>
+                    <view>电话：{{item.mobile}}</view>
+                    <view>地址：{{item.address}}</view>
+                </view>
+            </view>
+        </view>
+        <view bindtap="store_close" class="return">
+            <image src="{{can_bimg.left}}"></image>
+            <view>返回</view>
+        </view>
+    </view>
+    <view bindtap="member_close" class="member_page" wx:if="{{member_page}}">
+        <view class="member_list">
+            <view catchtap="member_choose" class="item" data-index="{{idx}}" wx:for="{{member_list}}" wx:for-index="idx" wx:key="idx">
+                <image src="{{item.simg}}"></image>
+                <view class="item_r">
+                    <view class="name">{{item.name}}
+              <text class="task">【{{item.task}}】</text>
+                    </view>
+                    <view class="tip">
+                        <view>服务：</view>
+                        <view class="tip_b" wx:for="{{item.service}}" wx:for-index="idx2" wx:for-item="item2" wx:key="idx2">{{item2.name}}</view>
+                    </view>
+                    <view class="zan">
+                        <image src="../../resource/zan2.png"></image>
+                        <view>{{item.zan}}</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view bindtap="member_close" class="return">
+            <image src="{{can_bimg.left}}"></image>
+            <view>返回</view>
+        </view>
+    </view>
+    <template is="get_userinfo" data="{{shadow:shadow,get_userinfo:get_userinfo,config:config,can_bimg:can_bimg,app_step1:app_step1,app_step2:app_step2}}"></template>
+</view>

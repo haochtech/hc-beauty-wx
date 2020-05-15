@@ -1,0 +1,58 @@
+<import src="../common/common.wxml"></import>
+<view class="page">
+    <view class="banner" style="background:{{theme.color}};">
+        <view class="sp1">当前可提现余额</view>
+        <view class="sp2">{{store_user.store_fee}}</view>
+        <view class="sp3">本月累计收入 {{store_user.month}}</view>
+    </view>
+    <view class="nav">
+        <view bindtap="tab" class="item" data-index="{{index}}" style="color:{{curr==index?theme.color:''}};border-bottom-color:{{curr==index?theme.color:''}};" wx:for="{{nav}}" wx:key="idx">{{item}}</view>
+    </view>
+    <view class="sub1" wx:if="{{curr==0}}">
+        <view class="item">
+            <view class="sp1">微信账号</view>
+            <input bindinput="input" data-name="username" placeholder="请输入微信账号" placeholderStyle="color:#dddddd;" type="text" value="{{username}}"></input>
+        </view>
+        <view class="item">
+            <view class="sp1">手机号码</view>
+            <input bindinput="input" data-name="mobile" placeholder="请输入手机号码" placeholderStyle="color:#dddddd;" type="number" value="{{mobile}}"></input>
+        </view>
+        <view class="item">
+            <view class="sp1">¥</view>
+            <input bindinput="input" data-name="amount" placeholder="请输入提现金额" placeholderStyle="color:#dddddd;" type="digit" value="{{amount}}"></input>
+        </view>
+        <view class="tip">提现金额1元起    <text bindtap="all" class="sp2" style="color:{{theme.color}};">全部提现</text>
+        </view>
+        <view bindtap="submit" class="btn" style="background:{{theme.color}};">提 交</view>
+    </view>
+    <view class="sub2" wx:if="{{curr==1}}">
+        <view class="item" wx:for="{{draw}}" wx:key="idx">
+            <view class="sp1">{{item.createtime}}</view>
+            <view class="sp2">{{item.username}}</view>
+            <view class="sp3">{{item.amount}}</view>
+        </view>
+    </view>
+    <view class="sub3" wx:if="{{curr==2}}">
+        <view class="item" wx:for="{{record}}" wx:key="idx">
+            <view class="itemT">
+                <view class="sp1">{{item.username}} {{item.mobile}}</view>
+                <view class="sp2" wx:if="{{item.type==1}}">+{{item.amount}}</view>
+                <view class="sp2" wx:if="{{item.type==2}}">-{{item.amount}}</view>
+            </view>
+            <view class="itemB" wx:if="{{item.type==1}}">
+                <view>
+                    <text class="sp4">核销时间:</text>{{item.createtime}}</view>
+                <view>
+                    <text class="sp4">服务：</text>{{item.title}}</view>
+            </view>
+            <view class="itemB" wx:if="{{item.type==2}}">
+                <view>
+                    <text class="sp4">申请时间:</text>{{item.createtime}}</view>
+                <view>
+                    <text class="sp4">类型：</text>{{item.title}}</view>
+            </view>
+        </view>
+    </view>
+    <template is="manage" data="{{footer_curr:footer_curr,theme:theme,config:config,store_id:store_id,store_manager:store_manager}}" wx:if="{{theme.name=='theme3'}}"></template>
+    <template is="theme_manage" data="{{footer_curr:footer_curr,theme:theme,config:config,store_id:store_id,store_manager:store_manager}}" wx:if="{{theme.name!='theme3'}}"></template>
+</view>

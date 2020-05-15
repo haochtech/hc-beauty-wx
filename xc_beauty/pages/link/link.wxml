@@ -1,0 +1,14 @@
+<web-view src="{{url}}" wx:if="{{list.link_type==1}}"></web-view>
+<block wx:if="{{list.link_type==2}}">
+    <import src="../../../wxParse/wxParse.wxml"></import>
+    <view class="content">
+        <template is="wxParse" data="{{wxParseData:content.nodes}}"></template>
+        <view class="btn_block" wx:if="{{list.type==2}}"></view>
+        <navigator class="btn" style="background:{{list.color?list.color:theme.color}};" url="{{list.link}}" wx:if="{{list.type==2}}">{{list.btn?list.btn:'立即参与'}}</navigator>
+    </view>
+</block>
+<navigator url="../base/base">
+    <image class="to_index" src="{{list.simg?list.simg:can_bimg.index}}"></image>
+</navigator>
+<import src="../common/common.wxml"></import>
+<template is="get_userinfo" data="{{shadow:shadow,get_userinfo:get_userinfo,config:config,can_bimg:can_bimg,app_step1:app_step1,app_step2:app_step2}}"></template>

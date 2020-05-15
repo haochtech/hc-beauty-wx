@@ -1,0 +1,76 @@
+<view class="body" hidden="{{showTicket}}">
+    <view class="ODCont1" style="background-color:#fff;">
+        <navigator class="btn" style="color:{{theme.color}};border-color:{{theme.color}};" url="../address/address" wx:if="{{!address}}">点击添加用户信息</navigator>
+        <navigator class="addrBlock flex-display flex-alignC" url="../address/address" wx:if="{{address}}">
+            <image class="icon1" src="../../resource/local2.png"></image>
+            <view class="text flex-flex1">
+                <view class="h1 flex-display flex-alignC">
+                    <view class="flex-flex1">{{address.name}}</view>
+                    <view>{{address.mobile}}</view>
+                </view>
+                <view class="h2">{{address.address?address.address:''}} {{address.content?address.content:''}}</view>
+            </view>
+        </navigator>
+    </view>
+    <view class="ODCont2">
+        <view class="listBox flex-display flex-alignC" style="background-color:#fff;">
+            <view class="imgBlock">
+                <image mode="aspectFill" src="{{list.simg}}"></image>
+            </view>
+            <view class="text flex-flex1">
+                <view class="h1">{{list.name}}</view>
+                <view class="h2 flex-display flex-alignC">
+                    <view class="flex-flex1">{{list.format_name}}</view>
+                    <view>x{{member}}</view>
+                </view>
+                <view class="p" style="color:{{theme.color}};">积分：<text class="sp1">{{list.score}}</text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="ODCont4" style="background-color:#fff;">
+        <view class="ODTitle">
+            <text>订单信息</text>
+            <view class="border" style="background-color:{{theme.color}};"></view>
+        </view>
+        <view class="listBox flex-display flex-alignC">
+            <view class="name flex-flex1">积分余额</view>
+            <view class="text sp2" style="color:{{theme.color}};">{{list.userinfo.score}}</view>
+        </view>
+        <view class="listBox flex-display flex-alignC">
+            <view class="name flex-flex1">应付合计</view>
+            <view class="text sp2" style="color:{{theme.color}};">{{list.score*member}}</view>
+        </view>
+        <view class="listBox flex-display flex-alignC">
+            <view class="name">备注</view>
+            <view class="text flex-flex1">
+                <input bindinput="input" placeholder="点击填写备注" placeholderStyle="color:#acacac;" type="text" value="{{content}}"></input>
+            </view>
+        </view>
+    </view>
+    <view class="ODCont4" style="background-color:#fff;">
+        <view class="ODTitle">
+            <text>配送方式</text>
+            <view class="border" style="background-color:{{theme.color}};"></view>
+        </view>
+        <view class="choose">
+            <view bindtap="service_choose" class="choose_i" data-index="1" wx:if="{{config.mall_pei==1||config.mall_pei==-1}}">
+                <view class="{{service_type==1?'curr':''}}"></view>
+                <view>商家配送</view>
+            </view>
+            <view bindtap="service_choose" class="choose_i" data-index="2" wx:if="{{config.mall_pei==2||config.mall_pei==-1}}">
+                <view class="{{service_type==2?'curr':''}}"></view>
+                <view>自提</view>
+            </view>
+        </view>
+    </view>
+    <view class="bottomBlank2 {{filters.toPhone(config.model)?'curr':''}}"></view>
+    <form reportSubmit bindsubmit="submit">
+        <view class="buyBlock flex-display flex-alignC {{filters.toPhone(config.model)?'curr':''}}" style="background-color:#fff;">
+            <view class="text">应付积分：<text class="sp1" style="color:{{theme.color}};">{{list.score*member}}</text>
+            </view>
+            <button class="bb2 flex-flex1" formType="submit" style="background-color:{{theme.color}};">立即兑换</button>
+        </view>
+    </form>
+</view>
+<wxs module="filters" src="../common/common.wxs" />

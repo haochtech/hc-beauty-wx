@@ -1,0 +1,142 @@
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    display: flex;
+    height: 80rpx;
+}
+
+.nav>view {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: #ddd 2rpx solid;
+    flex: 1;
+}
+
+.nav_block {
+    height: 80rpx;
+}
+
+.list {
+    padding: 0 30rpx 20rpx;
+}
+
+.list .item {
+    padding: 20rpx 0;
+    display: flex;
+    border-bottom: #ddd 2rpx solid;
+}
+
+.list .item .item_l {
+    width: 150rpx;
+    padding-right: 20rpx;
+    border-right: #ddd 2rpx solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.list .item .item_l>view:nth-child(1) {
+    font-size: 4.5vw;
+}
+
+.list .item .item_l>view:nth-child(2) {
+    width: 150rpx;
+    box-sizing: border-box;
+    border: #ddd 2rpx solid;
+    height: 48rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10rpx;
+    margin-top: 10rpx;
+    color: #999999;
+}
+
+.list .item .item_r {
+    width: 518rpx;
+    padding-left: 20rpx;
+    box-sizing: border-box;
+}
+
+.list .item .item_r>view {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.list .item .item_r text {
+    color: #999999;
+    width: 120rpx;
+}
+
+.menu {
+    position: fixed;
+    top: 15vh;
+    width: 92vw;
+    background: #fff;
+    border-radius: 10rpx;
+    z-index: 1000;
+    left: 4%;
+    box-sizing: border-box;
+    padding: 20rpx 40rpx;
+}
+
+.menu .title {
+    padding: 20rpx;
+    text-align: center;
+    font-size: 4.5vw;
+}
+
+.menu .menu_content {
+    padding: 20rpx 0;
+    max-height: 30vh;
+    overflow: scroll;
+}
+
+.menu .menu_content .item {
+    display: flex;
+    line-height: 6vw;
+}
+
+.menu .menu_content .item>view:nth-child(1) {
+    color: #999999;
+}
+
+.menu .menu_content .item>view:nth-child(2) {
+    flex: 1;
+}
+
+.menu .menu_tip {
+    display: flex;
+    padding: 20rpx 0;
+    border-top: #ddd 2rpx solid;
+    color: #999999;
+}
+
+.menu .menu_tip view+view {
+    margin-left: 20rpx;
+}
+
+.menu .menu_btn {
+    width: 400rpx;
+    height: 80rpx;
+    color: #fff;
+    background: #aaa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20rpx auto;
+    border-radius: 10rpx;
+    font-size: 4vw;
+}
+
+.menu .menu_close {
+    position: absolute;
+    top: 20rpx;
+    right: 20rpx;
+}

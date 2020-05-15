@@ -1,0 +1,61 @@
+<import src="../common/common.wxml"></import>
+<view class="page">
+    <view class="top" style="background:{{theme.name!='theme3'?theme.color:''}};">
+        <view class="top_t">
+            <view class="year">{{year}}</view>
+            <view class="month">
+                <view bindtap="month_choose" data-index="{{idx}}" wx:for="{{month}}" wx:for-index="idx" wx:key="idx">
+                    <view class="{{month_curr==idx?'curr':''}}">{{item}}</view>
+                </view>
+            </view>
+            <view class="amount">
+                <view bindtap="month_left">></view>
+                <view>{{amount}}</view>
+                <view bindtap="month_right">></view>
+            </view>
+            <image class="back" mode="widthFix" src="../../resource/theme3_35.png"></image>
+        </view>
+    </view>
+    <view class="top_block"></view>
+    <view class="nav">
+        <view class="item">
+            <view>{{all_amount}}</view>
+            <view>总收入</view>
+        </view>
+        <view class="item">
+            <view>{{over}}</view>
+            <view>会员余额</view>
+        </view>
+        <view class="item">
+            <view>{{refund}}</view>
+            <view>退款总金额</view>
+        </view>
+    </view>
+    <view class="nav" style="margin-top:10rpx;">
+        <view class="item">
+            <view>{{member}}</view>
+            <view>总客户</view>
+        </view>
+        <navigator class="item" url="../pick/manage/index">
+            <view>{{pick_order}}</view>
+            <view>订货单</view>
+        </navigator>
+        <view class="item_t">
+            <view>会    员：{{card_on}}</view>
+            <view>非 会 员：{{card}}</view>
+        </view>
+    </view>
+    <view class="list">
+        <view class="title">
+            <view style="background:{{theme.name!='theme3'?theme.color:''}};"></view>
+            <view>门店管理</view>
+        </view>
+        <navigator class="item" url="store?&store_id={{item.id}}" wx:for="{{list}}" wx:for-index="idx" wx:key="idx">
+            <image src="{{item.simg}}"></image>
+            <view>{{item.name}}</view>
+            <view>></view>
+        </navigator>
+    </view>
+    <template is="index" data="{{footer_curr:footer_curr,theme:theme,config:config,can_bimg:can_bimg}}" wx:if="{{theme.name=='theme3'}}"></template>
+    <template is="theme_index" data="{{footer_curr:footer_curr,theme:theme,config:config,can_bimg:can_bimg}}" wx:if="{{theme.name!='theme3'}}"></template>
+</view>

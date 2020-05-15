@@ -1,0 +1,9 @@
+<view class="page">
+    <view class="top">
+        <view class="tip">
+            <view>您对{{list.member_name}}的服务满意吗？</view>
+        </view>
+        <textarea bindinput="input" class="content" placeholder="想说点啥？写在这里吧！" placeholderClass="color:#999999;" value="{{content}}"></textarea>
+    </view>
+    <view bindtap="submit" class="submit" style="background:{{theme.color}};">提交</view>
+</view>

@@ -1,0 +1,141 @@
+page {
+    background: #f7f7f7;
+}
+
+.list {
+    background: #fff;
+    padding: 0 30rpx;
+}
+
+.list .title {
+    display: flex;
+    padding: 20rpx 0;
+}
+
+.list .title>view:nth-child(1) {
+    width: 10rpx;
+    height: 40rpx;
+    background: #000;
+    margin-right: 10rpx;
+}
+
+.list .item {
+    display: flex;
+    padding: 20rpx 30rpx;
+    border-top: #ddd 2rpx solid;
+}
+
+.list .item>view:nth-child(1) {
+    flex: 1;
+    color: #999;
+}
+
+.nav {
+    background: #fff;
+}
+
+.nav .navT {
+    display: flex;
+    padding: 20rpx;
+    align-items: center;
+}
+
+.nav .navT>image {
+    width: 40rpx;
+    height: 40rpx;
+    display: block;
+}
+
+.nav .navT .sp1 {
+    flex: 1;
+    padding: 0 20rpx;
+}
+
+.nav .navT .navBox {
+    display: flex;
+}
+
+.nav .navT .navBox>view {
+    width: 120rpx;
+    line-height: 60rpx;
+    text-align: center;
+    border: #ddd 2rpx solid;
+}
+
+.nav .navT .navBox .sp2 {
+    border-radius: 60rpx 0 0 60rpx;
+}
+
+.nav .navT .navBox .sp3 {
+    border-radius: 0 60rpx 60rpx 0;
+}
+
+.nav .navB {
+    padding: 60rpx 0;
+    text-align: center;
+}
+
+.nav .navB .sp2 {
+    color: #f65b45;
+    font-size: 6vw;
+    line-height: 8vw;
+    margin-top: 20rpx;
+}
+
+.bottom {
+    overflow: hidden;
+    background: #fff;
+    padding: 20rpx 30rpx 0;
+    margin-top: 20rpx;
+}
+
+.bottom .item {
+    background: #f8f8f8;
+    width: 330rpx;
+    box-sizing: border-box;
+    padding: 40rpx 0 40rpx 40rpx;
+    float: left;
+    margin-bottom: 20rpx;
+}
+
+.bottom .item .sp1 {
+    color: #f65b45;
+    font-size: 4.5vw;
+    line-height: 6.5vw;
+}
+
+.bottom .item .sp2 {
+    color: #999;
+    font-size: 4vw;
+    line-height: 6vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    height: 6vw;
+}
+
+.bottom .item .sp3 {
+    color: #00aab4;
+    font-size: 4.5vw;
+    line-height: 6.5vw;
+}
+
+.bottom .item .sp4 {
+    color: #f65b45;
+    font-size: 3vw;
+}
+
+.bottom .item:nth-child(2n) {
+    margin-left: 30rpx;
+}
+
+.table {
+    background: #fff;
+    margin-top: 20rpx;
+    padding-top: 20rpx;
+}
+
+.table .canvas {
+    width: 100%;
+    height: 200px;
+}

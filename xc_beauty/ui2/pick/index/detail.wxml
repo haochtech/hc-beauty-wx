@@ -1,0 +1,46 @@
+<view class="page">
+    <view class="list">
+        <view class="title">
+            <view>货单列表</view>
+            <view style="background:{{theme.color}};"></view>
+        </view>
+        <view bindtap="choose" class="item" data-index="{{index}}" style="background:{{item.status==1?'#eeeeee':''}};" wx:for="{{list.pid}}" wx:key="idx">
+            <view>{{item.name}}</view>
+            <view>{{item.price}}元{{item.unit?'/'+item.unit:''}}</view>
+            <view>{{item.total}}</view>
+        </view>
+        <view class="amount">
+            <view>
+                <text class="attr">合计：</text>{{list.amount}}元</view>
+            <view>
+                <text class="attr">数量：</text>{{list.total}}件</view>
+        </view>
+    </view>
+    <view class="list">
+        <view class="title">
+            <view>订货信息</view>
+            <view style="background:{{theme.color}};"></view>
+        </view>
+        <view class="item2">
+            <view>订单号:</view>
+            <view>{{list.out_trade_no}}</view>
+        </view>
+        <view class="item2">
+            <view>下单日期:</view>
+            <view>{{list.createtime}}</view>
+        </view>
+        <view class="item2">
+            <view>订单状态:</view>
+            <view>
+                <view class="btn type1" wx:if="{{list.status==-1}}">待配货</view>
+                <view class="btn type2" wx:if="{{list.status==1}}">送货中</view>
+                <view class="btn type3" wx:if="{{list.status==2}}">已完成</view>
+            </view>
+        </view>
+        <view class="item2">
+            <view>订货门店:</view>
+            <view>{{list.store_list.name}}  {{list.store_list.mobile?list.store_list.mobile:''}}</view>
+            <image bindtap="call" src="../../../resource/theme3_51.png" wx:if="{{list.store_list.mobile}}"></image>
+        </view>
+    </view>
+</view>

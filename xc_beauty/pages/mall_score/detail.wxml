@@ -1,0 +1,56 @@
+<import src="../../../wxParse/wxParse.wxml"></import>
+<import src="../common/common.wxml"></import>
+<view class="body">
+    <swiper autoplay="true" bindchange="bindchange" class="detailCont1" indicatorDots="true" style="height:{{imgheights[current]}}rpx;" wx:if="{{list.bimg}}">
+        <swiper-item wx:for="{{list.bimg}}" wx:key="index">
+            <image bindload="imageLoad" data-index="{{index}}" src="{{item}}"></image>
+        </swiper-item>
+    </swiper>
+    <view class="detailCont2" style="background-color:#fff;">
+        <view class="h1">{{list.name}}</view>
+        <view class="h2">{{list.title}}</view>
+        <view class="p" decode="true">积分：
+      <text class="sp1 sp2">{{list.score}}</text>已兑：
+      <text class="sp2">{{list.sold}}</text>库存：
+      <text class="sp2" wx:if="{{list.kucun==-1}}">充足</text>
+            <text class="sp2" wx:if="{{list.kucun!=-1}}">{{list.kucun}}</text>
+        </view>
+    </view>
+    <view class="detailCont3" style="background-color:#fff;">
+        <view class="inputBlock flex-display">
+            <view class="name">数量：</view>
+            <view class="numBlock clearfix">
+                <view bindtap="numMinus" class="nbtn fl">-</view>
+                <view class="input fl">
+                    <input bindblur="valChange" name="number" style="color:{{theme.color}};" type="number" value="{{numbervalue}}"></input>
+                </view>
+                <view bindtap="numPlus" class="nbtn fl">+</view>
+            </view>
+            <view class="flex-flex1"></view>
+        </view>
+    </view>
+    <view class="detailCont5" style="background-color:#fff;">
+        <view class="title">
+            <text>图文详情</text>
+            <view class="border" style="background-color:{{theme.color}};"></view>
+            <view class="p">
+                <text class="b" style="background-color:#fff;">GRAPHIC DETAILS</text>
+            </view>
+        </view>
+        <view class="edit">
+            <template is="wxParse" data="{{wxParseData:article.nodes}}"></template>
+        </view>
+    </view>
+    <view class="bottomBlank2 {{filters.toPhone(config.model)?'curr':''}}"></view>
+    <view class="buyBlock flex-display flex-alignC type2 {{filters.toPhone(config.model)?'curr':''}}" style="background-color:#fff;">
+        <view bindtap="to_index" class="navBox">
+            <image src="../../resource/theme3_14.png"></image>
+        </view>
+        <view class="border"></view>
+        <view bindtap="submit" class="btn bg2 flex-flex1" style="background-color:{{theme.color}};">
+      立即兑换
+    </view>
+    </view>
+    <template is="get_userinfo" data="{{shadow:shadow,get_userinfo:get_userinfo,config:config,can_bimg:can_bimg,app_step1:app_step1,app_step2:app_step2}}"></template>
+</view>
+<wxs module="filters" src="../common/common.wxs" />

@@ -1,0 +1,118 @@
+.top {
+    padding: 30rpx 0;
+    position: relative;
+}
+
+.top .back {
+    width: 550rpx;
+    margin: 0 auto;
+}
+
+.top .userinfo {
+    position: absolute;
+    top: 60rpx;
+    left: 130rpx;
+    display: flex;
+    align-items: center;
+    color: #fff;
+}
+
+.top .userinfo>image {
+    width: 50rpx;
+    height: 50rpx;
+    border: #fff 2rpx solid;
+    border-radius: 100%;
+    margin-right: 10rpx;
+}
+
+.list {
+    padding: 30rpx 0;
+}
+
+.list .title {
+    text-align: center;
+}
+
+.list .item {
+    width: 400rpx;
+    box-sizing: border-box;
+    margin: 20rpx auto 0;
+    display: flex;
+    align-items: center;
+    padding: 10rpx 16rpx;
+    border-radius: 10rpx;
+}
+
+.list .item>image {
+    height: 40rpx;
+    width: 40rpx;
+    margin: 0 10rpx;
+}
+
+.list .item>input {
+    height: 40rpx;
+    line-height: 40rpx;
+}
+
+.list .item.code {
+    padding: 0;
+}
+
+.list .item.code>input {
+    padding: 10rpx 16rpx;
+}
+
+.list .item.code>view {
+    width: 200rpx;
+    color: #fff;
+    font-size: 3vw;
+    padding: 10rpx 0;
+    height: 1.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.list .btn {
+    width: 320rpx;
+    height: 80rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    margin: 40rpx auto 0;
+    font-size: 4vw;
+    border-radius: 80rpx;
+}
+
+.list .item_c {
+    width: 400rpx;
+    display: flex;
+    align-items: center;
+    background: #ddd;
+    border-radius: 10rpx;
+    padding: 10rpx 30rpx;
+    margin: 20rpx auto 0;
+    box-sizing: border-box;
+}
+
+.list .item_c>image {
+    height: 40rpx;
+    width: 40rpx;
+    margin: 0 10rpx;
+}
+
+.list .item_c>view {
+    height: 1.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.list .tip {
+    width: 200rpx;
+    margin: 30rpx auto;
+    color: #999999;
+    text-decoration: underline;
+    text-align: center;
+}

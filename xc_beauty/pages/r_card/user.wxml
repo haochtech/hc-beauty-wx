@@ -1,0 +1,25 @@
+<import src="../common/common.wxml"></import>
+<view class="page">
+    <view class="list">
+        <view class="item" wx:for="{{list}}" wx:key="idx">
+            <image class="back" mode="aspectFill" src="{{item.status==-1?can_bimg.card02:can_bimg.card03}}"></image>
+            <view class="itemBox">
+                <view class="itemT {{item.status==-1?'':'curr'}}">
+                    <view class="t1">
+                        <text class="t2">{{item.amount}}</text>元</view>
+                    <view bindtap="setcard" class="btn" data-index="{{index}}" wx:if="{{item.status==-1}}">充值</view>
+                    <view class="btn" wx:if="{{item.status==1}}">已充值</view>
+                    <view class="btn" wx:if="{{item.status==2}}">已赠送</view>
+                </view>
+                <view class="itemB">
+                    <view class="b1">
+                        <text class="b3" wx:if="{{item.type==1}}">购买日期：</text>
+                        <text class="b3" wx:if="{{item.type==2}}">受赠日期：</text>{{item.createtime}}</view>
+                    <button class="b2" data-index="{{index}}" openType="share" wx:if="{{item.type==1&&item.status==-1}}">赠送</button>
+                </view>
+            </view>
+        </view>
+    </view>
+    <template is="footer" data="{{footer:footer,footerCurr:footerCurr,theme:theme,config:config}}"></template>
+    <template is="get_userinfo" data="{{shadow:shadow,get_userinfo:get_userinfo,config:config,can_bimg:can_bimg,app_step1:app_step1,app_step2:app_step2}}"></template>
+</view>

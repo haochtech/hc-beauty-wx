@@ -1,0 +1,147 @@
+.top {
+    height: 150rpx;
+    display: flex;
+    color: #fff;
+    box-sizing: border-box;
+    padding: 30rpx;
+}
+
+.top>image {
+    width: 40rpx;
+    height: 40rpx;
+    margin-right: 10rpx;
+}
+
+.item_c {
+    margin: 0 30rpx;
+    padding: 30rpx 0;
+    border-bottom: #ddd 2rpx solid;
+    display: flex;
+}
+
+.item_c>image {
+    width: 100rpx;
+    height: 100rpx;
+}
+
+.item_c .title {
+    flex: 1;
+    padding: 0 10rpx;
+    box-sizing: border-box;
+}
+
+.item_c .item_info {
+    text-align: right;
+}
+
+.item_c .item_info>view:nth-child(2) {
+    color: #999999;
+    font-size: 3vw;
+    line-height: 3vw;
+    text-decoration: line-through;
+}
+
+.item_c .item_info>view:nth-child(3) {
+    color: #999999;
+}
+
+.tip {
+    display: flex;
+    padding: 20rpx 30rpx;
+}
+
+.tip>view:nth-child(1) {
+    flex: 1;
+}
+
+.tip>view:nth-child(2) {
+    color: #e74479;
+    font-size: 4.5vw;
+}
+
+.info {
+    background: #f6f6f6;
+    margin: 20rpx 30rpx 20rpx;
+    padding: 20rpx 30rpx;
+    color: #999999;
+    border-radius: 10rpx;
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50rpx 0;
+}
+
+.btn>view {
+    width: 300rpx;
+    height: 80rpx;
+    border-radius: 80rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn1 {
+    background: #e5e5e5;
+}
+
+.btn2 {
+    color: #fff;
+    margin-left: 20rpx;
+}
+
+.code {
+    margin: 30rpx auto;
+    width: 500rpx;
+    border-radius: 20rpx;
+    box-shadow: 0px 0px 10rpx 2rpx #fdeef3;
+    box-sizing: border-box;
+    padding: 20rpx 30rpx;
+}
+
+.code.theme3 {
+    box-shadow: 0px 0px 10rpx 2rpx #ddd;
+}
+
+.code>view:nth-child(1) {
+    text-align: center;
+}
+
+.code>canvas {
+    width: 400rpx;
+    height: 400rpx;
+    margin: 20rpx auto 0;
+    border: #ddd 2rpx solid;
+}
+
+.code .code_fail {
+    width: 400rpx;
+    height: 400rpx;
+    margin: 20rpx auto 0;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+
+.code .code_fail icon {
+    display: flex;
+    margin-right: 10rpx;
+}
+
+.code>view:nth-child(3) {
+    margin-top: 50rpx;
+}
+
+.code>view:nth-child(4) {
+    font-size: 3vw;
+    color: #999999;
+    line-height: 3.5vw;
+}
+
+.bottom {
+    height: 20rpx;
+}

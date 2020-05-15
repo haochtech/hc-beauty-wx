@@ -1,0 +1,64 @@
+page {
+    background: #fbfaf8;
+}
+
+.item {
+    padding: 0 30rpx;
+    background: #fff;
+}
+
+.item+.item {
+    margin-top: 20rpx;
+}
+
+.item .item_t {
+    display: flex;
+    padding-top: 20rpx;
+}
+
+.item .item_t>view:nth-child(1) {
+    flex: 1;
+}
+
+.item .address {
+    padding-bottom: 20rpx;
+    color: #666666;
+}
+
+.item .item_b {
+    border-top: #ddd 2rpx solid;
+    padding-top: 20rpx;
+    display: flex;
+    align-items: center;
+    color: #666666;
+    padding: 20rpx 0;
+}
+
+.item .item_b .choose {
+    flex: 1;
+    display: flex;
+}
+
+.item .item_b .choose>icon {
+    display: flex;
+    align-items: center;
+    margin-right: 10rpx;
+}
+
+.item .item_b .item_btn {
+    padding: 0 10rpx;
+}
+
+.item .item_b .item_btn+.item_btn {
+    border-left: #ddd 2rpx solid;
+}
+
+.btn {
+    margin: 30rpx 50rpx;
+    height: 80rpx;
+    color: #fff;
+    border-radius: 10rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

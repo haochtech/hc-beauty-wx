@@ -1,0 +1,53 @@
+<view class="page">
+    <view class="list2" wx:if="{{edit==1}}">
+        <view class="title">充值优惠</view>
+        <view class="content">
+            <view bindtap="choose" class="item" data-index="{{idx}}" style="border-color:{{over==idx?theme.color:' '}};" wx:for="{{card.content.recharge}}" wx:for-index="idx" wx:key="idx">
+                <view>{{item.r_price}}</view>
+                <view style="color:{{theme.color}};" wx:if="{{item.g_price}}">赠{{item.g_price}}</view>
+            </view>
+            <view bindtap="choose2" class="item" data-index="{{idx}}" style="border-color:{{over2==idx?theme.color:' '}};" wx:for="{{card.prize}}" wx:for-index="idx" wx:key="idx">
+                <view>{{item.amount}}</view>
+                <view style="color:{{theme.color}};">赠{{item.price}}</view>
+                <view class="tip">
+                    <image mode="widthFix" src="../../resource/li03.png"></image>
+                    <view>新人专享</view>
+                </view>
+            </view>
+        </view>
+        <form reportSubmit bindsubmit="submit" data-index="1">
+            <button class="btn" formType="submit" style="background:{{theme.color}};">立即支付</button>
+        </form>
+    </view>
+    <view class="nav" wx:if="{{edit==2}}">
+        <view bindtap="tab" data-index="1" style="color:{{curr==1?theme.color:'#aaa'}};">到微信</view>
+        <view bindtap="tab" data-index="2" style="color:{{curr==2?theme.color:'#aaa'}};">到支付宝</view>
+    </view>
+    <view class="list {{theme.name}}" wx:if="{{edit==2}}">
+        <view class="item_d">
+            <view>{{curr==1?'微信账号':'支付宝账号'}}</view>
+            <input bindinput="input" data-name="username" placeholder="请输入账号" placeholderStyle="color:#999;" type="text" value="{{username}}"></input>
+        </view>
+        <view class="item_d" wx:if="{{curr==1}}">
+            <view>手机号码</view>
+            <input bindinput="input" data-name="mobile" placeholder="请输入11位手机号码" placeholderStyle="color:#999;" type="number" value="{{mobile}}"></input>
+        </view>
+        <view class="item_d" wx:if="{{curr==2}}">
+            <view>姓名</view>
+            <input bindinput="input" data-name="name" placeholder="请输入账户姓名" placeholderStyle="color:#999;" type="text" value="{{name}}"></input>
+        </view>
+        <view class="item">
+            <view class="item_t">提现金额<text wx:if="{{edit==2&&card.content.withdraw_amount}}">({{card.content.withdraw_amount}}元起提)</text>
+            </view>
+            <view class="item_b">
+                <view>¥</view>
+                <input bindinput="input" data-name="amount" type="digit" value="{{amount}}"></input>
+            </view>
+        </view>
+        <view class="tip" wx:if="{{order_type==1}}">余额¥{{userinfo.money}}，<text bindtap="all" style="color:#5b6376;">全部提现</text>
+        </view>
+        <view class="tip" wx:if="{{order_type==2}}">佣金余额¥{{userinfo.share_o_amount}}，<text bindtap="all" style="color:#5b6376;">全部提现</text>
+        </view>
+        <view bindtap="submit" class="btn" data-index="2" style="background:{{theme.color}};">提现</view>
+    </view>
+</view>

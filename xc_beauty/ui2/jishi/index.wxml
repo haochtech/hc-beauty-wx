@@ -1,0 +1,42 @@
+<import src="../common/common.wxml"></import>
+<view class="page">
+    <view class="top">
+        <view bindtap="store_on" class="top_btn" wx:if="{{!store_id}}">+选择门店</view>
+        <view class="top_c" wx:if="{{store_id}}">
+            <image src="{{store_list[store_curr]['simg']}}"></image>
+            <view>{{store_list[store_curr]['name']}}</view>
+            <image bindtap="store_on" class="qie" src="../../resource/theme3_61.png"></image>
+        </view>
+    </view>
+    <view class="top_block"></view>
+    <view class="list">
+        <navigator class="item" url="../../pages/store/member_detail?&id={{item.id}}" wx:for="{{list}}" wx:key="idx">
+            <image src="{{item.simg}}"></image>
+            <view>{{item.name}}</view>
+            <view>【{{item.task}}】</view>
+            <view catchtap="submit" class="btn" data-index="{{index}}" style="background:{{theme.color}};">预约</view>
+        </navigator>
+    </view>
+    <view class="store_page" wx:if="{{store_page}}">
+        <view bindtap="store_choose" class="item" data-index="{{idx}}" wx:for="{{store_list}}" wx:for-index="idx" wx:key="idx">
+            <view class="item_t">
+                <image src="{{item.simg}}"></image>
+                <view class="item_l">
+                    <view>{{item.name}}</view>
+                    <view>电话：{{item.mobile}}</view>
+                    <view>地址：{{item.address}}</view>
+                </view>
+                <view class="item_r" style="border-left-color:{{theme.color}};">
+                    <view style="color:{{theme.color}};">{{item.distance?item.distance+'km':'未知'}}</view>
+                    <view>距离</view>
+                </view>
+            </view>
+        </view>
+        <view bindtap="store_close" class="return">
+            <image src="{{can_bimg.left}}"></image>
+            <view>返回</view>
+        </view>
+    </view>
+    <template is="footer" data="{{footer:footer,footerCurr:footerCurr,theme:theme,config:config}}"></template>
+    <template is="get_userinfo" data="{{shadow:shadow,get_userinfo:get_userinfo,config:config,can_bimg:can_bimg,app_step1:app_step1,app_step2:app_step2}}"></template>
+</view>

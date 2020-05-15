@@ -1,0 +1,35 @@
+<view class="page">
+    <view class="nav">
+        <view bindtap="tab" class="item" data-index="1" wx:if="{{level==2||level==3}}">
+            <view style="width:{{curr==1?'12rpx':''}};height: {{curr==1?'12rpx':''}};border:{{curr==1?theme.color+' 6rpx solid':''}};"></view>
+            <view>
+                <text class="text" style="color:{{curr==1?theme.color:''}};">一级</text>（{{userinfo.one}}）</view>
+        </view>
+        <view bindtap="tab" class="item" data-index="2" wx:if="{{level==2||level==3}}">
+            <view style="width:{{curr==2?'12rpx':''}};height: {{curr==2?'12rpx':''}};border:{{curr==2?theme.color+' 6rpx solid':''}};"></view>
+            <view>
+                <text class="text" style="color:{{curr==2?theme.color:''}};">二级</text>（{{userinfo.two}}）</view>
+        </view>
+        <view bindtap="tab" class="item" data-index="3" wx:if="{{level==3}}">
+            <view style="width:{{curr==3?'12rpx':''}};height: {{curr==3?'12rpx':''}};border:{{curr==3?theme.color+' 6rpx solid':''}};"></view>
+            <view>
+                <text class="text" style="color:{{curr==3?theme.color:''}};">三级</text>（{{userinfo.three}}）</view>
+        </view>
+    </view>
+    <view class="nav_block" wx:if="{{level==2||level==3}}"></view>
+    <view class="list {{theme.name}}">
+        <view class="item" wx:for="{{list}}" wx:for-index="idx" wx:key="idx">
+            <image src="{{item.avatar}}"></image>
+            <view class="item_t">
+                <view>{{item.nick}}</view>
+                <view>加入时间：{{item.createtime}}</view>
+            </view>
+            <view class="item_b">
+                <view style="color:{{theme.color}};" wx:if="{{curr==1}}">级别：一级</view>
+                <view style="color:{{theme.color}};" wx:if="{{curr==2}}">级别：二级</view>
+                <view style="color:{{theme.color}};" wx:if="{{curr==3}}">级别：三级</view>
+                <view>上级：{{item.share_nick}}</view>
+            </view>
+        </view>
+    </view>
+</view>

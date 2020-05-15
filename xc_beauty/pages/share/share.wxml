@@ -1,0 +1,7 @@
+<view class="page">
+    <view class="back">
+        <image bindtap="previewImage" class="back_img" mode="widthFix" src="{{share}}"></image>
+    </view>
+    <view bindtap="saveImageToPhotosAlbum" class="btn" style="background:{{theme.color}};">保存图片</view>
+    <view class="tip">保存至相册可以分享至朋友圈</view>
+</view>

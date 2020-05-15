@@ -1,0 +1,19 @@
+<import src="../common/common.wxml"></import>
+<view class="page">
+    <view class="sub3">
+        <view class="item" wx:for="{{list}}" wx:key="idx">
+            <view class="itemT">
+                <view class="sp1">{{item.out_trade_no?item.out_trade_no:''}}</view>
+                <view class="sp4">使用时间:{{item.createtime}}</view>
+            </view>
+            <view class="itemT">
+                <view class="sp1">
+                    <text class="sp4">套餐:</text>{{item.title}}</view>
+                <view>
+                    <text class="sp4">服务：</text>{{item.name}}</view>
+            </view>
+        </view>
+    </view>
+    <template is="manage" data="{{footer_curr:footer_curr,theme:theme,config:config,store_id:store_id,store_manager:store_manager}}" wx:if="{{theme.name=='theme3'}}"></template>
+    <template is="theme_manage" data="{{footer_curr:footer_curr,theme:theme,config:config,store_id:store_id,store_manager:store_manager}}" wx:if="{{theme.name!='theme3'}}"></template>
+</view>

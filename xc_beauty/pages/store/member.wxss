@@ -1,0 +1,79 @@
+page {
+    background: #f7f7f7;
+}
+
+.list .item {
+    background: #fff;
+    display: flex;
+    padding: 20rpx;
+}
+
+.list .item+.item {
+    margin-top: 10rpx;
+}
+
+.list .item>image {
+    width: 100rpx;
+    height: 100rpx;
+    border: #ddd 2rpx solid;
+    border-radius: 100%;
+}
+
+.list .item .item_r {
+    margin-left: 20rpx;
+    flex: 1;
+    width: 560rpx;
+    padding: 10rpx 0;
+    position: relative;
+}
+
+.list .item .item_r .name {
+    font-size: 4vw;
+    padding-right: 100rpx;
+}
+
+.list .item .item_r .name .task {
+    color: #B9B9B9;
+    font-size: 3.5vw;
+}
+
+.list .item .item_r .tip {
+    overflow: hidden;
+    color: #B9B9B9;
+    margin-top: 10rpx;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 560rpx;
+    height: 40rpx;
+}
+
+.list .item .item_r .tip>view {
+    float: left;
+}
+
+.list .item .item_r .tip .tip_b {
+    background: #ffbfbf;
+    border-radius: 20rpx;
+    padding: 0 20rpx;
+    color: #fff;
+}
+
+.list .item .item_r .tip .tip_b+.tip_b {
+    margin-left: 10rpx;
+}
+
+.list .item .item_r .zan {
+    position: absolute;
+    top: 10rpx;
+    right: 0;
+    display: flex;
+    align-items: center;
+    color: #b5b5b5;
+    font-size: 4vw;
+}
+
+.list .item .item_r .zan>image {
+    width: 30rpx;
+    height: 30rpx;
+    margin-right: 10rpx;
+}

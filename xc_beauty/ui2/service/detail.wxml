@@ -1,0 +1,192 @@
+<import src="../common/common.wxml"></import>
+<view class="page">
+    <swiper autoplay="{{autoplay}}" bindchange="bindchange" class="banner" duration="{{duration}}" indicatorActiveColor="{{theme.color}}" indicatorColor="#ffffff" indicatorDots="{{indicatorDots}}" interval="{{interval}}" style="height:{{imgheights[current]}}rpx;" wx:if="{{list.bimg}}">
+        <swiper-item wx:for="{{list.bimg}}" wx:key="idx">
+            <image bindload="imageLoad" class="slide-image" src="{{item}}"></image>
+        </swiper-item>
+    </swiper>
+    <view class="list">
+        <view class="flash" wx:if="{{list.is_flash==1}}">
+            <view class="flash_l">限时秒杀进行中</view>
+            <view class="flash_r">
+                <view>剩余:</view>
+                <view class="time_box">{{list.day}}</view>
+                <view>天</view>
+                <view class="time_box">{{list.hour}}</view>
+                <view>:</view>
+                <view class="time_box">{{list.min}}</view>
+                <view>:</view>
+                <view class="time_box">{{list.second}}</view>
+            </view>
+        </view>
+        <view class="list_t">
+            <view class="top">
+                <view class="title">{{list.name}}</view>
+                <view class="price" wx:if="{{list.is_flash==-1}}">
+                    <text style="color:{{theme.color}};font-size:5vw;">¥{{list.price}}</text>
+                    <text class="o_price" wx:if="{{list.o_price}}">¥{{list.o_price}}</text>
+                </view>
+                <view class="price" wx:if="{{list.is_flash==1}}">
+                    <text style="color:{{theme.color}};font-size:5vw;">¥{{list.flash_price}}</text>
+                    <text class="o_price" wx:if="{{list.price}}">¥{{list.price}}</text>
+                </view>
+                <button class="share" openType="share" wx:if="{{list.group_status==1}}">
+                    <image src="../../resource/theme3_27.png"></image>
+                    <view>分享</view>
+                </button>
+            </view>
+            <navigator class="comment" url="../../pages/discuss/index?&id={{list.id}}">
+                <view class="img">
+                    <image src="{{item.avatar}}" style="transform:translateX(-{{idx*5}}px);" wx:for="{{list.log}}" wx:for-index="idx" wx:key="idx"></image>
+                    <view class="aa" style="transform:translateX(-{{list.log.length*5}}px);" wx:if="{{list.log}}">...</view>
+                </view>
+                <view>{{list.discuss}}人参与了评价</view>
+                <view>查看全部></view>
+            </navigator>
+        </view>
+        <view bindtap="menu_on" class="item" wx:if="{{list.parameter}}">
+            <view>套餐方案：</view>
+            <view style="color:{{kind_name?'':'#999'}};">{{kind_name?kind_name:'点击选择'}}</view>
+            <view>></view>
+        </view>
+        <view class="list_g">
+            <view class="item_g" wx:if="{{list.service_time}}">
+                <image src="../../resource/theme3_28.png"></image>
+                <view>服务时间:【{{list.service_time}}】</view>
+            </view>
+            <view class="item_g">
+                <image src="../../resource/theme3_29.png"></image>
+                <view>服务方式:
+          <text wx:if="{{list.home==1}}">【上门服务】</text>
+                    <text wx:if="{{list.shop==1}}">【到店服务】</text>
+                </view>
+            </view>
+        </view>
+        <view class="group" wx:if="{{list.group_status==1&&group_list}}">
+            <view bindtap="to_more" class="title">
+                <view>以下小伙伴正在发起拼团，您可以直接参与：</view>
+                <view>更多></view>
+            </view>
+            <view class="groupList">
+                <view class="groupItem" wx:for="{{group_list}}" wx:for-index="idx" wx:key="idx">
+                    <image class="itemBack" src="../../resource/group05.png"></image>
+                    <view class="itemBox">
+                        <image src="{{item.avatar}}"></image>
+                        <view class="item_content">
+                            <view>{{item.nick}}</view>
+                            <view>
+                                <view class="item_btn">还差{{item.total-item.team_total}}人成团</view>
+                                <view class="item_times">剩余{{item.hour}}:{{item.min}}:{{item.second}}</view>
+                            </view>
+                        </view>
+                        <view bindtap="to_group" class="group_btn" data-index="{{idx}}" wx:if="{{item.is_group!=1}}">参团</view>
+                        <view class="group_btn" wx:if="{{item.is_group==1}}">已参</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="store" wx:if="{{list.store_status==-1&&list.store}}">
+            <view>适用门店：</view>
+            <view class="content">
+                <view class="text" wx:for="{{list.store}}" wx:for-index="idx" wx:key="idx">{{item.name}} </view>
+            </view>
+        </view>
+        <view class="store" wx:if="{{list.store_status==1}}">
+            <view>适用门店：</view>
+            <navigator class="item" url="../../pages/store/index">
+                <view>所有门店通用</view>
+                <view>查看门店></view>
+            </navigator>
+        </view>
+        <view class="detail" wx:if="{{list.content||list.content2}}">
+            <view class="title">
+                <view>图文详情</view>
+                <view></view>
+            </view>
+            <view class="title2">
+                <view>GRAPHIC DETAILS</view>
+                <view></view>
+            </view>
+            <view class="content" wx:if="{{list.content_type==1}}">
+                <block wx:for="{{list.content}}" wx:for-index="idx" wx:key="idx">
+                    <image mode="widthFix" src="{{item.content}}" wx:if="{{item.type==2}}"></image>
+                    <view class="text" wx:if="{{item.type==1}}">{{item.content}}</view>
+                </block>
+            </view>
+            <block wx:if="{{list.content_type==2}}">
+                <import src="../../../wxParse/wxParse.wxml"></import>
+                <view class="content">
+                    <template is="wxParse" data="{{wxParseData:content.nodes}}"></template>
+                </view>
+            </block>
+        </view>
+        <view class="btn_block {{filters.toPhone(config.model)?'curr':''}}"></view>
+        <view class="btn2 {{filters.toPhone(config.model)?'curr':''}}" wx:if="{{list.group_status!=1&&list.is_flash!=1}}">
+            <view bindtap="to_index" class="btn_item">
+                <image src="../../resource/home.png"></image>
+                <view>首页</view>
+            </view>
+            <view bindtap="submit" class="btn_item" style="background:{{theme.color}};">
+                <view>购买预约</view>
+            </view>
+        </view>
+        <view class="btn2 {{filters.toPhone(config.model)?'curr':''}}" wx:if="{{list.group_status==1&&list.is_flash!=1}}">
+            <view bindtap="to_index" class="btn_item">
+                <image src="../../resource/home.png"></image>
+                <view>首页</view>
+            </view>
+            <view bindtap="submit" class="btn_item" style="background:#686a6a;">
+                <view>¥{{parameter_price?parameter_price:list.price}}</view>
+                <view>直接购买</view>
+            </view>
+            <view bindtap="submit2" class="btn_item" style="background:{{theme.color}};" wx:if="{{list.group_stock==-1||list.group_stock>0}}">
+                <view>¥{{list.group_price}}</view>
+                <view>点击开团</view>
+            </view>
+            <view class="btn_item" style="background:#aaa;" wx:if="{{list.group_stock!=-1&&list.group_stock==0}}">
+                <view>{{list.group_stock}}</view>
+                <view>库存不足</view>
+            </view>
+        </view>
+        <view class="btn2 {{filters.toPhone(config.model)?'curr':''}}" wx:if="{{list.is_flash==1}}">
+            <view bindtap="to_index" class="btn_item">
+                <image src="../../resource/home.png"></image>
+                <view>首页</view>
+            </view>
+            <view bindtap="submit" class="btn_item" data-flash="1" style="background:{{theme.color}};">
+                <view>立即抢购</view>
+            </view>
+        </view>
+    </view>
+    <view class="shadow" wx:if="{{shadow}}"></view>
+    <view class="menu" wx:if="{{menu}}">
+        <view class="menu_top">
+            <view bindtap="menu_close" class="menu_close">×</view>
+            <view>选择参数</view>
+        </view>
+        <view class="menu_price" wx:if="{{parameter_price}}">价格：￥{{parameter_price}}</view>
+        <view class="menu_list">
+            <view bindtap="choose" data-index="{{idx}}" style="color:{{kind==idx?'#fff':''}};background:{{kind==idx?theme.color:''}};" wx:for="{{list.parameter}}" wx:for-index="idx" wx:key="idx">{{item.name}} </view>
+        </view>
+        <view bindtap="menu_close" class="menu_btn" style="background:{{theme.color}};">确定</view>
+    </view>
+    <view class="group_menu" wx:if="{{group_menu}}">
+        <icon bindtap="group_cancel" class="group_cancel" color="#000" size="20" type="cancel"></icon>
+        <view class="title">正在拼单</view>
+        <scroll-view scrollY bindscrolltolower="scrolltolower" class="group_list">
+            <view class="item" wx:for="{{group_list2}}" wx:for-index="idx" wx:key="idx">
+                <image src="{{item.avatar}}"></image>
+                <view class="item_c">
+                    <view>
+                        <view class="nick">{{item.nick}}</view>还差{{item.total-item.team_total}}人</view>
+                    <view>剩余 {{item.hour}}:{{item.min}}:{{item.second}}</view>
+                </view>
+                <view bindtap="to_group2" class="item_btn" data-index="{{idx}}" style="background:{{theme.color}};" wx:if="{{item.is_group==-1}}">去拼单</view>
+                <view class="item_btn" style="background:#aaa;" wx:if="{{item.is_group==1}}">已参团</view>
+            </view>
+        </scroll-view>
+    </view>
+    <template is="get_userinfo" data="{{shadow:0,get_userinfo:0,config:config,can_bimg:can_bimg,app_step1:app_step1,app_step2:app_step2}}"></template>
+</view>
+<toast icon="cancel" wx:if="{{toast}}">请选择参数</toast>
+<wxs module="filters" src="../common/common.wxs" />

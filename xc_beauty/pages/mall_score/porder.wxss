@@ -1,0 +1,165 @@
+page {
+    background: #f7f7f7;
+}
+
+.body image {
+    width: 100%;
+    height: 100%;
+}
+
+.ODCont2 {
+    padding: 0;
+}
+
+.ODCont2 .listBox {
+    padding: 30rpx;
+}
+
+.ODCont4 {
+    padding: 0 30rpx 20rpx;
+    margin-bottom: 5rpx;
+}
+
+.ODCont4 .ODTitle {
+    font-size: 28rpx;
+    color: #999;
+    text-align: center;
+    padding: 30rpx 0;
+    border-bottom: 1px dotted #ccc;
+}
+
+.ODCont4 .ODTitle .border {
+    width: 38rpx;
+    height: 3rpx;
+    background-color: #77D4C0;
+    margin: 10rpx auto 0;
+}
+
+.ODCont4 .listBox {
+    padding: 30rpx 0;
+    border-bottom: 1px dotted #ccc;
+    font-size: 28rpx;
+    line-height: 1.2;
+}
+
+.ODCont4 .listBox .name {
+    color: #999;
+    margin-right: 40rpx;
+    overflow: hidden;
+}
+
+.ODCont4 .listBox .text {
+    color: #666;
+    overflow: hidden;
+}
+
+.ODCont4 .listBox .text.sp1 {
+    color: #333;
+}
+
+.ODCont4 .listBox .text input {
+    width: 100%;
+    border: none;
+    text-align: center;
+    font-size: 28rpx;
+}
+
+.ODCont4 .listBox .text.sp2 {
+    color: #77D4C0;
+}
+
+.ODCont5 {
+    padding: 30rpx;
+    font-size: 28rpx;
+    color: #999;
+}
+
+.ODCont5 .name {
+    width: 5em;
+}
+
+.ODCont5 .sp1 {
+    color: #8CDACA;
+}
+
+.buyBlock {
+    height: 100rpx;
+    box-shadow: 0 -1px 3px #999;
+    position: fixed;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    z-index: 50;
+    background: #fff;
+}
+
+.buyBlock.curr {
+    padding-bottom: 60rpx;
+}
+
+.buyBlock .text {
+    width: 270rpx;
+    padding: 0 30rpx;
+    font-size: 30rpx;
+    color: #999;
+}
+
+.buyBlock .text .sp1 {
+    color: #77D4C0;
+}
+
+.buyBlock .bb2 {
+    height: 100rpx;
+    line-height: 100rpx;
+    text-align: center;
+    font-size: 36rpx;
+    background-color: #77D4C0;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
+    border: none;
+    width: 100%;
+}
+
+.buyBlock .bb2::after {
+    display: none;
+    content: "";
+    border: none;
+    border-radius: 0;
+}
+
+.bottomBlank2 {
+    height: 100rpx;
+}
+
+.bottomBlank2.curr {
+    height: 160rpx;
+}
+
+.choose {
+    display: flex;
+    border-bottom: #ddd 2rpx dashed;
+    padding: 20rpx 0;
+}
+
+.choose .choose_i {
+    flex: 1;
+    color: #999;
+    display: flex;
+}
+
+.choose .choose_i>view:nth-child(1) {
+    width: 36rpx;
+    height: 36rpx;
+    border-radius: 100%;
+    border: #ddd 2rpx solid;
+    margin-right: 10rpx;
+}
+
+.choose .choose_i>view.curr:nth-child(1) {
+    width: 16rpx;
+    height: 16rpx;
+    border-radius: 100%;
+    border: #444 12rpx solid;
+}

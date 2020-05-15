@@ -1,0 +1,308 @@
+page {
+    background: #f7f7f7;
+}
+
+.banner {
+    padding: 0 30rpx;
+    border-top: #efefef 2rpx solid;
+    background: #fff;
+}
+
+.blist {
+    padding: 20rpx 0;
+    display: flex;
+}
+
+.blist .blist_l {
+    width: 150rpx;
+    height: 150rpx;
+    border-radius: 100%;
+    border: #dcdcdc 4rpx solid;
+    box-sizing: border-box;
+}
+
+.blist .blist_c {
+    flex: 1;
+    padding: 0 20rpx;
+    box-sizing: border-box;
+    color: #999;
+}
+
+.blist .blist_c>view:nth-child(1) {
+    font-size: 4.5vw;
+    color: #333;
+    line-height: 6.5vw;
+}
+
+.blist .blist_r {
+    display: flex;
+    color: #fff;
+    height: 70rpx;
+    align-items: center;
+    padding: 0 20rpx;
+    font-size: 4vw;
+    border-radius: 70rpx;
+    margin-top: 40rpx;
+    background: #ccc;
+}
+
+.blist .blist_r>image {
+    width: 30rpx;
+    height: 30rpx;
+    margin-right: 10rpx;
+}
+
+.content {
+    border-top: #efefef 2rpx solid;
+    padding: 20rpx 0;
+}
+
+.content .title {
+    text-align: center;
+    font-size: 4.5vw;
+    line-height: 6.5vw;
+}
+
+.content .tip {
+    overflow: hidden;
+    color: #b9b9b9;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.content .tip>view {
+    float: left;
+    margin-top: 20rpx;
+}
+
+.content .tip .tip_b {
+    background: #ffbfbf;
+    border-radius: 20rpx;
+    padding: 0 20rpx;
+    color: #fff;
+}
+
+.content .tip .tip_b+.tip_b {
+    margin-left: 10rpx;
+}
+
+.content .info {
+    color: #999;
+    margin-top: 20rpx;
+    display: block;
+}
+
+.store {
+    padding: 20rpx 0;
+    display: flex;
+    align-items: center;
+    border-top: #efefef 2rpx solid;
+}
+
+.store .logo {
+    border-radius: 100%;
+}
+
+.store>view {
+    flex: 1;
+    padding: 0 10rpx;
+}
+
+.store .left {
+    width: 40rpx;
+    height: 40rpx;
+}
+
+.service {
+    background: #fff;
+    margin-top: 20rpx;
+}
+
+.service .title {
+    padding: 20rpx 0;
+    display: flex;
+    align-items: center;
+    color: #999;
+    justify-content: center;
+}
+
+.service .title .tet {
+    padding: 0 10rpx;
+    font-size: 4.5vw;
+    line-height: 6.5vw;
+}
+
+.service .title .line {
+    height: 2rpx;
+    width: 80rpx;
+    background: #999;
+    margin: 0 10rpx;
+}
+
+.service .title .yuan {
+    width: 8rpx;
+    height: 8rpx;
+    border-radius: 100%;
+    background: #999;
+    margin: 0 10rpx;
+}
+
+.service .item {
+    padding: 0 30rpx 20rpx 30rpx;
+    display: flex;
+    font-size: 4vw;
+    line-height: 6vw;
+}
+
+.service .item>view:nth-child(1) {
+    flex: 1;
+    box-sizing: border-box;
+    padding-right: 30rpx;
+}
+
+.discuss {
+    margin-top: 20rpx;
+    background: #fff;
+    font-size: 4vw;
+    line-height: 6vw;
+    padding-bottom: 20rpx;
+}
+
+.discuss .title {
+    padding: 20rpx 30rpx;
+    display: flex;
+    align-items: center;
+}
+
+.discuss .title>view:nth-child(1) {
+    flex: 1;
+}
+
+.discuss .title>view:nth-child(2) {
+    color: #999;
+}
+
+.discuss .title .left {
+    width: 40rpx;
+    height: 40rpx;
+}
+
+.discuss .list {
+    white-space: nowrap;
+}
+
+.discuss .list .item {
+    background: #fef9f8;
+    width: 400rpx;
+    box-sizing: border-box;
+    padding: 20rpx;
+    border-radius: 20rpx;
+    display: inline-block;
+    margin-right: 30rpx;
+}
+
+.discuss .list .item:nth-child(1) {
+    margin-left: 30rpx;
+}
+
+.discuss .list .item .item_t {
+    display: flex;
+    align-items: center;
+}
+
+.discuss .list .item .item_t>image {
+    width: 70rpx;
+    height: 70rpx;
+    border-radius: 100%;
+}
+
+.discuss .list .item .item_t>view:nth-child(2) {
+    color: #999;
+    flex: 1;
+    padding-left: 20rpx;
+    box-sizing: border-box;
+    height: 70rpx;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    line-height: 70rpx;
+}
+
+.discuss .list .item .item_b {
+    margin-top: 20rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    white-space: normal;
+}
+
+.bottom_block {
+    height: 120rpx;
+}
+
+.bottom_block.curr {
+    height: 180rpx;
+}
+
+.bottom {
+    display: flex;
+    position: fixed;
+    background: #fff;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    height: 100rpx;
+}
+
+.bottom.curr {
+    padding-bottom: 60rpx;
+}
+
+.bottom .icon {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bottom .icon>image {
+    width: 60rpx;
+    height: 60rpx;
+}
+
+.bottom .icon+.icon {
+    border-left: #ddd 2rpx solid;
+}
+
+.bottom .btn {
+    line-height: 100rpx;
+    text-align: center;
+    color: #fff;
+    font-size: 4.5vw;
+    flex: 2;
+}
+
+.zuo {
+    overflow: hidden;
+    padding: 0 20rpx 20rpx 20rpx;
+}
+
+.zuo>image {
+    width: 220rpx;
+    height: 180rpx;
+    float: left;
+    margin-right: 13rpx;
+    margin-bottom: 10rpx;
+}
+
+.share {
+    position: fixed;
+    z-index: 10;
+    bottom: 20vh;
+    right: 20rpx;
+    width: 80rpx;
+    height: 80rpx;
+}

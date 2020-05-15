@@ -1,0 +1,259 @@
+page {
+    background: #f7f7f7;
+}
+
+.page {
+    padding: 10rpx 0;
+    box-sizing: border-box;
+}
+
+.list {
+    background: #fff;
+    padding: 0 30rpx;
+}
+
+.list .title {
+    text-align: center;
+    padding: 20rpx 0;
+}
+
+.list .title>view:nth-child(2) {
+    width: 50rpx;
+    height: 4rpx;
+    margin: 0 auto;
+    background: #000;
+    margin-top: 10rpx;
+}
+
+.list .item {
+    display: flex;
+    border-top: #ddd 2rpx dashed;
+    padding: 20rpx;
+    color: #999;
+}
+
+.list .item>view:nth-child(2) {
+    flex: 1;
+    text-align: right;
+    color: #000;
+}
+
+.list .item>input {
+    width: 100%;
+    color: #000;
+}
+
+.list+.list {
+    margin-top: 10rpx;
+}
+
+.list .choose {
+    display: flex;
+    border-top: #ddd 2rpx dashed;
+    border-bottom: #ddd 2rpx dashed;
+    padding: 20rpx 0;
+}
+
+.list .choose .choose_i {
+    flex: 1;
+    color: #999;
+    display: flex;
+}
+
+.list .choose .choose_i>view:nth-child(1) {
+    width: 36rpx;
+    height: 36rpx;
+    border-radius: 100%;
+    border: #ddd 2rpx solid;
+    margin-right: 10rpx;
+}
+
+.list .choose .choose_i>view.curr:nth-child(1) {
+    width: 16rpx;
+    height: 16rpx;
+    border-radius: 100%;
+    border: #444 12rpx solid;
+}
+
+.btn_block {
+    height: 100rpx;
+}
+
+.btn {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    height: 100rpx;
+    align-items: center;
+    font-size: 4vw;
+    background: #fff;
+}
+
+.btn>view:nth-child(1) {
+    flex: 1;
+    padding: 30rpx;
+    color: #999999;
+}
+
+.btn>view:nth-child(1) {
+    flex: 1;
+    padding: 30rpx;
+    color: #999999;
+}
+
+.btn .pay {
+    width: 400rpx;
+    height: 100rpx;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn .pay {
+    border-radius: 0;
+    border: none;
+}
+
+.btn .pay::after {
+    content: '';
+    border-radius: 0;
+    border: none;
+}
+
+.menu {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: #fff;
+}
+
+.menu .menu_top {
+    padding: 20rpx 30rpx;
+    text-align: center;
+    position: relative;
+}
+
+.menu .menu_top .menu_close {
+    position: absolute;
+    left: 30rpx;
+    font-size: 4.5vw;
+    top: 50%;
+    transform: translate(0,-50%);
+}
+
+.menu .menu_list {
+    height: 40vh;
+    margin-top: 30rpx;
+    padding: 0 30rpx;
+}
+
+.menu .menu_list .item {
+    display: flex;
+    align-items: center;
+    padding: 20rpx 0;
+    border-bottom: #ddd 2rpx solid;
+}
+
+.menu .menu_list .item>icon {
+    display: flex;
+    align-items: center;
+    margin-right: 10rpx;
+}
+
+.menu .menu_btn {
+    height: 100rpx;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4.5vw;
+    border-radius: 0;
+    border: none;
+}
+
+.menu .menu_btn::after {
+    content: '';
+    border-radius: 0;
+    border: none;
+}
+
+.menu .item_c {
+    display: flex;
+    align-items: center;
+    padding: 20rpx 0;
+    border-bottom: #ddd 2rpx solid;
+    position: relative;
+}
+
+.menu .item_c .tip {
+    position: absolute;
+    bottom: 0;
+    font-size: 2.5vw;
+    left: 70rpx;
+}
+
+.menu .item_c>view:nth-child(2) {
+    flex: 1;
+    margin-left: 20rpx;
+}
+
+.menu .item_c>icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sign {
+    position: fixed;
+    width: 80%;
+    background: #fff;
+    top: 20vw;
+    left: 10%;
+    z-index: 999;
+    border-radius: 40rpx;
+    padding: 40rpx 20rpx 40rpx;
+    box-sizing: border-box;
+}
+
+.sign>view:nth-child(1) {
+    text-align: center;
+    font-size: 5vw;
+    color: #12b8f6;
+}
+
+.sign input {
+    flex: 1;
+    padding: 0 20rpx;
+    text-align: center;
+    border: #ddd 2rpx solid;
+    border-radius: 40rpx;
+    margin-top: 20rpx;
+}
+
+.sign .sign_btn {
+    background: #12b8f6;
+    color: #fff;
+    font-size: 5vw;
+    text-align: center;
+    padding: 10rpx 20rpx;
+    border-radius: 40rpx;
+    margin-top: 40rpx;
+    line-height: inherit;
+}
+
+.sign .sign_tip {
+    font-size: 3vw;
+    text-align: center;
+    color: red;
+}
+
+.sign .sign_close {
+    position: absolute;
+    top: 10rpx;
+    right: 20rpx;
+}

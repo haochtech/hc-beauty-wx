@@ -1,0 +1,339 @@
+page {
+    background: #f7f7f7;
+}
+
+.top {
+    height: 200rpx;
+    position: relative;
+}
+
+.top .top_t {
+    position: absolute;
+    width: 92vw;
+    top: 50rpx;
+    left: 4vw;
+}
+
+.top .top_t .item_t.curr {
+    height: 160rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+.top .top_t .item_t.curr .item_choose {
+    width: 350rpx;
+    height: 70rpx;
+    line-height: 70rpx;
+    text-align: center;
+    color: #fff;
+    border-radius: 70rpx;
+    margin: 0 auto;
+}
+
+.top .top_t .item_t {
+    display: flex;
+    padding: 20rpx 30rpx;
+    background: #fff;
+    border-radius: 20rpx 20rpx 0 0;
+}
+
+.top .top_t .item_t>image {
+    width: 120rpx;
+    height: 120rpx;
+    border-radius: 100%;
+}
+
+.top .top_t .item_t .item_l {
+    flex: 1;
+    width: 450rpx;
+    box-sizing: border-box;
+    padding-left: 20rpx;
+}
+
+.top .top_t .item_t .item_l>view {
+    width: 500rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #999;
+    line-height: 5vw;
+}
+
+.top .top_t .item_t .item_l>view:nth-child(1) {
+    color: #333;
+    font-size: 4.5vw;
+    margin-bottom: 10rpx;
+}
+
+.top .top_t .item_t .item_r {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    line-height: 4vw;
+    color: #999;
+    border-left: #f3a7bf 2rpx dashed;
+    padding-left: 20rpx;
+    width: 100rpx;
+    box-sizing: border-box;
+}
+
+.top .top_t .item_b {
+    display: flex;
+}
+
+.top .top_t .item_b>view {
+    flex: 1;
+    height: 70rpx;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.top .top_t .item_b>view:nth-child(1) {
+    border-radius: 0 0 0 20rpx;
+    background: #f3a7bf;
+}
+
+.page.theme3 .top .top_t .item_b>view:nth-child(1) {
+    border-radius: 0 0 0 20rpx;
+    background: #686a6a;
+}
+
+.top .top_t .item_b>view:nth-child(2) {
+    border-radius: 0 0 20rpx 0;
+}
+
+.top .top_t .item_b image {
+    width: 30rpx;
+    height: 30rpx;
+    margin-right: 14rpx;
+}
+
+.top .top_t .item_btn {
+    position: absolute;
+    right: 0;
+    top: 20rpx;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    padding: 10rpx 20rpx;
+    border-radius: 30rpx 0 0 30rpx;
+}
+
+.top .top_t .item_btn>image {
+    width: 40rpx;
+    margin-right: 10rpx;
+}
+
+.top_block {
+    height: 80rpx;
+}
+
+.userinfo {
+    margin-top: 10rpx;
+    background: #fff;
+    padding: 20rpx;
+    display: flex;
+}
+
+.userinfo>image {
+    height: 80rpx;
+    width: 80rpx;
+}
+
+.userinfo .item_r {
+    margin-left: 20rpx;
+    width: 610rpx;
+}
+
+.userinfo .item_r>view:nth-child(2) {
+    color: #999;
+}
+
+.list {
+    background: #fff;
+    margin-top: 10rpx;
+    padding: 0 50rpx;
+}
+
+.list .item {
+    display: flex;
+    padding: 20rpx 0;
+    align-items: center;
+}
+
+.list .item+.item {
+    border-top: #ddd 2rpx solid;
+}
+
+.list .item>input {
+    text-align: center;
+    flex: 1;
+    line-height: 40rpx;
+    height: 40rpx;
+    min-height: 40rpx;
+}
+
+.list .item>view:nth-child(2) {
+    flex: 1;
+    text-align: right;
+}
+
+.list .item .box {
+    width: 40rpx;
+    height: 40rpx;
+    border-radius: 100%;
+    background: #000;
+    color: #fff;
+    line-height: 40rpx;
+    text-align: center;
+}
+
+.btn {
+    margin: 20rpx;
+    color: #fff;
+    line-height: 70rpx;
+    height: 70rpx;
+    text-align: center;
+    border-radius: 10rpx;
+}
+
+.menu {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: #fff;
+}
+
+.menu .menu_top {
+    padding: 20rpx 30rpx;
+    text-align: center;
+    position: relative;
+}
+
+.menu .menu_top .menu_close {
+    position: absolute;
+    left: 30rpx;
+    font-size: 4.5vw;
+    top: 50%;
+    transform: translate(0,-50%);
+}
+
+.menu .menu_list {
+    height: 40vh;
+    margin-top: 30rpx;
+    padding: 0 30rpx;
+    overflow: scroll;
+}
+
+.menu .menu_list .item {
+    display: flex;
+    align-items: center;
+    padding: 20rpx 0;
+    border-bottom: #ddd 2rpx solid;
+}
+
+.menu .menu_list .item>icon {
+    display: flex;
+    align-items: center;
+    margin-right: 10rpx;
+}
+
+.menu .menu_btn {
+    height: 100rpx;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4.5vw;
+    border-radius: 0;
+    border: none;
+}
+
+.menu .menu_btn::after {
+    content: '';
+    border-radius: 0;
+    border: none;
+}
+
+.menu .item_c {
+    display: flex;
+    align-items: center;
+    padding: 20rpx 0;
+    border-bottom: #ddd 2rpx solid;
+    position: relative;
+}
+
+.menu .item_c .tip {
+    position: absolute;
+    bottom: 0;
+    font-size: 2.5vw;
+    left: 70rpx;
+}
+
+.menu .item_c>view:nth-child(2) {
+    flex: 1;
+    margin-left: 20rpx;
+}
+
+.menu .item_c>icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sign {
+    position: fixed;
+    width: 80%;
+    background: #fff;
+    top: 20vw;
+    left: 10%;
+    z-index: 1000;
+    border-radius: 40rpx;
+    padding: 40rpx 20rpx 40rpx;
+    box-sizing: border-box;
+}
+
+.sign>view:nth-child(1) {
+    text-align: center;
+    font-size: 5vw;
+    color: #12b8f6;
+}
+
+.sign input {
+    flex: 1;
+    padding: 0 20rpx;
+    text-align: center;
+    border: #ddd 2rpx solid;
+    border-radius: 40rpx;
+    margin-top: 20rpx;
+}
+
+.sign .sign_btn {
+    background: #12b8f6;
+    color: #fff;
+    font-size: 5vw;
+    text-align: center;
+    padding: 10rpx 20rpx;
+    border-radius: 40rpx;
+    margin-top: 40rpx;
+    line-height: inherit;
+}
+
+.sign .sign_tip {
+    font-size: 3vw;
+    text-align: center;
+    color: red;
+}
+
+.sign .sign_close {
+    position: absolute;
+    top: 10rpx;
+    right: 20rpx;
+}

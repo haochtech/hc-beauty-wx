@@ -1,0 +1,50 @@
+page {
+    background: #f7f7f7;
+    box-sizing: border-box;
+    padding-top: 4rpx;
+}
+
+.sub3 {
+}
+
+.sub3 .item {
+    background: #fff;
+    padding: 20rpx;
+}
+
+.sub3 .item+.item {
+    margin-top: 4rpx;
+}
+
+.sub3 .item .itemT {
+    display: flex;
+}
+
+.sub3 .item .itemT .sp1 {
+    flex: 1;
+}
+
+.sub3 .item .itemT .sp2 {
+    color: #ffbf00;
+}
+
+.sub3 .item .itemT .sp3 {
+    color: #008c69;
+}
+
+.sub3 .item .itemT+.itemT {
+    margin-top: 20rpx;
+}
+
+.sub3 .item .itemB {
+    display: flex;
+    margin-top: 20rpx;
+}
+
+.sub3 .item .itemB>view {
+    flex: 1;
+}
+
+.sub3 .item .itemT .sp4 {
+    color: #b8b8b8;
+}

@@ -1,0 +1,64 @@
+<import src="../../ui2/common/common.wxml"></import>
+<view class="page">
+    <view class="top">
+        <image class="back" mode="widthFix" src="{{card.content.card?card.content.card:can_bimg.card}}" wx:if="{{userinfo.card!=1}}"></image>
+        <image class="back" mode="widthFix" src="{{card.content.card_on?card.content.card_on:can_bimg.card_on}}" wx:if="{{userinfo.card==1}}"></image>
+        <view class="userinfo">
+            <image src="{{userinfo.avatar}}"></image>
+            <view>{{userinfo.nick}}</view>
+        </view>
+    </view>
+    <view class="list" wx:if="{{edit==1}}">
+        <view class="title">会员卡绑定</view>
+        <view class="item" style="border:{{theme.color+' 2rpx solid'}};">
+            <image src="{{theme.name=='theme3'?'../../resource/theme3_22.png':theme.icon[21]}}"></image>
+            <input bindinput="input" data-name="name" placeholder="姓名" placeholderStyle="color:#999999;" type="text" value="{{name}}"></input>
+        </view>
+        <view class="item" style="border:{{theme.color+' 2rpx solid'}};">
+            <image src="{{theme.name=='theme3'?'../../resource/theme3_33.png':theme.icon[22]}}"></image>
+            <input bindinput="input" data-name="mobile" placeholder="手机号" placeholderStyle="color:#999999;" type="number" value="{{mobile}}"></input>
+        </view>
+        <view class="item code" style="border:{{theme.color+' 2rpx solid'}};" wx:if="{{card.content.code_status==1}}">
+            <input bindinput="input" data-name="code" type="number" value="{{code}}"></input>
+            <view bindtap="getcode" style="background:{{theme.color}};">{{isload?'('+times+'s)':'发送验证码'}}</view>
+        </view>
+        <view class="item" style="border:{{theme.color+' 2rpx solid'}};">
+            <image src="{{theme.name=='theme3'?'../../resource/theme3_34.png':theme.icon[23]}}"></image>
+            <input password bindinput="input" data-name="password" placeholder="请输入6位以上的密码" placeholderStyle="color:#999999;" type="number" value="{{password}}"></input>
+        </view>
+        <view bindtap="to_store" class="item" style="border:{{theme.color+' 2rpx solid'}};">
+            <image src="{{theme.name=='theme3'?'../../resource/theme3_34.png':theme.icon[23]}}"></image>
+            <input disabled="true" placeholder="点击绑定门店" placeholderStyle="color:#999999;" type="number" value="{{userinfo.store_name}}"></input>
+        </view>
+        <view bindtap="submit" class="btn" style="background:{{submit?theme.color:'#aaa'}};">确定</view>
+    </view>
+    <view class="list" wx:if="{{edit==2}}">
+        <view class="title">会员卡绑定信息</view>
+        <view class="item_c">
+            <image src="{{theme.name=='theme3'?'../../resource/theme3_22.png':theme.icon[21]}}"></image>
+            <view>{{userinfo.name}}</view>
+        </view>
+        <view class="item_c">
+            <image src="{{theme.name=='theme3'?'../../resource/theme3_33.png':theme.icon[22]}}"></image>
+            <view>{{userinfo.mobile}}</view>
+        </view>
+        <view bindtap="forget" class="tip">信息修改</view>
+    </view>
+    <view class="list" wx:if="{{edit==3}}">
+        <view class="title">找回密码</view>
+        <view class="item" style="border:{{theme.color+' 2rpx solid'}};">
+            <image src="{{theme.name=='theme3'?'../../resource/theme3_33.png':theme.icon[22]}}"></image>
+            <input bindinput="input" data-name="mobile" placeholder="手机号" placeholderStyle="color:#999999;" type="number" value="{{mobile}}"></input>
+        </view>
+        <view class="item code" style="border:{{theme.color+' 2rpx solid'}};" wx:if="{{card.content.code_status==1}}">
+            <input bindinput="input" data-name="code" type="number" value="{{code}}"></input>
+            <view bindtap="getcode" style="background:{{theme.color}};">{{isload?'('+times+'s)':'发送验证码'}}</view>
+        </view>
+        <view class="item" style="border:{{theme.color+' 2rpx solid'}};">
+            <image src="{{theme.name=='theme3'?'../../resource/theme3_34.png':theme.icon[23]}}"></image>
+            <input password bindinput="input" data-name="password" placeholder="请输入6位以上的密码" placeholderStyle="color:#999999;" type="number" value="{{password}}"></input>
+        </view>
+        <view bindtap="forget_submit" class="btn" style="background:{{forget_submit?theme.color:'#aaa'}};">确定</view>
+    </view>
+    <template is="get_userinfo" data="{{shadow:shadow,get_userinfo:get_userinfo,config:config,can_bimg:can_bimg,app_step1:app_step1,app_step2:app_step2}}"></template>
+</view>

@@ -1,0 +1,26 @@
+<view class="page">
+    <view class="coupon">
+        <image class="back" mode="widthFix" src="{{can_bimg.coupon}}"></image>
+        <view class="tip">
+            <view wx:if="{{list.user==-1}}">您已领取
+        <text style="color:#ea4143;">{{list.name}}</text>元代金券</view>
+            <view wx:if="{{list.user==1}}">您已领过代金券</view>
+            <view>叫小伙伴一起薅羊毛吧</view>
+        </view>
+        <view class="item">
+            <view class="item_l">
+                <text style="font-size:6vw;">{{list.name}}</text>元</view>
+            <view class="item_r">
+                <view>{{list.condition?'满'+list.condition+'元可用':'无消费金额限制'}}</view>
+                <view wx:if="{{list.failtime}}">有效期至{{list.failtime}}</view>
+            </view>
+        </view>
+        <view class="text">{{config.coupon_text?config.coupon_text:'所有店面通用'}}</view>
+    </view>
+    <view class="signNotice" wx:if="{{config.coupon_rule}}">
+        <view class="h1">使用规则：</view>
+        <text class="p">{{config.coupon_rule}}</text>
+    </view>
+    <view bindtap="pay" class="btn" style="border-color:{{theme.color}};background:{{theme.color}};color:#fff;">去下单</view>
+    <view bindtap="share" class="btn" wx:if="{{share.content.status==1}}">邀请好友一起来</view>
+</view>

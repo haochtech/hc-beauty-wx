@@ -1,0 +1,43 @@
+<import src="../common/common.wxml"></import>
+<view class="page">
+    <view class="item {{theme.name}}">
+        <image src="{{list.service.simg}}"></image>
+        <view class="item_content">
+            <view>{{list.service.name}}</view>
+            <view class="num">已团：{{list.service.group_total}}件</view>
+            <view class="price" style="border-top-color:{{theme.color}};">
+                <view>¥{{list.service.group_price}}</view>
+                <view>¥{{list.service.price}}</view>
+            </view>
+            <view class="item_btn">
+                <view>{{list.total}}人团</view>
+                <view>拼团立省¥{{list.sale}}</view>
+            </view>
+        </view>
+    </view>
+    <view class="member {{list.status==2?'fail':''}}">
+        <view wx:if="{{list.status==-1}}">还差<text class="limit">{{list.total-list.team_total}}</text>人，快喊小伙伴一起来拼团吧</view>
+        <view wx:if="{{list.status==-1}}">仅剩<text class="limit">{{list.hour}}:{{list.min}}:{{list.second}}</text>失效</view>
+        <view wx:if="{{list.status==1}}">已经拼团成功咯！<text class="limit">{{list.total}}</text>人参与了拼团</view>
+        <view wx:if="{{list.status==2}}">拼团失败！</view>
+        <view wx:if="{{list.status==2}}">货款已原路返回到您的付款账户</view>
+        <view class="member_hd">
+            <view class="member_item">
+                <image src="{{list.avatar}}"></image>
+                <view>团长</view>
+            </view>
+            <view class="member_item" wx:for="{{list.team}}" wx:for-index="idx" wx:key="idx">
+                <image src="{{item}}"></image>
+                <view>团员</view>
+            </view>
+            <view class="member_item" wx:for="{{list.empty}}" wx:for-index="idx" wx:key="idx">
+                <view>?</view>
+            </view>
+        </view>
+    </view>
+    <button bindtap="menu_on" style="background:{{theme.color}};" type="primary" wx:if="{{list.status==-1}}">我要参团</button>
+    <button openType="share" type="default" wx:if="{{list.status==-1}}">我要分享</button>
+    <button bindtap="to_order" style="background:{{theme.color}};" type="primary" wx:if="{{list.status==1}}">我的订单</button>
+    <button bindtap="to_index" type="default">返回首页</button>
+    <template is="get_userinfo" data="{{shadow:shadow,get_userinfo:get_userinfo,config:config,can_bimg:can_bimg,app_step1:app_step1,app_step2:app_step2}}"></template>
+</view>

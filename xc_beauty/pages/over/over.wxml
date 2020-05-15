@@ -1,0 +1,8 @@
+<view class="page">
+    <image src="../../resource/over.png"></image>
+    <view class="text">我的余额</view>
+    <view class="money">¥{{userinfo.money?userinfo.money:'0.00'}}</view>
+    <view bindtap="to_recharge" class="btn btn1" data-index="1" style="background:{{theme.color}};">充值</view>
+    <view bindtap="to_recharge" class="btn btn2 {{theme.name}}" data-index="2" wx:if="{{card.content.withdraw==1}}">提现</view>
+    <view bindtap="to_record" class="tip" url="record">查看账单明细＞</view>
+</view>

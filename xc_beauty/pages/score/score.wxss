@@ -1,0 +1,251 @@
+.top {
+    height: 250rpx;
+    position: relative;
+}
+
+.top .back {
+    background: #fff;
+    height: 100rpx;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    border-radius: 100% 100% 0 0;
+}
+
+.top .item {
+    background: #fff;
+    width: 170rpx;
+    height: 170rpx;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 0px 10rpx 2rpx #fdeef3;
+    position: absolute;
+    left: 50%;
+    bottom: 20rpx;
+    transform: translate(-50%);
+}
+
+.top .item.theme3 {
+    box-shadow: 0px 0px 10rpx 2rpx #ddd;
+}
+
+.top .item>image {
+    width: 100rpx;
+    height: 100rpx;
+}
+
+.list {
+    margin: 20rpx 30rpx;
+}
+
+.list>view:nth-child(1) {
+    text-align: center;
+    font-size: 4.5vw;
+}
+
+.list>view:nth-child(2) {
+    text-align: center;
+    font-size: 8vw;
+    margin-top: 20rpx;
+}
+
+.list .scoreBtn {
+    display: flex;
+    align-items: center;
+    margin-top: 60rpx;
+    justify-content: center;
+}
+
+.list .scoreBtn .sp1 {
+    border: #ddd 2rpx solid;
+    width: 180rpx;
+    height: 60rpx;
+    border-radius: 60rpx;
+    color: #999999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 10rpx;
+}
+
+.list .content {
+    border-radius: 20rpx;
+    box-shadow: 0px 0px 10rpx 2rpx #fdeef3;
+    margin-top: 100rpx;
+    padding: 0 20rpx;
+}
+
+.list .content.theme3 {
+    box-shadow: 0px 0px 10rpx 2rpx #ddd;
+}
+
+.list .content .title {
+    height: 80rpx;
+    position: relative;
+}
+
+.list .content .title>view:nth-child(1) {
+    height: 40rpx;
+    border-bottom: #ddd 2rpx solid;
+}
+
+.list .content .title>view:nth-child(2) {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: #fff;
+    width: 240rpx;
+    text-align: center;
+}
+
+.list .content .content_list {
+    margin-top: 30rpx;
+    overflow: hidden;
+}
+
+.list .content .item {
+    width: 33.33333333333333333333%;
+    text-align: center;
+    font-size: 3vw;
+    padding-bottom: 30rpx;
+    float: left;
+}
+
+.list .content .item .item_top {
+    width: 80rpx;
+    height: 20rpx;
+    border-radius: 20rpx;
+    margin: 0 auto;
+    transform: translateY(10rpx);
+}
+
+.list .content .item .item_price {
+    height: 100rpx;
+    width: 100rpx;
+    border-radius: 10rpx;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4.5vw;
+    margin: 0 auto;
+}
+
+.list .content .item .text {
+    margin-top: 10rpx;
+    line-height: 4vw;
+}
+
+.list .content .item .score {
+    color: #f29b0d;
+    line-height: 4vw;
+}
+
+.list .content .item .btn {
+    width: 80rpx;
+    height: 40rpx;
+    color: #e75c51;
+    border: #e75c51 2rpx solid;
+    border-radius: 10rpx;
+    margin: 0 auto;
+    margin-top: 10rpx;
+}
+
+.yin {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0,0,0,0.5);
+    z-index: 99;
+}
+
+.yin .menu {
+    width: 650rpx;
+    position: fixed;
+    top: 200rpx;
+    left: 50rpx;
+    z-index: 100;
+    background: #fff;
+    box-sizing: border-box;
+    padding: 40rpx;
+}
+
+.yin .menu .menu_title {
+    padding: 20rpx;
+    text-align: center;
+}
+
+.yin .menu .menu_user {
+    padding: 20rpx 0;
+    text-align: center;
+}
+
+.yin .menu .menu_user>image {
+    width: 120rpx;
+    height: 120rpx;
+    display: block;
+    margin: 0 auto;
+}
+
+.yin .menu .menu_user .menu_nick {
+    margin-top: 10rpx;
+}
+
+.yin .menu .menu_user .menu_mobile {
+    color: #AAAAAA;
+}
+
+.yin .menu .menu_item {
+    display: flex;
+    align-items: center;
+    padding: 20rpx 0;
+    margin-top: 20rpx;
+    border-top: #EEEEEE 2rpx solid;
+    border-bottom: #EEEEEE 2rpx solid;
+}
+
+.yin .menu .menu_item>input {
+    flex: 1;
+    box-sizing: border-box;
+    padding: 0 40rpx;
+}
+
+.yin .menu .menu_btn {
+    color: #fff;
+    text-align: center;
+    line-height: 80rpx;
+    border-radius: 10rpx;
+    margin: 80rpx 0;
+}
+
+.yin .menu .menu_item2 {
+    padding: 10rpx 0;
+    border-bottom: #EEEEEE 2rpx solid;
+}
+
+.yin .menu .menu_item2>input {
+    margin-top: 30rpx;
+}
+
+.yin .menu .menu_tip {
+    text-align: right;
+    margin-top: 10rpx;
+}
+
+.yin .menu .menu_tip .sp1 {
+    color: #AAAAAA;
+}
+
+.yin .menu .menu_close {
+    position: absolute;
+    top: -70rpx;
+    right: 0;
+    display: flex;
+    align-items: center;
+}

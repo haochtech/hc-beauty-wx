@@ -1,0 +1,136 @@
+page {
+    background: #f7f7f7;
+}
+
+.search {
+    background: #fff;
+    padding: 20rpx 30rpx;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 99;
+    border-top: #ddd 2rpx solid;
+    border-bottom: #ddd 2rpx solid;
+}
+
+.search .item {
+    display: flex;
+    border: #ddd 2rpx solid;
+    border-radius: 10rpx;
+    padding: 20rpx;
+}
+
+.search .item>input {
+    flex: 1;
+    text-align: center;
+}
+
+.block {
+    height: 140rpx;
+}
+
+.list {
+    background: #fff;
+    padding: 0 30rpx;
+}
+
+.order .item {
+    background: #fff;
+    padding: 0 30rpx;
+}
+
+.order .item+.item {
+    margin-top: 10rpx;
+}
+
+.order .item .item_t {
+    padding: 20rpx 0 10rpx;
+    position: relative;
+}
+
+.order .item .item_t .item_tt {
+    display: flex;
+    padding-right: 50rpx;
+}
+
+.order .item .item_t .item_tt .attr {
+    color: #B9B9B9;
+}
+
+.order .item .item_t .item_tt+.item_tt {
+    margin-top: 10rpx;
+}
+
+.order .item .item_t .item_tt>view:nth-child(1) {
+    flex: 1;
+}
+
+.order .item .item_t .item_tt>view:nth-child(2) {
+    width: 200rpx;
+}
+
+.order .item .item_t .arrow {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translate(0,-50%);
+}
+
+.order .item .item_c {
+    display: flex;
+    padding-bottom: 20rpx;
+    align-items: center;
+}
+
+.order .item .item_c>view:nth-child(1) {
+    color: #B9B9B9;
+}
+
+.order .item .item_c>view:nth-child(2) {
+    flex: 1;
+}
+
+.order .item .item_b {
+    display: flex;
+    border-top: #ddd 2rpx dashed;
+    padding: 20rpx 0;
+}
+
+.order .item .item_b .btn {
+    width: 160rpx;
+    height: 50rpx;
+    line-height: 50rpx;
+    border-radius: 50rpx;
+    background: #ffbf00;
+    color: #fff;
+    text-align: center;
+}
+
+.order .item .item_b .btn.type1 {
+    background: #ffbf00;
+}
+
+.order .item .item_b .btn.type2 {
+    background: #00b285;
+}
+
+.order .item .item_b .btn.type3 {
+    background: #bbbbbb;
+}
+
+.order .item .item_b .item_bb {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex: 1;
+}
+
+.order .item .item_b .item_bb>view {
+    padding: 0 10rpx;
+}
+
+.order .item .item_b .item_bb view+view {
+    border-left: #999 2rpx solid;
+}

@@ -1,0 +1,41 @@
+<view class="page">
+    <view class="top" style="background:{{theme.color}};">
+        <image src="../../resource/over.png"></image>
+        <view>{{userinfo.share_amount}}</view>
+        <view>累计佣金（元)</view>
+    </view>
+    <view class="tip {{theme.name}}">
+        <view>可提现佣金</view>
+        <view>{{userinfo.share_o_amount}}元</view>
+    </view>
+    <view class="list {{theme.name}}">
+        <view class="item">
+            <view>已申请佣金</view>
+            <view>{{userinfo.withdraw}}元</view>
+        </view>
+        <view class="item">
+            <view>待打款佣金</view>
+            <view>{{userinfo.withdraw}}元</view>
+        </view>
+        <view class="item">
+            <view>无效佣金</view>
+            <view>{{userinfo.share_empty}}元</view>
+        </view>
+        <view class="item">
+            <view>成功提现佣金</view>
+            <view>{{userinfo.share_t_amount}}元</view>
+        </view>
+        <view class="item">
+            <view>待收货佣金</view>
+            <view>0.00元</view>
+        </view>
+        <view class="item">
+            <view>未结算佣金</view>
+            <view>0.00元</view>
+        </view>
+    </view>
+    <view class="rules" wx:if="{{share.content.rules}}">
+        <view class="title">用户须知</view>
+        <view class="content">{{share.content.rules}}</view>
+    </view>
+</view>

@@ -1,0 +1,16 @@
+<view class="page">
+    <view class="list">
+        <image mode="widthFix" src="{{item}}" wx:for="{{bimg}}" wx:key="idx"></image>
+    </view>
+    <view class="bottom_block"></view>
+    <view class="bottom">
+        <view bindtap="to_index" class="icon">
+            <image src="../../resource/theme3_14.png"></image>
+        </view>
+        <view class="icon">
+            <image src="../../resource/theme3_27.png"></image>
+            <button class="share" openType="share"></button>
+        </view>
+        <view bindtap="submit" class="btn" style="background:{{theme.color}};">立即预约</view>
+    </view>
+</view>

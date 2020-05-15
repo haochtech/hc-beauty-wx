@@ -1,0 +1,30 @@
+<import src="../../../wxParse/wxParse.wxml"></import>
+<view class="page">
+    <view class="list">
+        <view bindtap="tab" class="item" data-index="{{index}}" wx:for="{{list.list}}" wx:key="idx">
+            <view class="itemT">
+                <image class="simg" mode="aspectFill" src="{{list.back_img?list.back_img:can_bimg.card01}}"></image>
+                <view class="itemBox">
+                    <view class="sp1">
+                        <text class="sp3">{{item.amount}}</text>元</view>
+                    <view class="sp2">售价: ¥{{item.price}}</view>
+                </view>
+            </view>
+            <view class="itemB">
+                <icon color="{{curr==index?theme.color:'#aaa'}}" size="25" type="{{curr==index?'success':'circle'}}"></icon>
+            </view>
+        </view>
+    </view>
+    <view class="rule">
+        <view class="sp1">充值卡说明：</view>
+        <view class="content">
+            <template is="wxParse" data="{{wxParseData:content.nodes}}"></template>
+        </view>
+    </view>
+    <view class="block {{filters.toPhone(config.model)?'curr':''}}" wx:if="{{curr!=-1}}"></view>
+    <view bindtap="submit" class="pay {{filters.toPhone(config.model)?'curr':''}}" style="background:{{theme.color}};" wx:if="{{curr!=-1}}">
+        <view class="sp1">¥{{list.list[curr].price}}</view>
+        <view class="sp2">立即支付</view>
+    </view>
+</view>
+<wxs module="filters" src="../common/common.wxs" />

@@ -1,0 +1,29 @@
+<view class="applyNav">
+    <view bindtap="tab" class="applyNavItem" data-index="0" style="color:{{curr==0?theme.color:''}};border-bottom:{{curr==0?theme.color+' 4rpx solid':''}};">全部</view>
+    <view bindtap="tab" class="applyNavItem" data-index="1" style="color:{{curr==1?theme.color:''}};border-bottom:{{curr==1?theme.color+' 4rpx solid':''}};">未审核</view>
+    <view bindtap="tab" class="applyNavItem" data-index="2" style="color:{{curr==2?theme.color:''}};border-bottom:{{curr==2?theme.color+' 4rpx solid':''}};">通过</view>
+    <view bindtap="tab" class="applyNavItem" data-index="3" style="color:{{curr==3?theme.color:''}};border-bottom:{{curr==3?theme.color+' 4rpx solid':''}};">未通过</view>
+</view>
+<view class="applyNavBlock"></view>
+<view class="applyCont">
+    <view class="applyItem" wx:for="{{list}}" wx:key="idx">
+        <view class="applyItemL">
+            <view>{{item.name}}</view>
+            <view>{{item.mobile}}</view>
+            <view>{{item.address}}</view>
+            <view wx:if="{{item.content}}">{{item.content}}</view>
+        </view>
+        <view class="applyItemR">
+            <view bindtap="apply_change" class="applyBtn" data-index="{{index}}" data-status="1" wx:if="{{item.status==-1}}">
+                <icon class="sp1" color="#E8A6BD" type="success"></icon>
+                <view>同意</view>
+            </view>
+            <view bindtap="apply_change" class="applyBtn" data-index="{{index}}" data-status="2" wx:if="{{item.status==-1}}">
+                <icon class="sp1" color="#BFBFBF" type="clear"></icon>
+                <view>拒绝</view>
+            </view>
+            <view wx:if="{{item.status==1}}">已同意</view>
+            <view wx:if="{{item.status==2||item.status==3}}">已拒绝</view>
+        </view>
+    </view>
+</view>

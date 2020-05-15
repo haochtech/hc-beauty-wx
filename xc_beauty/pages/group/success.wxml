@@ -1,0 +1,17 @@
+<view class="page">
+    <view class="list">
+        <view class="item_t">
+            <icon color="#1bcf18" size="25" type="success"></icon>
+            <view>拼团完成</view>
+        </view>
+        <view class="tip">还差4人才能拼单成功，剩余时间15:26:07</view>
+        <view class="imgs">
+            <image src="../../resource/test.jpg"></image>
+            <image src="../../resource/test.jpg" style="transform:translateX(-10px);"></image>
+            <image src="../../resource/test.jpg" style="transform:translateX(-20px);"></image>
+            <image src="../../resource/test.jpg" style="transform:translateX(-30px);"></image>
+        </view>
+        <view class="btn" style="background:{{theme.color}};color:#fff;border-color:{{theme.color}};">邀请好友来参团</view>
+        <view class="btn">查看订单详情</view>
+    </view>
+</view>

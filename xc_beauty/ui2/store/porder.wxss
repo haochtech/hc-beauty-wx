@@ -1,0 +1,220 @@
+page {
+    background: #f7f7f7;
+}
+
+.nav {
+    display: flex;
+    background: #fff;
+    border-top: #ddd 2rpx solid;
+}
+
+.nav .item {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20rpx 0;
+    font-size: 4.5vw;
+}
+
+.nav .item.curr {
+    background: #444;
+    color: #fff;
+}
+
+.nav .item>image {
+    margin-right: 10rpx;
+}
+
+.list {
+    background: #fff;
+    margin-top: 10rpx;
+    padding: 0 30rpx;
+}
+
+.list .item {
+    display: flex;
+    padding: 20rpx 0;
+    color: #999999;
+}
+
+.list .item>view:nth-child(2) {
+    flex: 1;
+    text-align: right;
+    color: #000000;
+}
+
+.list .item+.item {
+    border-top: #ddd 2rpx dashed;
+}
+
+.list .item .price {
+    color: #999;
+    text-decoration: line-through;
+}
+
+.list .item .num {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.list .item .num>view:nth-child(1),.list .item .num>view:nth-child(3) {
+    width: 50rpx;
+    height: 50rpx;
+    border-radius: 100%;
+    color: #fff;
+    background: #444;
+    text-align: center;
+    line-height: 50rpx;
+}
+
+.list .item .num>view:nth-child(2) {
+    width: 60rpx;
+    height: 50rpx;
+    text-align: center;
+    line-height: 50rpx;
+}
+
+.sign {
+    padding: 30rpx 30rpx 0;
+    background: #fff;
+    margin-top: 10rpx;
+}
+
+.sign .content {
+    padding: 0 20rpx;
+}
+
+.sign .tip {
+    text-align: center;
+    padding: 20rpx;
+}
+
+.sign .content .item {
+    display: flex;
+    padding: 10rpx 0;
+    align-items: center;
+}
+
+.sign .content .item>view:nth-child(1) {
+    color: #999999;
+}
+
+.sign .content .item>input {
+    flex: 1;
+}
+
+.sign .content .item>image {
+    width: 40rpx;
+}
+
+.sign .content .item+.item {
+    border-top: #ddd 2rpx solid;
+}
+
+.sign_btn {
+    padding: 60rpx 30rpx;
+    background: #fff;
+    display: block;
+    border: none;
+}
+
+.btn {
+    height: 88rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    border-radius: 10rpx;
+    background: #aaa;
+}
+
+.sign .content .date {
+    display: flex;
+    align-items: center;
+    border-bottom: #ddd 2rpx solid;
+}
+
+.sign .content .date .date_l {
+    color: #999999;
+    font-size: 5vw;
+    transform: rotateY(180deg);
+}
+
+.sign .content .date .date_r {
+    color: #999999;
+    font-size: 5vw;
+}
+
+.sign .content .date .date_item {
+    text-align: center;
+    line-height: 4vw;
+    width: 120rpx;
+    padding: 10rpx 0;
+}
+
+.sign .content .date .date_item>view:nth-child(1) {
+    font-size: 4vw;
+}
+
+.sign .content .times {
+    padding-top: 20rpx;
+    overflow: hidden;
+}
+
+.sign .content .times>view {
+    color: #999999;
+    border: #999999 2rpx solid;
+    border-radius: 10rpx;
+    float: left;
+    width: 200rpx;
+    text-align: center;
+    height: 50rpx;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.sign .content .times>view text {
+    width: 46rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.sign .content .times>view:nth-child(3n),.sign .content .times>view:nth-child(3n-1) {
+    margin-left: 25rpx;
+}
+
+.pack {
+    background: #fff;
+    padding: 10rpx 0;
+    border-top: #ddd 2rpx dashed;
+}
+
+.pack .item {
+    padding: 10rpx 0;
+    display: flex;
+    align-items: center;
+}
+
+.pack .item .itemL {
+    flex: 1;
+}
+
+.pack .item .itemR {
+    flex: 1;
+    text-align: right;
+}
+
+.pack .item>icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10rpx;
+}

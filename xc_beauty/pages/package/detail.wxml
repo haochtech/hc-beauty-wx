@@ -1,0 +1,135 @@
+<import src="../../../wxParse/wxParse.wxml"></import>
+<import src="../common/common.wxml"></import>
+<view class="page">
+    <swiper autoplay="{{autoplay}}" bindchange="bindchange" class="banner" duration="{{duration}}" indicatorActiveColor="{{theme.color}}" indicatorColor="#ffffff" indicatorDots="{{indicatorDots}}" interval="{{interval}}" style="height:{{imgheights[current]}}rpx;" wx:if="{{list.bimg}}">
+        <swiper-item wx:for="{{list.bimg}}" wx:key="idx">
+            <image bindload="imageLoad" class="slide-image" data-index="{{index}}" src="{{item}}"></image>
+        </swiper-item>
+    </swiper>
+    <view class="list">
+        <view class="list_t">
+            <view class="top">
+                <view class="title">{{list.name}}</view>
+                <view class="price">
+                    <text style="color:{{theme.color}};font-size:5vw;">¥{{list.price}}</text>
+                </view>
+                <view bindtap="share_on" class="share">
+                    <image src="../../resource/theme3_27.png"></image>
+                    <view>分享</view>
+                </view>
+            </view>
+        </view>
+        <view class="you" wx:if="{{list.time_type==1}}">
+            <text decode="true">有&ensp;效&ensp;期：</text>{{list.start}}-{{list.end}}</view>
+        <view class="you" wx:if="{{list.time_type==2}}">
+            <text decode="true">有&ensp;效&ensp;期：</text>{{list.plan_date}}天</view>
+        <view class="service">
+            <view>套餐项目：</view>
+            <view class="serviceV">
+                <view class="flex-display" wx:for="{{list.service}}" wx:key="idx">
+                    <view class="flex-flex1">{{item.name}}</view>
+                    <view>{{item.times}}次</view>
+                </view>
+            </view>
+        </view>
+        <view class="store" wx:if="{{list.store_status==-1&&list.store}}">
+            <view>适用门店：</view>
+            <view class="content">
+                <view class="text" wx:for="{{list.store}}" wx:for-index="idx" wx:key="idx">{{item.name}} </view>
+            </view>
+        </view>
+        <view class="store" wx:if="{{list.store_status==1}}">
+            <view>适用门店：</view>
+            <navigator class="item" url="../../pages/store/index">
+                <view>所有门店通用</view>
+                <view>查看门店></view>
+            </navigator>
+        </view>
+        <view class="detail">
+            <view class="title">
+                <view>图文详情</view>
+                <view></view>
+            </view>
+            <view class="title2">
+                <view>GRAPHIC DETAILS</view>
+                <view></view>
+            </view>
+            <view class="content">
+                <template is="wxParse" data="{{wxParseData:content.nodes}}"></template>
+            </view>
+        </view>
+        <view class="btn2 {{filters.toPhone(config.model)?'curr':''}}">
+            <view bindtap="to_index" class="btn_item curr">
+                <image src="../../resource/home.png"></image>
+                <view>首页</view>
+            </view>
+            <view bindtap="pay" class="btn_item sp1" style="background:{{theme.color}};">
+                <view>购买</view>
+            </view>
+        </view>
+    </view>
+    <view class="bottom_block {{filters.toPhone(config.model)?'curr':''}}"></view>
+    <view class="shadow" wx:if="{{shadow}}"></view>
+    <view class="menu {{filters.toPhone(config.model)?'curr':''}}" wx:if="{{pay}}">
+        <view class="menu_top">
+            <view bindtap="menu_close" class="menu_close">×</view>
+            <view>选择付款方式</view>
+        </view>
+        <view class="menu_list">
+            <view bindtap="pay_choose" class="item_c" data-index="2">
+                <image src="../../resource/over.png"></image>
+                <view>余额支付</view>
+                <icon color="{{pay_type==2?'#41e086':'#999'}}" size="20" type="{{pay_type==2?'success':'circle'}}"></icon>
+            </view>
+            <view bindtap="pay_choose" class="item_c" data-index="1">
+                <image src="{{can_bimg.pay}}"></image>
+                <view>微信支付</view>
+                <icon color="{{pay_type==1?'#41e086':'#999'}}" size="20" type="{{pay_type==1?'success':'circle'}}"></icon>
+            </view>
+        </view>
+        <form reportSubmit bindsubmit="submit">
+            <button class="menu_btn" formType="submit" style="background:{{theme.color}};">立即付款</button>
+        </form>
+    </view>
+    <view class="sign" wx:if="{{sign}}">
+        <view style="color:{{theme.color}};">支付密码</view>
+        <input bindinput="input" password="true" placeholder="请输入支付密码" placeholderStyle="color:#aaa" type="number" value="{{password}}"></input>
+        <view bindtap="sign_btn" class="sign_btn" style="background:{{theme.color}};">确定</view>
+        <icon bindtap="sign_close" class="sign_close" color="#000" size="23" type="cancel"></icon>
+    </view>
+    <view bindtap="closeShare" class="shade" hidden="{{!showShare}}">
+        <view catchtap="void" class="shareLayer">
+            <view class="title">
+                <view class="b">分享到</view>
+            </view>
+            <view class="btns flex-display flex-alignC">
+                <view class="btn flex-flex1">
+                    <label class="navBox">
+                        <image src="../../resource/share_wx.png"></image>
+                        <view>微信好友</view>
+                        <button openType="share"></button>
+                    </label>
+                </view>
+                <view class="border"></view>
+                <view class="btn flex-flex1">
+                    <view catchtap="showhb" class="navBox">
+                        <image src="../../resource/share_hb.png"></image>
+                        <view>生成海报</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="shade" hidden="{{!showhb}}">
+        <view class="hbLayer">
+            <view class="closeBtn">
+                <image bindtap="closehb" src="../../resource/close.png"></image>
+            </view>
+            <image class="hbimg" mode="widthFix" src="{{code}}"></image>
+            <view bindtap="dlimg" class="dlBtn">
+                <image src="../../resource/dl.png"></image>保存图片</view>
+        </view>
+    </view>
+    <template is="get_userinfo" data="{{shadow:shadow,get_userinfo:get_userinfo,config:config,can_bimg:can_bimg,app_step1:app_step1,app_step2:app_step2}}"></template>
+</view>
+<wxs module="filters" src="../common/common.wxs" />

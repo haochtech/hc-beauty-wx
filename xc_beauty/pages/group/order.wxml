@@ -1,0 +1,54 @@
+<import src="../common/common.wxml"></import>
+<view class="page">
+    <view class="list">
+        <view bindtap="to_order" class="item {{theme.name}}" data-index="{{idx}}" wx:for="{{list}}" wx:for-index="idx" wx:key="idx">
+            <view class="item_t">
+                <view class="flex-wap">
+                    <view>订单号:{{item['out_trade_no']}}</view>
+                    <view style="color:{{theme.color}};" wx:if="{{item.status==-1}}">等待中...</view>
+                    <view style="color:{{theme.color}};" wx:if="{{item.status==1}}">拼单成功</view>
+                    <view wx:if="{{item.status==2}}">拼单失败</view>
+                </view>
+                <view>{{item.createtime}}</view>
+            </view>
+            <view class="item_c">
+                <image src="{{item.simg}}"></image>
+                <view>
+                    <view class="title">{{item.name}}</view>
+                    <view class="flex-wap">
+                        <view>¥{{item.price}}</view>
+                        <view>{{item.total}}人拼单</view>
+                    </view>
+                </view>
+            </view>
+            <view class="item_b">
+                <view class="tip" wx:if="{{item.status==-1}}">还差
+            <text style="color:{{theme.color}};">{{item.total-item.team_total}}</text>人，剩余{{item.hour}}:{{item.min}}:{{item.second}}</view>
+                <view catchtap="to_detail" class="btn btn1" data-index="{{idx}}" style="background:{{theme.color}};" wx:if="{{item.status==-1}}">邀请好友拼单</view>
+                <view class="imgs" wx:if="{{item.status!=-1&&(item.yu_check==-1||item.item.yu_check==1&&item.yu_check_result==1)}}">
+                    <image src="{{item.avatar}}"></image>
+                    <image src="{{item2}}" style="transform:translateX(-{{5*(idx2+1)}}px);" wx:for="{{item.team}}" wx:for-index="idx2" wx:for-item="item2" wx:key="idx2"></image>
+                </view>
+                <view class="check" wx:if="{{item.yu_check==1&&item.status!=-1}}">
+                    <view class="item_check" wx:if="{{item.status==1&&item.yu_check==1&&item.yu_check_result==-1}}">
+                        <image mode="widthFix" src="../../resource/check01.png"></image>
+                        <view>审核中</view>
+                    </view>
+                    <view class="item_check" wx:if="{{item.status==2&&item.yu_check==1&&item.yu_check_result==2}}">
+                        <image mode="widthFix" src="../../resource/check02.png"></image>
+                        <view>审核失败</view>
+                    </view>
+                </view>
+                <view catchtap="to_detail" class="btn btn2" data-index="{{idx}}" wx:if="{{item.status!=-1&&(item.yu_check==-1||item.item.yu_check==1&&item.yu_check_result==1)}}">查看拼单</view>
+                <view catchtap="to_discuss" class="btn2 btn" data-index="{{idx}}" wx:if="{{item.order.status==1&&item.order.use==1&&item.order.discuss==-1}}">去评价</view>
+                <view class="btn1 btn" wx:if="{{item.order.status==1&&item.order.use==1&&item.order.discuss==1}}">已评价</view>
+                <view catchtap="member_discuss" class="btn2 btn" data-index="{{idx}}" wx:if="{{item.order.status==1&&item.order.use==1&&item.order.member_discuss==-1&&item.order.member&&item.order.member>0}}">技师评价</view>
+            </view>
+        </view>
+        <view class="error" wx:if="{{list.length==0||!list}}">
+            <image mode="widthFix" src="../../resource/error01.png"></image>
+            <view>没有订单哦~</view>
+        </view>
+    </view>
+    <template is="get_userinfo" data="{{shadow:shadow,get_userinfo:get_userinfo,config:config,can_bimg:can_bimg,app_step1:app_step1,app_step2:app_step2}}"></template>
+</view>

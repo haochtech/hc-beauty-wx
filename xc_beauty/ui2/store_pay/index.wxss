@@ -1,0 +1,62 @@
+page {
+    background: #f7f7f7;
+}
+
+.banner {
+    padding: 30rpx 20rpx;
+    display: flex;
+    align-items: center;
+}
+
+.banner picker {
+    text-align: center;
+    color: #fff;
+    flex: 1;
+}
+
+.banner .btn {
+    height: 50rpx;
+    line-height: 50rpx;
+    padding: 0 40rpx;
+    border-radius: 50rpx;
+    background: #fff;
+}
+
+.nav {
+    display: flex;
+    padding: 20rpx 30rpx;
+    background: #fff;
+    align-items: flex-end;
+}
+
+.nav .sp1 {
+    flex: 1;
+    color: #b9b9b9;
+}
+
+.nav .sp2 {
+    color: #ffc926;
+    font-size: 4.5vw;
+    line-height: 6.5vw;
+}
+
+.list {
+    background: #fff;
+    margin-top: 10rpx;
+    padding: 10rpx 40rpx;
+}
+
+.list .item {
+    display: flex;
+    align-items: center;
+    padding: 20rpx 0;
+    border-bottom: #ddd 2rpx solid;
+}
+
+.list .item .sp1 {
+    flex: 1;
+}
+
+.list .item .sp2 {
+    color: #bababa;
+}

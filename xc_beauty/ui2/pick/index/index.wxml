@@ -1,0 +1,122 @@
+<view class="page" wx:if="{{nav==1}}">
+    <view class="nav">
+        <view bindtap="tab" data-index="1" style="color:{{nav==1?'#fff':''}};background:{{nav==1?theme.color:''}};">配货中心</view>
+        <view bindtap="tab" data-index="2" style="color:{{nav==2?'#fff':''}};background:{{nav==2?theme.color:''}};">订货单</view>
+    </view>
+    <view class="nav_block"></view>
+    <scroll-view scrollX class="pclass">
+        <view bindtap="tbas" data-index="{{index}}" style="border-bottom:{{curr==index?theme.color+' 6rpx solid':''}};" wx:for="{{pclass}}" wx:key="idx">{{item.name}}</view>
+    </scroll-view>
+    <view class="pclass_block"></view>
+    <view class="list">
+        <view class="item" wx:for="{{list}}" wx:key="idx">
+            <view>{{item.name}}</view>
+            <view>{{item.price}}元{{item.unit?'/'+item.unit:''}}</view>
+            <view>
+                <view class="num" style="color:{{item.total>0?'#fff':''}};background:{{item.total>0?theme.color:''}};">
+                    <view bindtap="down" data-index="{{index}}">—</view>
+                    <view>{{item.total}}</view>
+                    <view bindtap="up" data-index="{{index}}">+</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="shadow" wx:if="{{shadow}}"></view>
+    <view class="menu" wx:if="{{menu}}">
+        <view class="menu_top">
+            <view>操作</view>
+            <view>名称</view>
+            <view bindtap="menu_close">关闭</view>
+        </view>
+        <view class="menu_content">
+            <view class="item" wx:for="{{shop_list}}" wx:key="idx">
+                <icon bindtap="shop_del" color="#999" data-index="{{index}}" size="25" type="cancel"></icon>
+                <view class="item_c">
+                    <view>{{item.service}}</view>
+                    <view>{{item.price}}元{{item.unit?'/'+item.unit:''}}</view>
+                </view>
+                <view class="item_r">
+                    <view class="menu_num">
+                        <view bindtap="shop_down" data-index="{{index}}">—</view>
+                        <view>{{item.total}}</view>
+                        <view bindtap="shop_up" data-index="{{index}}">+</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="bottom_block"></view>
+    <view class="bottom">
+        <image bindtap="menu_on" src="../../../resource/theme3_59.png"></image>
+        <view class="tip" style="color:{{theme.color}};">{{shop_num.amount}}元</view>
+        <view bindtap="submit" style="background:{{theme.color}};">确认提交</view>
+        <view class="total" style="background:{{theme.color}};">{{shop_num.total}}</view>
+    </view>
+</view>
+<view class="page" wx:if="{{nav==2}}">
+    <view class="nav">
+        <view bindtap="tab" data-index="1" style="color:{{nav==1?'#fff':''}};background:{{nav==1?theme.color:''}};">配货中心</view>
+        <view bindtap="tab" data-index="2" style="color:{{nav==2?'#fff':''}};background:{{nav==2?theme.color:''}};">订货单</view>
+    </view>
+    <view class="nav_block"></view>
+    <view class="order">
+        <view class="item" wx:for="{{list}}" wx:key="idx">
+            <navigator class="item_t" url="detail?&id={{item.id}}">
+                <view class="item_tt">
+                    <view>
+                        <text class="attr">订单号:</text>{{item.out_trade_no}}</view>
+                    <view>
+                        <text class="attr">数量:</text>{{item.total}}</view>
+                </view>
+                <view class="item_tt">
+                    <view>
+                        <text class="attr">下单日期:</text>{{item.createtime}}</view>
+                    <view>
+                        <text class="attr">金额:</text>{{item.amount}}元</view>
+                </view>
+                <image class="arrow" src="../../../resource/arrow.png"></image>
+            </navigator>
+            <view class="item_b">
+                <view class="btn type1" wx:if="{{item.status==-1}}">待配货</view>
+                <view class="btn type2" wx:if="{{item.status==1}}">送货中</view>
+                <view class="btn type3" wx:if="{{item.status==2}}">已完成</view>
+                <view class="item_bb">
+                    <view bindtap="order_del" data-index="{{index}}" style="color:{{item.status==-1?'':'#999'}}">取消订单</view>
+                    <view bindtap="order_change" data-index="{{index}}" style="color:{{item.status==-1?'':'#999'}}">修改订单</view>
+                    <view bindtap="order_status" data-index="{{index}}" style="color:{{item.status==1?'':'#999'}}">确认收货</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="shadow" wx:if="{{shadow}}"></view>
+    <view class="menu" wx:if="{{menu2}}">
+        <view class="menu_top">
+            <view>操作</view>
+            <view>名称</view>
+            <view bindtap="menu_close2">关闭</view>
+        </view>
+        <view class="menu_content">
+            <view class="item" wx:for="{{change_list['pid']}}" wx:key="idx">
+                <icon bindtap="change_del" color="#999" data-index="{{index}}" size="25" type="cancel"></icon>
+                <view class="item_c">
+                    <view>{{item.name}}</view>
+                    <view>{{item.price}}元{{item.unit?'/'+item.unit:''}}</view>
+                </view>
+                <view class="item_r">
+                    <view class="menu_num">
+                        <view bindtap="change_down" data-index="{{index}}">—</view>
+                        <view>{{item.total}}</view>
+                        <view bindtap="change_up" data-index="{{index}}">+</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="bottom_block" wx:if="{{menu2}}"></view>
+    <view class="bottom" wx:if="{{menu2}}">
+        <image src="../../../resource/theme3_59.png"></image>
+        <view class="tip" style="color:{{theme.color}};">{{change_list.amount}}元</view>
+        <view bindtap="change_submit" style="background:{{theme.color}};">确认提交</view>
+        <view class="total" style="background:{{theme.color}};">{{change_list.total}}</view>
+    </view>
+</view>

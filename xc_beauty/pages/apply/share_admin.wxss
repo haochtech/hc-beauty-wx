@@ -1,0 +1,54 @@
+.applyNav {
+    background: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    border-bottom: #eee 2rpx solid;
+    border-top: #eee 2rpx solid;
+    z-index: 99;
+}
+
+.applyNav .applyNavItem {
+    flex: 1;
+    text-align: center;
+    line-height: 90rpx;
+    font-size: 4vw;
+    margin: 0 20rpx;
+}
+
+.applyNavBlock {
+    height: 100rpx;
+}
+
+.applyCont {
+}
+
+.applyCont .applyItem {
+    display: flex;
+    padding: 20rpx 40rpx;
+    border-bottom: #eee 2rpx solid;
+}
+
+.applyCont .applyItem .applyItemL {
+    flex: 1;
+}
+
+.applyCont .applyItem .applyItemR {
+    margin-left: 20rpx;
+}
+
+.applyCont .applyItem .applyItemR .applyBtn {
+    display: flex;
+    align-items: center;
+}
+
+.applyCont .applyItem .applyItemR .applyBtn+.applyBtn {
+    margin-top: 30rpx;
+}
+
+.applyCont .applyItem .applyItemR .applyBtn .sp1 {
+    display: flex;
+    margin-right: 20rpx;
+}

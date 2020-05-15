@@ -1,0 +1,482 @@
+@import "../../../wxParse/wxParse.wxss";
+
+.page .banner {
+    width: 100%;
+    height: 70vw;
+    position: relative;
+}
+
+.page .banner image {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.flash {
+    display: flex;
+    background: #fff;
+    margin-bottom: 10rpx;
+    height: 90rpx;
+}
+
+.flash .flash_l {
+    line-height: 90rpx;
+    padding: 0 30rpx;
+    color: #FFD24C;
+    font-size: 4vw;
+}
+
+.flash .flash_r {
+    background: #FFD24C;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    flex: 1;
+    font-size: 4vw;
+}
+
+.flash .flash_r .time_box {
+    width: 60rpx;
+    height: 40rpx;
+    text-align: center;
+    line-height: 40rpx;
+    background: #fff;
+    border-radius: 10rpx;
+    margin: 0 10rpx;
+    color: #FFD24C;
+}
+
+.list {
+    padding: 20rpx 30rpx;
+}
+
+.list .top {
+    padding: 20rpx 0;
+    position: relative;
+}
+
+.list .top .title {
+    padding-right: 50rpx;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.list .top .price {
+    color: #999999;
+}
+
+.list .top .o_price {
+    text-decoration: line-through;
+    margin-left: 10rpx;
+}
+
+.list .top .share {
+    position: absolute;
+    top: 20rpx;
+    right: 0;
+    width: 50rpx;
+    font-size: 3vw;
+    text-align: center;
+    color: #999999;
+    margin: 0;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    background: transparent;
+}
+
+.list .top .share::after {
+    content: '';
+    display: none;
+    outline: none;
+    border: none;
+}
+
+.list .comment {
+    display: flex;
+    padding-bottom: 10rpx;
+    color: #999999;
+    font-size: 3vw;
+}
+
+.list .comment .img {
+    display: flex;
+}
+
+.list .comment .img>image {
+    width: 40rpx;
+    height: 40rpx;
+    border-radius: 100%;
+}
+
+.list .comment .img .aa {
+    width: 40rpx;
+    height: 40rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    background: #999999;
+    border-radius: 100%;
+}
+
+.list .comment>view:nth-child(2) {
+    flex: 1;
+}
+
+.list .comment>navigator:nth-child(3) {
+    border: #ddd 2rpx solid;
+    padding: 0 10rpx;
+}
+
+.list .item {
+    display: flex;
+    align-items: center;
+    padding: 20rpx 0;
+    border-top: #ddd 2rpx solid;
+    border-bottom: #ddd 2rpx solid;
+}
+
+.list .item>view:nth-child(1) {
+    flex: 1;
+}
+
+.list .item>view:nth-child(3) {
+    color: #999999;
+}
+
+.list .detail {
+    margin-top: 30rpx;
+}
+
+.list .detail .title {
+    color: #999999;
+    position: relative;
+}
+
+.list .detail .content {
+    padding: 20rpx 0;
+}
+
+.list .detail .content .wxParse-img {
+    width: 100%;
+}
+
+.list .detail .content>image {
+    width: 100%;
+}
+
+.list .detail .content .text {
+    text-indent: 2em;
+}
+
+.btn_block {
+    height: 100rpx;
+}
+
+.btn_block.curr {
+    padding-bottom: 60rpx;
+}
+
+.btn {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    height: 100rpx;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4.5vw;
+    background: #fff;
+}
+
+.btn.curr {
+    padding-bottom: 60rpx;
+}
+
+.btn2 {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    height: 100rpx;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    font-size: 3.5vw;
+    background: #fff;
+}
+
+.btn2.curr {
+    padding-bottom: 60rpx;
+}
+
+.btn2 image {
+    width: 40rpx;
+    height: 40rpx;
+}
+
+.btn2>view {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100rpx;
+}
+
+.btn2>view:nth-child(1) {
+    background: #f5f5f5;
+    color: #68686a;
+}
+
+.btn2>view:nth-child(2) {
+    background: #fe6850;
+}
+
+.menu {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: #fff;
+}
+
+.menu .menu_top {
+    padding: 20rpx 30rpx;
+    text-align: center;
+    position: relative;
+}
+
+.menu .menu_top .menu_close {
+    position: absolute;
+    left: 30rpx;
+    font-size: 4.5vw;
+    top: 50%;
+    transform: translate(0,-50%);
+}
+
+.menu .menu_price {
+    padding: 10rpx 30rpx;
+}
+
+.menu .menu_list {
+    height: 60vh;
+    margin-top: 30rpx;
+    padding: 0 30rpx;
+    overflow: hidden;
+}
+
+.menu .menu_list>view {
+    width: 330rpx;
+    height: 64rpx;
+    background: #f5f5f5;
+    border-radius: 64rpx;
+    display: flex;
+    align-items: center;
+    float: left;
+    margin-bottom: 20rpx;
+    box-sizing: border-box;
+    padding: 0 20rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.menu .menu_list>view:nth-child(2n) {
+    margin-left: 30rpx;
+}
+
+.menu .menu_btn {
+    height: 100rpx;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4.5vw;
+}
+
+.group {
+    background: #fff;
+    margin-top: 20rpx;
+}
+
+.group .title {
+    display: flex;
+    padding: 20rpx 0;
+    border-bottom: #ddd 2rpx solid;
+}
+
+.group .title>view:nth-child(1) {
+    flex: 1;
+}
+
+.group .title>view:nth-child(2) {
+    color: #d9d8d8;
+}
+
+.group .groupList {
+    padding: 20rpx 0;
+}
+
+.group .groupItem {
+    position: relative;
+    height: 140rpx;
+}
+
+.group .groupItem .itemBack {
+    width: 100%;
+    height: 100%;
+}
+
+.group .groupItem .itemBox {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    box-sizing: border-box;
+    padding: 20rpx 0;
+    align-items: center;
+}
+
+.group .groupItem+.groupItem {
+    margin-top: 20rpx;
+}
+
+.group .groupList .groupItem .itemBox>image {
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 100%;
+    margin: 0 20rpx;
+}
+
+.group .groupItem .item_content {
+    flex: 1;
+    width: 400rpx;
+}
+
+.group .groupItem .item_content>view:nth-child(1) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 400rpx;
+}
+
+.group .groupItem .item_content>view:nth-child(2) {
+    display: flex;
+    font-size: 3.5vw;
+}
+
+.group .groupItem .item_content .item_btn {
+    border: #ff5778 2rpx solid;
+    color: #ff5778;
+    border-radius: 10rpx;
+    padding: 0 20rpx;
+}
+
+.group .groupItem .item_content .item_times {
+    color: #666666;
+    margin-left: 20rpx;
+}
+
+.group .groupItem .group_btn {
+    color: #fff;
+    font-size: 5vw;
+    width: 140rpx;
+    text-align: center;
+    line-height: 140rpx;
+}
+
+.group_menu {
+    position: fixed;
+    width: 80%;
+    background: #fff;
+    top: 0;
+    left: 10%;
+    margin-top: 20vw;
+    z-index: 1000;
+    border-radius: 10rpx;
+}
+
+.group_menu .title {
+    padding: 20rpx 0;
+    text-align: center;
+    border-bottom: #ddd 2rpx solid;
+}
+
+.group_menu .group_cancel {
+    position: absolute;
+    background: #fff;
+    border-radius: 100%;
+    font-size: 5vw;
+    display: flex;
+    top: -20rpx;
+    right: -20rpx;
+    align-items: center;
+    justify-content: center;
+}
+
+.group_menu .group_list {
+    padding: 0 20rpx;
+    height: 60vh;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.group_menu .group_list .item {
+    display: flex;
+    padding: 20rpx 0;
+    position: relative;
+}
+
+.group_menu .group_list .item+.item {
+    border-top: #ddd 2rpx solid;
+}
+
+.group_menu .group_list .item>image {
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 100%;
+}
+
+.group_menu .group_list .item .item_c {
+    width: 400rpx;
+    margin-left: 20rpx;
+    color: #999999;
+}
+
+.group_menu .group_list .item .item_c>view:nth-child(1) {
+    display: flex;
+    font-size: 3vw;
+}
+
+.group_menu .group_list .item .item_c .nick {
+    max-width: 250rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #000;
+    font-size: 4vw;
+    margin-right: 10rpx;
+}
+
+.group_menu .group_list .item .item_btn {
+    color: #fff;
+    width: 120rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10rpx;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    height: 50rpx;
+    transform: translate(0,-50%);
+}

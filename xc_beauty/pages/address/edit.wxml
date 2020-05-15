@@ -1,0 +1,23 @@
+<view class="page">
+    <view class="list">
+        <view class="item">
+            <view>联系人</view>
+            <input bindinput="input" data-name="name" placeholder="名字" placeholderStyle="color:#d9d9db;" type="text" value="{{name}}"></input>
+        </view>
+        <view class="item">
+            <view>手机号码</view>
+            <input bindinput="input" data-name="mobile" placeholder="11位手机号" placeholderStyle="color:#d9d9db;" type="number" value="{{mobile}}"></input>
+        </view>
+        <view class="item" wx:if="{{config.map_status==1}}">
+            <view>选择地区</view>
+            <input bindtap="map" disabled="true" placeholder="点击定位（不可填写）" placeholderStyle="color:#333;" type="text" value="{{address}}"></input>
+            <image bindtap="map" src="../../resource/map.png"></image>
+        </view>
+        <view class="item" wx:if="{{config.map_status==1}}">
+            <view>详细地址</view>
+            <input bindinput="input" data-name="content" placeholder="街道门牌信息" placeholderStyle="color:#d9d9db;" type="text" value="{{content}}"></input>
+        </view>
+    </view>
+    <view bindtap="submit" class="btn btn1" style="background:{{submit?theme.color:''}}">确定</view>
+    <view bindtap="wx_address" class="btn btn2">使用微信地址</view>
+</view>

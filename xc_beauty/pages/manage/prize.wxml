@@ -1,0 +1,46 @@
+<import src="../common/common.wxml"></import>
+<view class="page">
+    <view class="nav">
+        <view bindtap="tab" data-index="-1" style="color:{{curr==-1?theme.color:''}};border-bottom:{{curr==-1?theme.color+' 4rpx solid':''}};">未兑换</view>
+        <view bindtap="tab" data-index="1" style="color:{{curr==1?theme.color:''}};border-bottom:{{curr==1?theme.color+' 4rpx solid':''}};">已兑换</view>
+    </view>
+    <view class="nav_block"></view>
+    <view class="list">
+        <view class="item" wx:for="{{list}}" wx:for-index="idx" wx:key="idx">
+            <view class="item_l">
+                <image src="{{item.avatar}}"></image>
+                <view>{{item.nick}}</view>
+            </view>
+            <view class="item_c">获得<text style="color:{{theme.color}};">“{{item.title}}”</text>
+            </view>
+            <view class="item_r">
+                <view bindtap="menu_on" data-index="{{idx}}" style="color:{{item.status==1?'':theme.color}};border-color:{{item.status==1?'':theme.color}};">{{item.status==1?'已核销':'核销'}}</view>
+            </view>
+        </view>
+    </view>
+    <view bindtap="menu_close" class="shadow" wx:if="{{shadow}}"></view>
+    <view class="menu" wx:if="{{menu}}">
+        <view bindtap="menu_close" class="menu_close">×</view>
+        <view class="title" style="color:{{theme.color}};">奖品信息</view>
+        <view class="name">{{list[index]['title']}}</view>
+        <image src="{{list[index]['simg']}}"></image>
+        <view class="menu_list">
+            <view>中 奖 人 ：{{list[index]['nick']}}</view>
+            <view>中奖时间：{{list[index]['createtime']}}</view>
+        </view>
+        <view bindtap="submit" class="btn" style="background:{{list[index]['status']==1?'#aaa':theme.color}};">{{list[index]['status']==1?'已核销':'核销'}}</view>
+    </view>
+    <view class="menu" wx:if="{{menu2}}">
+        <view bindtap="menu_close" class="menu_close">×</view>
+        <view class="title" style="color:{{theme.color}};">奖品信息</view>
+        <view class="name">{{detail['title']}}</view>
+        <image src="{{detail['simg']}}"></image>
+        <view class="menu_list">
+            <view>中 奖 人 ：{{detail['nick']}}</view>
+            <view>中奖时间：{{detail['createtime']}}</view>
+        </view>
+        <view bindtap="submit2" class="btn" style="background:{{detail['status']==1?'#aaa':theme.color}};">{{detail['status']==1?'已核销':'核销'}}</view>
+    </view>
+    <view bindtap="scan" class="code" style="background:{{theme.color}};">扫一扫</view>
+    <template is="manage" data="{{footer_curr:footer_curr,theme:theme}}"></template>
+</view>

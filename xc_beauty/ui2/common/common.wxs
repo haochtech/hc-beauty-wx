@@ -1,0 +1,15 @@
+var filters = ({
+    toPhone: (function(value) {
+        if (value != "" && value != null) {
+            console.log(value);
+            if (value.indexOf("iPhone X") != -1) {
+                return (true)
+            } else {
+                return (false)
+            }
+        }
+    }),
+});
+module.exports = ({
+    toPhone: filters.toPhone,
+});

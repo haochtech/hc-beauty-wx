@@ -1,0 +1,138 @@
+<view class="page">
+    <view class="nav">
+        <view bindtap="tab" class="item {{service_type==1?'curr':''}}" data-index="1" wx:if="{{home_status==1&&service.home==1}}">
+            <image src="../../resource/{{service_type==1?'theme3_31':'theme3_30'}}.png"></image>
+            <view>上门服务</view>
+        </view>
+        <view bindtap="tab" class="item {{service_type==2?'curr':''}}" data-index="2" wx:if="{{shop_status==1&&service.shop==1}}">
+            <image src="../../resource/{{service_type==2?'theme3_32':'theme3_12'}}.png"></image>
+            <view>到店服务</view>
+        </view>
+    </view>
+    <view class="list">
+        <view bindtap="store_on" class="item">
+            <view>服务门店</view>
+            <view style="color:{{store==-1?'#999':''}};">{{store==-1?'请选择门店':store_name}}</view>
+            <view>></view>
+        </view>
+        <view bindtap="member_on" class="item" wx:if="{{member_status==1}}">
+            <view>服务人员</view>
+            <view style="color:{{store_member==-1?'#999':''}};">{{store_member==-1?'请选择服务人员':member_name}}</view>
+            <view>></view>
+        </view>
+        <navigator class="item" url="../../pages/address/address">
+            <view>预约人</view>
+            <view>
+                <view>{{name}}  {{mobile}}</view>
+                <view>{{address?address:''}}</view>
+            </view>
+            <view>></view>
+        </navigator>
+    </view>
+    <view class="list">
+        <view class="item">
+            <view>服务项目</view>
+            <view>
+                <view>{{service.name}}{{kind?'/'+kind:''}}</view>
+                <view wx:if="{{!group&&!flash}}">¥{{service.price}}<text class="price" wx:if="{{list.o_price}}">¥{{service.o_price}}</text>
+                </view>
+                <view wx:if="{{group&&!flash}}">¥{{service.group_price}}<text class="price" wx:if="{{list.price}}">¥{{service.price}}</text>
+                </view>
+                <view wx:if="{{flash}}">¥{{service.flash_price}}<text class="price" wx:if="{{list.price}}">¥{{service.price}}</text>
+                </view>
+            </view>
+            <view></view>
+        </view>
+        <view class="item" wx:if="{{group}}">
+            <view>团购人数</view>
+            <view>{{service.group_number}}人</view>
+        </view>
+        <view class="item" wx:if="{{group}}">
+            <view>团购时间</view>
+            <view>{{service.group_limit}}小时</view>
+        </view>
+        <view class="item" wx:if="{{group==1&&!group_id&&service.group_head_status==1&&service.group_head_price}}">
+            <view>团长优惠价</view>
+            <view>¥{{service.group_head_price}}</view>
+        </view>
+        <view class="item">
+            <view style=" line-height: 50rpx;">数量</view>
+            <view class="num">
+                <view bindtap="down">-</view>
+                <view>{{total}}</view>
+                <view bindtap="up">+</view>
+            </view>
+        </view>
+    </view>
+    <view class="sign" wx:if="{{time_status==1&&!group||group_time==1&&group}}">
+        <view class="title" style="color:{{theme.color}};">预约时间：</view>
+        <view class="content">
+            <view class="date">
+                <view bindtap="date_left" class="date_l">></view>
+                <view bindtap="date_choose" class="date_item" data-index="{{idx}}" style="color:{{date_curr==idx?theme.color:''}};border-bottom:{{date_curr==idx?theme.color+' 4rpx solid':''}};" wx:for="{{date}}" wx:for-index="idx" wx:key="idx">
+                    <view>{{item.name}}</view>
+                    <view>{{item.date}}</view>
+                </view>
+                <view bindtap="date_right" class="date_r">></view>
+            </view>
+            <view class="times">
+                <block wx:for="{{time_list}}" wx:for-index="idx" wx:key="idx">
+                    <view bindtap="time_choose" data-index="{{idx}}" style="color:{{time_curr==idx?'#fff':''}};background:{{time_curr==idx?theme.color:''}};border-color:{{time_curr==idx?theme.color:''}};" wx:if="{{item.status!=1&&item.status!=2}}">{{item.start}}-{{item.end}}
+            <text wx:if="{{service_type==2&&item.shop_member&&store_member!=-1}}">({{item.total}})</text>
+                        <text wx:if="{{service_type==1&&item.home_member&&store_member!=-1}}">({{item.total}})</text>
+                    </view>
+                    <view style="color:{{time_curr==idx?'#fff':''}};background:{{time_curr==idx?theme.color:''}};border-color:{{time_curr==idx?theme.color:''}};" wx:if="{{item.status==1}}">预约已满</view>
+                    <view style="color:#ddd;border-color:#ddd;" wx:if="{{item.status==2}}">{{item.start}}-{{item.end}}</view>
+                </block>
+            </view>
+            <view class="tip" style="color:{{theme.color}};" wx:if="{{tip}}">今日预约已满，请选择其他日期</view>
+        </view>
+    </view>
+    <form bindsubmit="submit" class="sign_btn" reportSubmit="submit">
+        <button class="btn" formType="submit" style="background:{{theme.color}};" wx:if="{{area_status==1&&area_load}}">提交订单</button>
+        <button class="btn" wx:if="{{area_status==-1}}">不在服务范围</button>
+    </form>
+    <view bindtap="store_close" class="store_page" wx:if="{{store_page}}">
+        <view catchtap="store_choose" class="item" data-index="{{idx}}" wx:for="{{store_list}}" wx:for-index="idx" wx:key="idx">
+            <view class="item_t">
+                <image src="{{item.simg}}"></image>
+                <view class="item_l">
+                    <view>{{item.name}}</view>
+                    <view>电话：{{item.mobile}}</view>
+                    <view>地址：{{item.address}}</view>
+                </view>
+                <view class="item_r" style="border-left-color:{{theme.color}};">
+                    <view style="color:{{theme.color}};">{{item.distance?item.distance+'km':'未知'}}</view>
+                    <view>距离</view>
+                </view>
+            </view>
+        </view>
+        <view bindtap="store_close" class="return">
+            <image src="{{can_bimg.left}}"></image>
+            <view>返回</view>
+        </view>
+    </view>
+    <view bindtap="member_close" class="member_page" wx:if="{{member_page}}">
+        <view class="member_list">
+            <view catchtap="member_choose" class="item" data-index="{{idx}}" wx:for="{{member_list}}" wx:for-index="idx" wx:key="idx">
+                <image src="{{item.simg}}"></image>
+                <view class="item_r">
+                    <view class="name">{{item.name}} <text class="task">【{{item.task}}】</text>
+                    </view>
+                    <view class="tip">
+                        <view>服务：</view>
+                        <view class="tip_b" wx:for="{{item.service}}" wx:for-index="idx2" wx:for-item="item2" wx:key="idx2">{{item2.name}}</view>
+                    </view>
+                    <view class="zan">
+                        <image src="../../resource/zan2.png"></image>
+                        <view>{{item.zan}}</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view bindtap="member_close" class="return">
+            <image src="{{can_bimg.left}}"></image>
+            <view>返回</view>
+        </view>
+    </view>
+</view>

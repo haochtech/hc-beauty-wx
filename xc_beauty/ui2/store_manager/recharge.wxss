@@ -1,0 +1,152 @@
+page {
+    background: #f7f7f7;
+}
+
+.nav {
+    display: flex;
+    background: #1A1A1A;
+    color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 99;
+}
+
+.nav_block {
+    height: 140rpx;
+}
+
+.nav .item {
+    flex: 1;
+    padding: 20rpx 0;
+    text-align: center;
+}
+
+.nav .item>image {
+    margin: 0 auto;
+    margin-bottom: 10rpx;
+}
+
+.nav.curr {
+    background: #fff;
+    color: #333;
+}
+
+.nav.curr .item {
+    padding: 40rpx 0;
+}
+
+.search {
+    background: #fff;
+    background: #1A1A1A;
+    padding: 20rpx 30rpx;
+}
+
+.search .item {
+    display: flex;
+    border: #ddd 2rpx solid;
+    border-radius: 10rpx;
+    padding: 20rpx;
+    background: #fff;
+}
+
+.search .item>input {
+    flex: 1;
+    text-align: center;
+}
+
+.userinfo {
+    background: #fff;
+    padding: 20rpx;
+    display: flex;
+}
+
+.userinfo>image {
+    height: 80rpx;
+    width: 80rpx;
+}
+
+.userinfo .item_r {
+    margin-left: 20rpx;
+    width: 610rpx;
+}
+
+.userinfo .item_r>view:nth-child(2) {
+    color: #999;
+}
+
+.userinfo .item_r .price {
+    color: #FFCC53;
+}
+
+.content {
+    background: #fff;
+    padding: 4vw 2vw 2vw;
+    overflow: hidden;
+    margin-top: 10rpx;
+}
+
+.content .item {
+    float: left;
+    width: 42vw;
+    margin: 0 2vw 2vw;
+    display: flex;
+    padding: 20rpx 0;
+    justify-content: center;
+    border: #ddd 2rpx solid;
+    border-radius: 20rpx;
+    position: relative;
+    align-items: center;
+    flex-direction: column;
+}
+
+.content .item>view:nth-child(1) {
+    font-size: 6vw;
+    color: #aaa;
+}
+
+.content .item>view:nth-child(2) {
+    color: #12b8f6;
+}
+
+.sign {
+    background: #fff;
+    margin-top: 10rpx;
+    padding: 0 30rpx 40rpx;
+}
+
+.sign .title {
+    padding: 20rpx 0;
+    text-align: center;
+}
+
+.sign .title>view:nth-child(2) {
+    height: 4rpx;
+    width: 40rpx;
+    background: #444;
+    margin: 0 auto;
+}
+
+.sign .item {
+    padding: 20rpx 0;
+    display: flex;
+    align-items: center;
+    border-bottom: #ddd 2rpx dashed;
+}
+
+.sign .item>input {
+    padding: 0 20rpx;
+    flex: 1;
+    text-align: center;
+}
+
+.sign .btn {
+    height: 80rpx;
+    line-height: 80rpx;
+    color: #fff;
+    text-align: center;
+    border-radius: 10rpx;
+    background: #444444;
+    margin-top: 40rpx;
+}

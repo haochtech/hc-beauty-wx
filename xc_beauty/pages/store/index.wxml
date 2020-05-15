@@ -1,0 +1,18 @@
+<import src="../common/common.wxml"></import>
+<view class="page">
+    <view bindtap="detail" class="item" data-index="{{item.id}}" wx:for="{{list}}" wx:for-index="idx" wx:key="idx">
+        <view class="item_t">
+            <image src="{{item.simg}}"></image>
+            <view class="item_l">
+                <view>{{item.name}}</view>
+                <view>电话：{{item.mobile}}</view>
+                <view>地址：{{item.address}}</view>
+            </view>
+            <view class="item_r" style="border-left-color:{{theme.color}};">
+                <view style="color:{{theme.color}};">{{item.distance?item.distance+'km':'未知'}}</view>
+                <view>距离</view>
+            </view>
+        </view>
+    </view>
+    <template is="footer" data="{{footer:footer,footerCurr:footerCurr,theme:theme,config:config}}" wx:if="{{footerCurr}}"></template>
+</view>

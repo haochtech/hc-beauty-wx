@@ -1,0 +1,56 @@
+<view class="applyIndex" wx:if="{{!xc.apply_in&&!xc.apply_fail&&!pro&&xc}}">
+    <view class="applyForm">
+        <view class="applyTit">填写代言申请信息</view>
+        <view class="applyItem">
+            <view>您的姓名：</view>
+            <input bindinput="input" class="applyItemF" data-name="name" placeholder="请输入真实姓名(用于佣金结算核验)" placeholderStyle="color:#999999;" type="text" value="{{name}}"></input>
+        </view>
+        <view class="applyItem">
+            <view>联系电话：</view>
+            <input bindinput="input" class="applyItemF" data-name="mobile" placeholder="请输入您的联系电话" placeholderStyle="color:#999999;" type="text" value="{{mobile}}"></input>
+        </view>
+        <view class="applyItem">
+            <view>联系地址：</view>
+            <input bindtap="map" class="applyItemF" disabled="true" placeholder="请选择地址" placeholderStyle="color:#999999;" type="text" value="{{address}}"></input>
+            <image mode="widthFix" src="../../resource/map.png"></image>
+        </view>
+        <view class="applyItem">
+            <view>详细地址：</view>
+            <input bindinput="input" class="applyItemF" data-name="content" placeholder="请输入详细地址" placeholderStyle="color:#999999;" type="text" value="{{content}}"></input>
+        </view>
+        <view class="applyTip">请务必认真填写，提交后不可更改</view>
+    </view>
+    <view bindtap="submit" class="applyBtn">提交申请 等待审核</view>
+    <view class="applyXie" wx:if="{{xc.config.apply_pro_status==1}}">申请即表明您已经同意
+    <text bindtap="pro_on" class="sp1">《{{xc.config.apply_pro_name?xc.config.apply_pro_name:'代言用户服务协议'}}》</text>
+    </view>
+</view>
+<block wx:if="{{pro}}">
+    <import src="../../../wxParse/wxParse.wxml"></import>
+    <view class="applyPro">
+        <view class="applyProDetil">
+            <template is="wxParse" data="{{wxParseData:article.nodes}}"></template>
+        </view>
+        <view class="applyProBtnBlock"></view>
+        <view class="applyProBtn">
+            <icon bindtap="pro_change" class="icon" color="#E8A6BD" type="{{pro_status?'success':'circle'}}"></icon>
+            <view bindtap="pro_change" class="sp1">我已阅读并同意以上协议</view>
+            <view bindtap="pro_close" class="sp2" wx:if="{{pro_status}}">同意</view>
+        </view>
+    </view>
+</block>
+<view class="applyIn" wx:if="{{xc.apply_in}}">
+    <image class="sp1" mode="widthFix" src="{{can_bimg.apply01}}"></image>
+    <view class="applyInTip">
+        <view>您的申请信息正在审核中...</view>
+        <view>请耐心等待，1-3个工作日完成审核</view>
+    </view>
+</view>
+<view class="applyIn" wx:if="{{xc.apply_fail}}">
+    <image class="sp1" mode="widthFix" src="{{can_bimg.apply02}}"></image>
+    <view class="applyInTip">
+        <view>您的申请信息审核未通过...</view>
+        <view>请重新填写</view>
+    </view>
+    <view bindtap="reload" class="applyInBtn">确定</view>
+</view>

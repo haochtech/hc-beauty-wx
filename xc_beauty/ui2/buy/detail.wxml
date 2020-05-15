@@ -1,0 +1,31 @@
+<view class="page">
+    <view class="list">
+        <view class="item">支付单号: <text style="color:#333;">{{list.out_trade_no}}</text>
+        </view>
+        <view class="item">支付时间: <text style="color:#333;">{{list.createtime}}</text>
+        </view>
+        <view class="item">收款门店: <text style="color:#333;">{{list.store_list.name}}</text>
+        </view>
+        <view class="item">消费金额: <text style="color:#333;">{{list.amount}}</text>
+        </view>
+        <view class="item" wx:if="{{list.discount||list.coupon_price}}">优惠折扣：<text wx:if="{{list.discount}}">折扣 <text style="color:#333;">{{list.discount}}折</text>
+            </text>
+            <text wx:if="{{list.coupon_price}}">优惠卷 <text style="color:#333;">-{{list.coupon_price}}</text>
+            </text>
+        </view>
+        <view class="item">实付金额: <text style="color:#333;">{{list.o_amount}}</text>
+        </view>
+        <view class="item">支付方式: <text style="color:#333;">{{list.pay_type==2?'会员余额':'微信支付'}}</text>
+        </view>
+        <view class="item">付款方式: <text style="color:#333;">{{list.buy_type==1?'自助付款':'商家代扣'}}</text>
+        </view>
+        <view class="item">
+            <text decode="true">备&emsp;&emsp;注:</text>
+            <text style="color:#333;">{{list.content?list.content:''}}</text>
+        </view>
+        <view bindtap="call" class="online" style="background:{{theme.color}};" wx:if="{{list.store_list}}">
+            <image src="../../resource/theme3_46.png"></image>
+            <view>联系商家 {{list.store_list.plan_date}}</view>
+        </view>
+    </view>
+</view>

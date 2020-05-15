@@ -1,0 +1,23 @@
+<view class="page">
+    <view class="top">
+        <view class="tip">
+            <view>您对{{list.service_name}}满意吗？</view>
+        </view>
+        <view class="btn">
+            <view bindtap="choose" data-index="1" style="color:{{curr==1?'#fff':''}};border-color:{{curr==1?theme.color:''}};background:{{curr==1?theme.color:''}};">满意</view>
+            <view bindtap="choose" data-index="2" style="color:{{curr==2?'#fff':''}};border-color:{{curr==2?theme.color:''}};background:{{curr==2?theme.color:''}};">一般</view>
+            <view bindtap="choose" data-index="3" style="color:{{curr==3?'#fff':''}};border-color:{{curr==3?theme.color:''}};background:{{curr==3?theme.color:''}};">不满意</view>
+        </view>
+        <textarea bindinput="input" class="content" placeholder="想说点啥？写在这里吧！" placeholderClass="color:#999999;" value="{{content}}"></textarea>
+    </view>
+    <view class="img">
+        <image bindtap="previewImage" data-index="{{idx}}" src="{{item}}" wx:for="{{imgs}}" wx:for-index="idx" wx:key="idx"></image>
+        <image bindtap="upload" src="../../resource/upload.png"></image>
+        <view>最多可上传5张照片</view>
+    </view>
+    <view class="sign">
+        <icon bindtap="sign" color="{{sign==1?theme.color:'#999'}}" size="20" type="{{sign==1?'success':'circle'}}"></icon>
+        <view bindtap="sign">匿名评价</view>
+    </view>
+    <view bindtap="submit" class="submit" style="background:{{submit?theme.color:'#aaa'}};">提交</view>
+</view>

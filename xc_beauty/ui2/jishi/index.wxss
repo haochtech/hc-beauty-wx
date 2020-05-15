@@ -1,0 +1,96 @@
+page {
+    background: #f7f7f7;
+}
+
+.page .top {
+    padding: 30rpx;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    box-sizing: border-box;
+}
+
+.page .top .top_btn {
+    background: #fff;
+    text-align: center;
+    line-height: 90rpx;
+    font-size: 4vw;
+}
+
+.page .top .top_c {
+    background: #fff;
+    line-height: 90rpx;
+    font-size: 4vw;
+    display: flex;
+    align-items: center;
+    padding: 0 30rpx;
+    box-sizing: border-box;
+}
+
+.top_block {
+    height: 150rpx;
+}
+
+.page .top .top_c>image {
+    width: 50rpx;
+    height: 50rpx;
+    border-radius: 100%;
+}
+
+.page .top .top_c>view:nth-child(2) {
+    flex: 1;
+    padding: 0 10rpx;
+    width: 500rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.page .top .top_c .qie {
+    width: 40rpx;
+    height: 40rpx;
+}
+
+.list {
+    overflow: hidden;
+}
+
+.list .item {
+    width: 33.3333333333333%;
+    box-sizing: border-box;
+    padding: 30rpx;
+    background: #fff;
+    text-align: center;
+    float: left;
+    margin-bottom: 10rpx;
+}
+
+.list .item>image {
+    width: 180rpx;
+    height: 180rpx;
+    box-sizing: border-box;
+    margin: 0 auto;
+    border-radius: 100%;
+}
+
+.list .item>view:nth-child(2) {
+    margin-top: 20rpx;
+    font-size: 4vw;
+}
+
+.list .item>view:nth-child(3) {
+    color: #999;
+}
+
+.list .item .btn {
+    width: 130rpx;
+    height: 40rpx;
+    line-height: 40rpx;
+    text-align: center;
+    margin: 10rpx auto 0;
+    color: #fff;
+    border-radius: 40rpx;
+    font-size: 4vw;
+}

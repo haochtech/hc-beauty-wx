@@ -1,0 +1,84 @@
+<import src="../common/common.wxml"></import>
+<view class="page">
+    <view class="nav">
+        <view bindtap="tab" data-index="1" style="color:{{curr==1?theme.color:''}};border-bottom:{{curr==1?theme.color+' 4rpx solid':''}};">未核销</view>
+        <view bindtap="tab" data-index="2" style="color:{{curr==2?theme.color:''}};border-bottom:{{curr==2?theme.color+' 4rpx solid':''}};">已核销</view>
+        <view bindtap="tab" data-index="3" style="color:{{curr==3?theme.color:''}};border-bottom:{{curr==3?theme.color+' 4rpx solid':''}};">退款</view>
+    </view>
+    <view class="nav_block"></view>
+    <view class="list">
+        <view class="item" wx:for="{{list}}" wx:for-index="idx" wx:key="idx">
+            <view class="item_l">
+                <view style="color:{{theme.color}};">¥{{item.o_amount}}</view>
+                <view bindtap="to_order" data-index="{{idx}}" style="color:{{theme.color}};border-color:{{theme.color}};" wx:if="{{item.status==1&&item.use==-1}}">核销({{item.is_use}}/{{item.can_use}})</view>
+                <view bindtap="to_order" data-index="{{idx}}" wx:if="{{item.status==1&&item.use==1}}">已核销</view>
+                <view bindtap="to_order" data-index="{{idx}}" style="color:{{theme.color}};border-color:{{theme.color}};" wx:if="{{item.status==2&&item.refund_status==-1}}">同意退款</view>
+                <view bindtap="to_order" data-index="{{idx}}" wx:if="{{item.status==2&&item.refund_status==1}}">已退款</view>
+            </view>
+            <view class="item_r">
+                <view>
+                    <text>订单编号：</text>{{item.out_trade_no}}</view>
+                <view>
+                    <text>下单时间：</text>{{item.createtime}}</view>
+                <view>
+                    <text decode="true">产&emsp;&emsp;品：</text>{{item.pname}}            ×{{item.total}}</view>
+            </view>
+        </view>
+    </view>
+    <view class="shadow" wx:if="{{shadow}}"></view>
+    <view class="menu" wx:if="{{menu}}">
+        <icon bindtap="menu_close" class="menu_close" color="#000" size="25" type="cancel"></icon>
+        <view class="title" style="color:{{theme.color}};" wx:if="{{list[order_item]['status']==1}}">订单信息</view>
+        <view class="title" style="color:{{theme.color}};" wx:if="{{list[order_item]['status']==2}}">退款信息</view>
+        <view class="menu_content" wx:if="{{list[order_item]['status']==1}}">
+            <view class="item">
+                <view>订单编号：</view>
+                <view>{{list[order_item]['out_trade_no']}}</view>
+            </view>
+            <view class="item">
+                <view>下单时间：</view>
+                <view>{{list[order_item]['createtime']}}</view>
+            </view>
+            <view class="item">
+                <view>
+                    <text decode="true">联&ensp;系&ensp;人：</text>
+                </view>
+                <view>{{list[order_item]['userinfo']['name']}}   {{list[order_item]['userinfo']['mobile']}}</view>
+            </view>
+            <view class="item">
+                <view>
+                    <text decode="true">产&emsp;&emsp;品：</text>
+                </view>
+                <view>{{list[order_item]['pname']}}</view>
+                <view>×{{list[order_item]['total']}}</view>
+            </view>
+        </view>
+        <view class="menu_tip">
+            <view>数量：<text style="color:{{theme.color}};">{{list[order_item]['total']}}</text>
+            </view>
+            <view>金额：<text style="color:{{theme.color}};">¥{{list[order_item]['o_amount']}}</text>
+            </view>
+        </view>
+        <view bindtap="submit" class="menu_btn" style="color:#fff;background:{{theme.color}};" wx:if="{{list[order_item]['status']==1&&list[order_item]['use']==-1}}">核销({{list[order_item]['is_use']}}/{{list[order_item]['can_use']}})</view>
+        <view class="menu_btn" wx:if="{{list[order_item]['status']==1&&list[order_item]['use']==1}}">已核销</view>
+        <view class="menu_content" wx:if="{{list[order_item]['status']==2}}">
+            <view class="item">
+                <view>退款编号：</view>
+                <view>{{list[order_item]['out_trade_no']}}</view>
+            </view>
+            <view class="item">
+                <view>退款金额：</view>
+                <view>{{list[order_item]['o_amount']}}</view>
+            </view>
+            <view class="item">
+                <view>
+                    <text decode="true">原&emsp;&emsp;因：</text>
+                </view>
+                <view>{{listorder[order_item]['refund_content']}}</view>
+            </view>
+        </view>
+        <view bindtap="submit" class="menu_btn" style="color:#fff;background:{{theme.color}};" wx:if="{{list[order_item]['status']==2&&list[order_item]['refund_status']==-1}}">同意</view>
+        <view class="menu_btn" wx:if="{{list[order_item]['status']==2&&list[order_item]['refund_status']==1}}">已同意</view>
+    </view>
+    <template is="manage" data="{{footer_curr:footer_curr,theme:theme}}"></template>
+</view>

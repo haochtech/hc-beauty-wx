@@ -1,0 +1,242 @@
+.body {
+    min-height: 100vh;
+}
+
+.list {
+    padding: 120rpx 90rpx;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    box-sizing: border-box;
+    z-index: 100;
+    overflow: scroll;
+}
+
+.list .title {
+    text-align: center;
+    color: #fff;
+    font-size: 5vw;
+    line-height: 7vw;
+}
+
+.list .title .sp1 {
+    margin-top: 30rpx;
+}
+
+.list .icon01 {
+    position: absolute;
+    right: 160rpx;
+    top: 140rpx;
+    width: 120rpx;
+}
+
+.list .icon02 {
+    position: absolute;
+    right: 120rpx;
+    top: 190rpx;
+    width: 60rpx;
+}
+
+.list .item .itemTop {
+    position: relative;
+}
+
+.list .item .itemTop>image {
+    width: 400rpx;
+    display: block;
+    margin: 0 auto;
+}
+
+.list .item .itemTop .text {
+    width: 340rpx;
+    text-align: center;
+    height: 70rpx;
+    line-height: 70rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    position: absolute;
+    bottom: 36rpx;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.list .content {
+    background: #fff;
+    border-radius: 10rpx;
+    padding: 30rpx;
+    box-sizing: border-box;
+    box-shadow: #999 2rpx 2rpx 20rpx;
+}
+
+.list .content .citem {
+    display: flex;
+    align-items: center;
+}
+
+.list .content .citem+.citem {
+    margin-top: 30rpx;
+}
+
+.list .content .citem>image {
+    width: 60rpx;
+    height: 60rpx;
+    border-radius: 100%;
+    display: block;
+}
+
+.list .content .citem .ccode {
+    width: 40rpx;
+    height: 40rpx;
+    border-radius: 100%;
+    color: #fff;
+    text-align: center;
+    background: #eb6877;
+    margin-right: 10rpx;
+}
+
+.list .content .citem .citemT {
+    flex: 1;
+    padding: 0 30rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.list .content .citem .citemT.curr {
+    padding: 0 10rpx;
+}
+
+.list .content .citem .citemT>view:nth-child(1) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 4vw;
+    line-height: 6vw;
+    width: 100%;
+}
+
+.list .content .citem .citemT>view:nth-child(2) {
+    color: #999;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+    font-size: 3vw;
+    line-height: 5vw;
+}
+
+.list .content .citem .citemBtn {
+    width: 120rpx;
+    text-align: center;
+    line-height: 50rpx;
+    border-radius: 50rpx;
+    color: #fff;
+    background: #eb6877;
+}
+
+.list .content .citem .citemBtn.curr {
+    background: #eeeeee;
+    color: #8b8a8a;
+}
+
+.list .content .ditem {
+    display: flex;
+    align-items: center;
+}
+
+.list .content .ditem+.ditem {
+    margin-top: 30rpx;
+}
+
+.list .content .ditem .coupon {
+    width: 300rpx;
+    position: relative;
+}
+
+.list .content .ditem .coupon .couponBox {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.list .content .ditem .coupon .couponBox .boxL {
+    width: 130rpx;
+    box-sizing: border-box;
+    text-align: center;
+    color: #fff;
+    padding: 10rpx 0;
+}
+
+.list .content .ditem .coupon .couponBox .boxL .sp1 {
+    font-size: 6vw;
+    line-height: 8vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.list .content .ditem .coupon .couponBox .boxR {
+    box-sizing: border-box;
+    padding: 34rpx 10rpx;
+    text-align: right;
+    font-size: 3vw;
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.list .content .ditem .coupon .couponBox .boxR .sp2 {
+    color: #fff;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.list .content .ditem .coupon>image {
+    width: 100%;
+}
+
+.list .content .ditem .btn {
+    width: 120rpx;
+    text-align: center;
+    line-height: 50rpx;
+    border-radius: 50rpx;
+    color: #fff;
+    background: #eb6877;
+    margin-left: 100rpx;
+}
+
+.list .rule {
+    padding: 30rpx 0;
+    color: #fff;
+}
+
+.list .rule .ruleT {
+    text-align: center;
+}
+
+.list .rule .ruleB {
+    margin-top: 20rpx;
+    display: block;
+}
+
+.backT {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.backB {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}

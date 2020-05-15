@@ -1,0 +1,42 @@
+<view class="page">
+    <view class="search">
+        <view class="item">
+            <input bindinput="input" placeholder="请输入订单号" placeholderStyle="color:#DDDDDD;" type="number" value="{{search}}"></input>
+            <image bindtap="search" src="../../../resource/theme3_50.png"></image>
+        </view>
+    </view>
+    <view class="block"></view>
+    <view class="order">
+        <view class="item" wx:for="{{list}}" wx:key="idx">
+            <navigator class="item_t" url="../index/detail?&id={{item.id}}">
+                <view class="item_tt">
+                    <view>
+                        <text class="attr">订单号:</text>{{item.out_trade_no}}</view>
+                    <view>
+                        <text class="attr">数量:</text>{{item.total}}</view>
+                </view>
+                <view class="item_tt">
+                    <view>
+                        <text class="attr">下单日期:</text>{{item.createtime}}</view>
+                    <view>
+                        <text class="attr">金额:</text>{{item.amount}}元</view>
+                </view>
+                <image class="arrow" src="../../../resource/arrow.png"></image>
+            </navigator>
+            <view class="item_c">
+                <view>订货门店:</view>
+                <view>{{item.store_list.name}}  {{item.store_list.mobile?item.store_list.mobile:''}}</view>
+                <image bindtap="call" data-index="{{index}}" src="../../../resource/theme3_51.png" wx:if="{{item.store_list.mobile}}"></image>
+            </view>
+            <view class="item_b">
+                <view class="btn type1" wx:if="{{item.status==-1}}">待配货</view>
+                <view class="btn type2" wx:if="{{item.status==1}}">送货中</view>
+                <view class="btn type3" wx:if="{{item.status==2}}">已完成</view>
+                <view class="item_bb">
+                    <view bindtap="order_del" data-index="{{index}}" style="color:{{item.status==-1?'':'#999'}}">取消订单</view>
+                    <view bindtap="order_status" data-index="{{index}}" style="color:{{item.status==-1?'':'#999'}}">配货完成</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

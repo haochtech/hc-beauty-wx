@@ -1,0 +1,100 @@
+.top {
+    padding-top: 50rpx;
+}
+
+.top>image {
+    width: 120rpx;
+    height: 120rpx;
+    border-radius: 100%;
+    margin: 0 auto;
+}
+
+.top .nick {
+    text-align: center;
+    margin-top: 20rpx;
+}
+
+.top .tip {
+    height: 60rpx;
+    position: relative;
+    border-top: #ddd 2rpx solid;
+    width: 500rpx;
+    margin: 50rpx auto 0;
+}
+
+.top .tip>view {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: #fff;
+    width: 320rpx;
+    text-align: center;
+    color: #999;
+}
+
+.top .btn {
+    display: flex;
+    justify-content: center;
+}
+
+.top .btn>view {
+    width: 150rpx;
+    height: 60rpx;
+    border: #ddd 2rpx solid;
+    border-radius: 10rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.top .btn view+view {
+    margin-left: 50rpx;
+}
+
+.content {
+    border: #ddd 2rpx solid;
+    margin: 40rpx 50rpx 0;
+    width: 646rpx;
+    border-radius: 10rpx;
+    padding: 20rpx;
+    box-sizing: border-box;
+    height: 230rpx;
+}
+
+.img {
+    display: flex;
+    align-items: center;
+    margin: 20rpx 50rpx 0;
+    color: #999;
+}
+
+.img>image {
+    width: 60rpx;
+    height: 60rpx;
+    margin-right: 10rpx;
+}
+
+.sign {
+    margin: 40rpx 50rpx 0;
+    display: flex;
+    align-items: center;
+    color: #999999;
+}
+
+.sign>icon {
+    display: flex;
+    align-items: center;
+    margin-right: 10rpx;
+}
+
+.submit {
+    margin: 50rpx 50rpx 0;
+    height: 80rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 4vw;
+    border-radius: 10rpx;
+}

@@ -1,0 +1,65 @@
+<block wx:if="{{rotate.content.status!=-1}}">
+    <import src="../common/common.wxml"></import>
+    <view class="body">
+        <view class="RC1">
+            <image class="RCback" src="{{config.rotate_bg?config.rotate_bg:can_bimg.rotate01}}"></image>
+            <view class="announce flex-display flex-alignC" wx:if="{{annList.length>0}}">
+                <image class="icon" mode="widthFix" src="../../resource/announce_icon.png"></image>
+                <swiper autoplay="true" bindchange="linechange" circular="true" class="flex-flex1" style="line-height:{{line?line:annList[0]['line']}}rpx;" vertical="true">
+                    <swiper-item wx:for="{{annList}}" wx:key="unique">
+            恭喜 {{item.nick}} 抽中 <text class="sp1">{{item.title}}</text>
+                    </swiper-item>
+                </swiper>
+            </view>
+        </view>
+        <view class="RC2">
+            <view class="userImg">
+                <image mode="aspectFill" src="{{userImg}}"></image>
+            </view>
+            <view class="signBlocks">
+                <view class="sBlock" wx:for="{{signList}}" wx:key="unique">{{item}}<image mode="aspectFill" src="../../resource/sign_check.png" wx:if="{{index<signed}}"></image>
+                </view>
+            </view>
+            <view bindtap="signFunc" class="signBtn" style="background:{{theme.color}};" wx:if="{{!todaySign&&signed!=signList.length}}">
+      我要签到
+    </view>
+            <view class="signBtn2" wx:if="{{todaySign||signed==signList.length}}">
+      已签到
+    </view>
+            <view class="signText1" style="margin-bottom:8rpx;" wx:if="{{rotated&&awardTime&&awardContent}}">恭喜您于{{awardTime}}抽得{{awardContent}}，</view>
+            <view class="signText1">{{signText}}</view>
+            <view class="signText2" hidden="{{signed==signList.length}}">您已成功签到{{signed}}次</view>
+            <view class="signText2" hidden="{{signed==signList.length}}">再签到<text class="sp1">{{signList.length-signed}}</text>次即可获得1次<text class="sp1">大抽奖</text>
+            </view>
+            <view class="signText1" style="margin-top:15px;">您有<text class="sp1">{{rotated}}</text>次抽奖机会</view>
+            <view class="plate-wrap-box" wx:if="{{prize}}">
+                <view animation="{{aniData}}" class="plate-border">
+                    <view class="plate-wrap">
+                        <view class="plate-box" style="top:-{{lottery.length-6<=2?36+4*(lottery.length-6):50}}rpx;transform-origin: 50% {{lottery.length-6<=2?256+4*(lottery.length-6):270}}rpx;border-top: {{lottery.length-6<=2?256+4*(lottery.length-6):270}}rpx solid #{{index%2==0?'ffffff':'5fcbd4'}};transform:translate(-50%,0) rotate({{360/lottery.length*index}}deg);border-left: {{440/lottery.length*2}}rpx solid transparent;border-right: {{440/lottery.length*2}}rpx solid transparent;" wx:for="{{lottery}}">
+                            <text class="text-box" style="color:#{{index%2==0?'e54c37':'edfa14'}}">{{item['name']}}</text>
+                        </view>
+                    </view>
+                    <view class="plate-wrap plate-light">
+                        <view class="plate-box" style="top:-{{lottery.length-6<=2?44+4*(lottery.length-6):60}}rpx; transform-origin: 50% {{lottery.length-6<=2?294+4*(lottery.length-6):310}}rpx;border-top: {{lottery.length-6<=2?294+4*(lottery.length-6):310}}rpx solid transparent;transform:translate(-50%,0) rotate({{360/lottery.length*index}}deg);border-left: {{500/lottery.length*2}}rpx solid transparent;border-right: {{500/lottery.length*2}}rpx solid transparent;" wx:for="{{lottery}}">
+                            <view class="bulb"></view>
+                        </view>
+                    </view>
+                </view>
+                <view bindtap="startRollTap" class="plate-btn-wrap">
+                    <view class="plate-btn-box">
+                        <view class="plate-inner-btn">
+                            <text>开始
+                  抽奖</text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="signNotice" wx:if="{{rotate.content.rules}}">
+                <view class="h1">活动规则：</view>
+                <text class="p">{{rotate.content.rules}}</text>
+            </view>
+        </view>
+        <template is="footer" data="{{footer:footer,footerCurr:footerCurr,theme:theme,config:config}}"></template>
+        <template is="get_userinfo" data="{{shadow:shadow,get_userinfo:get_userinfo,config:config,can_bimg:can_bimg,app_step1:app_step1,app_step2:app_step2}}"></template>
+    </view>
+</block>

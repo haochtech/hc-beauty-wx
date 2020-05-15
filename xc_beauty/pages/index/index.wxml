@@ -1,0 +1,66 @@
+<import src="../common/common.wxml"></import>
+<view class="page">
+    <template is="{{item.name}}" data="{{banner:banner,indicatorDots:indicatorDots,autoplay:autoplay,interval:interval,duration:duration,theme:theme,map:map,coupon:coupon,item:item,group:group,imgheights:imgheights,current:current,pclass:pclass,flash:flash,ad:ad,nav:nav,config:config,prize:prize,can_bimg:can_bimg,ad_type:ad_type}}" wx:if="{{item.status==1}}" wx:for="{{sort}}" wx:for-index="idx" wx:key="idx"></template>
+    <view bindtap="yin_close" class="yin" wx:if="{{open_list}}">
+        <view catchtap="link" class="adss" data-link="{{open_list.link}}">
+            <image mode="widthFix" src="{{open_list.bimg}}"></image>
+        </view>
+    </view>
+    <view class="copyright" wx:if="{{config['copyright']}}">{{config['copyright']}}</view>
+    <ad binderror="error" bindload="adLoad" unitId="{{config.unit_id}}" wx:if="{{ad_show&&config.ad_status==1}}"></ad>
+    <template is="footer" data="{{footer:footer,footerCurr:footerCurr,theme:theme,config:config,can_bimg:can_bimg}}"></template>
+    <!-- <template is="get_userinfo" data="{{shadow:shadow,get_userinfo:get_userinfo,config:config,can_bimg:can_bimg,app_step1:app_step1,app_step2:app_step2}}"></template> -->
+</view>
+<view class="audit" wx:if="{{audit.status==1&&audit.audit_version==version}}">
+    <image class="audit-banner" mode="widthFix" src="{{audit.bimg}}" wx:if="{{audit.bimg}}"></image>
+    <view class="introduce">
+        <view class="introduce-title">
+            <view class="vertical"></view>
+            <view class="introduce-bar" style="font-size:5vw;">
+        商家介绍
+      </view>
+        </view>
+        <navigator class="introduce-list introduce-list-top">
+            <image class="introduce-icon" src="{{audit.store_icon}}" wx:if="{{audit.store_icon}}"></image>
+            <view class="introduce-right">
+                <view>{{audit.store_name}}</view>
+                <image class="arrow" src="../../resource/arrow.png"></image>
+            </view>
+        </navigator>
+        <navigator class="introduce-list">
+            <image class="introduce-icon" src="{{audit.time_icon}}" wx:if="{{audit.time_icon}}"></image>
+            <view class="introduce-right">
+                <view>{{audit.store_time}}</view>
+                <image class="arrow" src="../../resource/arrow.png"></image>
+            </view>
+        </navigator>
+        <navigator class="introduce-list">
+            <image class="introduce-icon" src="{{audit.mobile_icon}}" wx:if="{{audit.mobile_icon}}"></image>
+            <view class="introduce-right">
+                <view>{{audit.store_mobile}}</view>
+                <image class="arrow" src="../../resource/arrow.png"></image>
+            </view>
+        </navigator>
+        <navigator class="introduce-list">
+            <image class="introduce-icon" src="{{audit.map_icon}}" wx:if="{{audit.map_icon}}"></image>
+            <view class="introduce-right">
+                <view>{{audit.store_map}}</view>
+                <image class="arrow" src="../../resource/arrow.png"></image>
+            </view>
+        </navigator>
+    </view>
+    <view class="details">
+        <view class="introduce-title">
+            <view class="vertical"></view>
+            <view class="introduce-bar" style="font-size:5vw;">
+        商家详情
+      </view>
+        </view>
+        <block wx:if="{{audit.content}}">
+            <import src="../../../wxParse/wxParse.wxml"></import>
+            <view class="character">
+                <template is="wxParse" data="{{wxParseData:content.nodes}}"></template>
+            </view>
+        </block>
+    </view>
+</view>

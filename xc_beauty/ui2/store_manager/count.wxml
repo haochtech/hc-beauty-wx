@@ -1,0 +1,59 @@
+<view class="page">
+    <view class="nav">
+        <view class="navT">
+            <image src="../../resource/xc04.png"></image>
+            <picker bindchange="bindDateChange" class="sp1" fields="{{curr==1?'month':'day'}}" mode="date" value="{{date}}">
+                <view class="picker">{{date}}</view>
+            </picker>
+            <view class="navBox">
+                <view bindtap="tab" class="sp2" data-index="2" style="background:{{curr==2?theme.color:''}};color:{{curr==2?'#fff':''}};border-color:{{curr==2?theme.color:''}};">日</view>
+                <view bindtap="tab" class="sp3" data-index="1" style="background:{{curr==1?theme.color:''}};color:{{curr==1?'#fff':''}};border-color:{{curr==1?theme.color:''}};">月</view>
+            </view>
+        </view>
+        <view class="navB">
+            <view class="sp1" wx:if="{{curr==1}}">本月收入(元)</view>
+            <view class="sp1" wx:if="{{curr==2}}">今日收入(元)</view>
+            <view class="sp2">{{xc.amount}}</view>
+        </view>
+    </view>
+    <view class="table">
+        <canvas bindtouchstart="touchHandler" canvasId="areaCanvas" class="canvas"></canvas>
+    </view>
+    <view class="bottom">
+        <view class="item">
+            <view class="sp1">{{xc.record[0]}}</view>
+            <view class="sp2">会员充值</view>
+        </view>
+        <view class="item">
+            <view class="sp1">{{xc.record[1]}}</view>
+            <view class="sp2">线上收入</view>
+        </view>
+        <view class="item">
+            <view class="sp1">{{xc.record[2]}}</view>
+            <view class="sp2">余额支付</view>
+        </view>
+        <view class="item">
+            <view class="sp1">{{xc.record[3]}}</view>
+            <view class="sp2">线下收入</view>
+        </view>
+        <view class="item">
+            <view class="sp1">{{xc.record[6]}}</view>
+            <view class="sp2">买单收银<text class="sp4">(W:{{xc.buy_w}}  Y:{{xc.buy_y}})</text>
+            </view>
+        </view>
+        <view class="item">
+            <view class="sp1">{{xc.record[5]}}</view>
+            <view class="sp2" wx:if="{{curr==1}}">本月消单</view>
+            <view class="sp2" wx:if="{{curr==2}}">今日消单</view>
+        </view>
+        <view class="item">
+            <view class="sp3">{{xc.record[4]}}</view>
+            <view class="sp2">配货消耗</view>
+        </view>
+        <view class="item">
+            <view class="sp1">{{xc.record[7]}}</view>
+            <view class="sp2" wx:if="{{curr==1}}">本月退款</view>
+            <view class="sp2" wx:if="{{curr==2}}">今日退款</view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,135 @@
+page {
+    background: #f7f7f7;
+}
+
+.banner {
+    color: #fff;
+    padding: 40rpx;
+}
+
+.banner .sp2 {
+    font-size: 6vw;
+    line-height: 8vw;
+    margin: 20rpx 0;
+}
+
+.nav {
+    background: #fff;
+    display: flex;
+    color: #999999;
+}
+
+.nav .item {
+    flex: 1;
+    text-align: center;
+    line-height: 90rpx;
+    font-size: 4vw;
+    border-bottom: #fff 4rpx solid;
+    margin: 0 40rpx;
+}
+
+.sub1 {
+    margin-top: 4rpx;
+    background: #fff;
+    padding: 0 30rpx 30rpx;
+}
+
+.sub1 .item {
+    padding: 20rpx;
+    display: flex;
+    align-items: center;
+}
+
+.sub1 .item+.item {
+    border-top: #ddd 2rpx dashed;
+}
+
+.sub1 .item>view:nth-child(1) {
+    width: 160rpx;
+    color: #999999;
+}
+
+.sub1 .item>input {
+    flex: 1;
+    text-align: center;
+}
+
+.sub1 .tip {
+    display: flex;
+    color: #999999;
+}
+
+.sub1 .tip .sp2 {
+    margin-left: 20rpx;
+}
+
+.sub1 .btn {
+    margin-top: 40rpx;
+    line-height: 90rpx;
+    text-align: center;
+    color: #fff;
+    font-size: 4.5vw;
+}
+
+.sub2 {
+    margin-top: 4rpx;
+    background: #fff;
+}
+
+.sub2 .item {
+    padding: 30rpx;
+    display: flex;
+    border-bottom: #f7f7f7 2rpx solid;
+}
+
+.sub2 .item .sp1 {
+    color: #999999;
+}
+
+.sub2 .item .sp2 {
+    color: #999999;
+    flex: 1;
+    padding: 0 50rpx;
+}
+
+.sub3 {
+    margin-top: 4rpx;
+}
+
+.sub3 .item {
+    background: #fff;
+    padding: 20rpx;
+}
+
+.sub3 .item+.item {
+    margin-top: 4rpx;
+}
+
+.sub3 .item .itemT {
+    display: flex;
+}
+
+.sub3 .item .itemT .sp1 {
+    flex: 1;
+}
+
+.sub3 .item .itemT .sp2 {
+    color: #ffbf00;
+}
+
+.sub3 .item .itemT .sp3 {
+    color: #008c69;
+}
+
+.sub3 .item .itemB {
+    display: flex;
+    margin-top: 20rpx;
+}
+
+.sub3 .item .itemB>view {
+    flex: 1;
+}
+
+.sub3 .item .itemB .sp4 {
+    color: #b8b8b8;
+}

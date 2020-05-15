@@ -1,0 +1,6 @@
+<view class="page">
+    <image mode="widthFix" src="{{can_bimg.success}}"></image>
+    <view class="tip" style="color:{{theme.color}};">付款成功</view>
+    <view bindtap="to_index" class="btn">返回首页</view>
+    <view bindtap="to_order" class="btn" style="color:#fff;background:{{theme.color}};">查看订单</view>
+</view>

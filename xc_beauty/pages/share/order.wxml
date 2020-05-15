@@ -1,0 +1,19 @@
+<view class="page">
+    <view class="nav">
+        <view bindtap="tab" data-index="1" style="color:{{curr==1?'#fff':''}};background:{{curr==1?theme.color:''}};border-color:{{theme.color}};">已分佣</view>
+        <view bindtap="tab" data-index="-1" style="color:{{curr==-1?'#fff':''}};background:{{curr==-1?theme.color:''}};border-color:{{theme.color}};">待分佣</view>
+    </view>
+    <view class="nav_block"></view>
+    <view class="list {{theme.name}}" wx:if="{{list&&list.length>0}}">
+        <view class="item" wx:for="{{list}}" wx:for-index="idx" wx:key="idx">
+            <view class="item_t">
+                <view>{{item.title}}</view>
+                <view style="color:{{theme.color}};">+{{item.amount}}</view>
+            </view>
+            <view class="item_b">
+                <view>{{item.createtime}}</view>
+                <view>{{item.status==1?'交易成功':'交易中'}}</view>
+            </view>
+        </view>
+    </view>
+</view>

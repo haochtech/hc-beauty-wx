@@ -1,0 +1,35 @@
+<import src="../common/common.wxml"></import>
+<view class="page">
+    <scroll-view scrollX class="nav" wx:if="{{pclass.length>=5}}">
+        <view bindtap="tab" class="item" data-index="{{idx}}" wx:for="{{pclass}}" wx:for-index="idx" wx:key="idx">
+            <image src="{{item.bimg}}"></image>
+            <text style="border-bottom:{{curr==idx?theme.color+' 4rpx solid':''}};">{{item.name}}</text>
+        </view>
+    </scroll-view>
+    <view class="nav curr" wx:if="{{pclass.length<=5}}">
+        <view bindtap="tab" class="item" data-index="{{idx}}" wx:for="{{pclass}}" wx:for-index="idx" wx:key="idx">
+            <image src="{{item.bimg}}"></image>
+            <text style="border-bottom:{{curr==idx?theme.color+' 4rpx solid':''}};">{{item.name}}</text>
+        </view>
+    </view>
+    <view class="nav_block"></view>
+    <view class="list">
+        <navigator class="item" url="detail?&id={{item.id}}" wx:for="{{list}}" wx:for-index="idx" wx:key="idx">
+            <image mode="aspectFill" src="{{item.simg}}"></image>
+            <view class="item_content">
+                <view class="title">{{item.name}}</view>
+                <view class="comment">
+                    <image src="../../resource/comment.png"></image>{{item.discuss_total}}</view>
+                <view class="item_btn">
+                    <view>
+                        <text class="price">¥{{item.is_flash==1?item.flash_price:item.price}}</text>
+                        <text class="o_price">¥{{item.is_flash==1?item.price:item.o_price}}</text>
+                    </view>
+                    <view class="buy" style="background:{{theme.color}};">购买</view>
+                </view>
+            </view>
+        </navigator>
+    </view>
+    <template is="footer" data="{{footer:footer,footerCurr:footerCurr,theme:theme,config:config}}"></template>
+    <!-- <template is="get_userinfo" data="{{shadow:shadow,get_userinfo:get_userinfo,config:config,can_bimg:can_bimg,app_step1:app_step1,app_step2:app_step2}}"></template> -->
+</view>

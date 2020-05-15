@@ -1,0 +1,66 @@
+<import src="../common/common.wxml"></import>
+<view class="page">
+    <view class="nav">
+        <view bindtap="all" style="color:{{curr==0?theme.color:''}};border-bottom:{{curr==0?theme.color+' 4rpx solid':''}}">全部</view>
+        <view bindtap="sort">{{sortName}} 
+      <image src="../../resource/theme3_26.png"></image>
+            <view class="nav_list" wx:if="{{sort_list}}">
+                <view catchtap="sortChoose" data-index="{{idx}}" wx:for="{{class}}" wx:for-index="idx" wx:key="idx">{{item.name}}</view>
+            </view>
+        </view>
+        <view bindtap="tag">{{tagName}} 
+      <image src="../../resource/theme3_26.png"></image>
+            <view class="nav_list" wx:if="{{tag_list}}">
+                <view catchtap="tagChoose" data-index="1">上门服务</view>
+                <view catchtap="tagChoose" data-index="2">到店服务</view>
+            </view>
+        </view>
+        <view class="sort">
+            <image bindtap="choose" data-index="2" src="../../resource/theme3_24.png" wx:if="{{type==1}}"></image>
+            <image bindtap="choose" data-index="1" src="../../resource/theme3_25.png" wx:if="{{type==2}}"></image>
+        </view>
+    </view>
+    <view class="nav_block"></view>
+    <view class="list type1" wx:if="{{type==1}}">
+        <navigator class="item" url="../service/detail?&id={{item.id}}" wx:for="{{list}}" wx:for-index="idx" wx:key="idx">
+            <image mode="aspectFill" src="{{item.simg}}"></image>
+            <view class="group_tip" wx:if="{{item.group_status==1}}">团</view>
+            <view class="item_tip">
+                <view class="box box1" wx:if="{{item.home==1}}">家</view>
+                <view class="box box2" wx:if="{{item.shop==1}}">店</view>
+            </view>
+            <view class="title">{{item.name}}</view>
+            <view class="info">
+                <view>已有<text style="color:{{theme.color}};">{{item.discuss}}</text>人评论</view>
+                <view>已售:<text style="color:{{theme.color}};">{{item.sold}}</text>
+                </view>
+            </view>
+            <view class="item_btn">
+                <view style="color:{{theme.color}};">¥{{item.is_flash==1?item.flash_price:item.price}}</view>
+                <view style="background:{{theme.color}};">购买</view>
+            </view>
+        </navigator>
+    </view>
+    <view class="list type2" wx:if="{{type==2}}">
+        <navigator class="item" url="../service/detail?&id={{item.id}}" wx:for="{{list}}" wx:for-index="idx" wx:key="idx">
+            <image mode="aspectFill" src="{{item.simg}}"></image>
+            <view class="item_content">
+                <view class="title">
+                    <view>{{item.name}}</view>
+                    <view>￥{{item.is_flash==1?item.flash_price:item.price}}</view>
+                </view>
+                <view>服务时间：{{item.service_time?item.service_time:'未知'}}</view>
+                <view>标签：
+            <text wx:if="{{item.home==1}}">上门服务</text>
+                    <text wx:if="{{item.shop==1}}">到店服务</text>
+                </view>
+                <view class="item_btn">
+                    <view>已有{{item.discuss}}人评论 已售：{{item.sold}}</view>
+                    <view style="background:{{theme.color}};">购买</view>
+                </view>
+            </view>
+        </navigator>
+    </view>
+    <template is="footer" data="{{footer:footer,footerCurr:footerCurr,theme:theme,config:config}}"></template>
+    <template is="get_userinfo" data="{{shadow:0,get_userinfo:0,config:config,can_bimg:can_bimg,app_step1:app_step1,app_step2:app_step2}}"></template>
+</view>

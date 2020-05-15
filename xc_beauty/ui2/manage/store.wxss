@@ -1,0 +1,374 @@
+page {
+    background: #f7f7f7;
+}
+
+.top {
+    height: 250rpx;
+    position: relative;
+    background: #000;
+}
+
+.top .top_t {
+    position: absolute;
+    width: 92vw;
+    top: 50rpx;
+    left: 4vw;
+    background: #212121;
+    border-radius: 20rpx;
+    height: 360rpx;
+}
+
+.top .year {
+    color: #575757;
+    text-align: center;
+    font-size: 6vw;
+    padding: 20rpx;
+}
+
+.top .month {
+    display: flex;
+    background: #000000;
+    color: #d6d6d6;
+    padding: 10rpx;
+}
+
+.top .month>view {
+    flex: 1;
+}
+
+.top .month view view {
+    width: 40rpx;
+    height: 40rpx;
+    text-align: center;
+    line-height: 40rpx;
+    border-radius: 100%;
+    margin: 0 auto;
+}
+
+.top .month view view.curr {
+    background: #aaaaaa;
+    color: #333333;
+}
+
+.top .item_btn {
+    position: absolute;
+    right: 0;
+    top: 20rpx;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    padding: 10rpx 20rpx;
+    border-radius: 30rpx 0 0 30rpx;
+}
+
+.top .item_btn>image {
+    width: 40rpx;
+    margin-right: 10rpx;
+}
+
+.top .amount {
+    display: flex;
+    color: #fff;
+    padding: 60rpx 30rpx 0;
+    font-size: 10vw;
+}
+
+.top .amount>view:nth-child(1) {
+    transform: rotateY(180deg);
+}
+
+.top .amount>view:nth-child(2) {
+    flex: 1;
+    text-align: center;
+}
+
+.top .tip {
+    display: flex;
+    color: #575757;
+    padding: 20rpx 10rpx;
+    z-index: 44;
+    position: absolute;
+    left: 0;
+    bottom: 40rpx;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.top .tip>view {
+    flex: 1;
+    width: 110rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.top .tip text {
+    color: #AAAAAA;
+}
+
+.top .back {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    border-radius: 0 0 20rpx 20rpx;
+    z-index: 11;
+}
+
+.top_block {
+    height: 160rpx;
+}
+
+.nav {
+    display: flex;
+    background: #1A1A1A;
+    margin-top: 10rpx;
+    color: #fff;
+}
+
+.nav .item {
+    flex: 1;
+    padding: 20rpx 0;
+    text-align: center;
+}
+
+.nav .item>image {
+    margin: 0 auto;
+    margin-bottom: 10rpx;
+}
+
+.nav.curr {
+    background: #fff;
+    color: #333;
+}
+
+.nav.curr .item {
+    padding: 40rpx 0;
+}
+
+.nav2 {
+    background: #fff;
+    padding: 20rpx 0;
+    display: flex;
+}
+
+.nav2 .item {
+    text-align: center;
+    flex: 1;
+}
+
+.nav2 .item_t {
+    text-align: center;
+    flex: 1;
+    color: #999999;
+}
+
+.nav2 .item+.item,.nav2 .item+.item_t {
+    border-left: #ddd 2rpx dashed;
+}
+
+.nav2 .item>view:nth-child(1) {
+    color: #191919;
+    font-size: 5vw;
+}
+
+.nav2 .item>view:nth-child(2) {
+    color: #999999;
+}
+
+.nav3 {
+    padding: 20rpx 0;
+    overflow: hidden;
+    background: #fff;
+    margin-top: 10rpx;
+}
+
+.nav3 .item {
+    text-align: center;
+    float: left;
+    width: 33.3333333333333333%;
+}
+
+.nav3 .item:nth-child(3n+1),.nav3 .item:nth-child(3n+2),.nav3 .item:nth-child(3n+3) {
+    margin-top: 20rpx;
+}
+
+.nav3 .item>image {
+    margin: 0 auto;
+    margin-bottom: 10rpx;
+}
+
+.search {
+    background: #fff;
+    margin-top: 10rpx;
+    padding: 20rpx 30rpx;
+}
+
+.search .item {
+    display: flex;
+    border: #ddd 2rpx solid;
+    border-radius: 10rpx;
+    padding: 20rpx;
+}
+
+.search .item>input {
+    flex: 1;
+    text-align: center;
+}
+
+.menu {
+    position: fixed;
+    top: 15vh;
+    width: 92vw;
+    background: #fff;
+    border-radius: 10rpx;
+    z-index: 1000;
+    left: 4%;
+    box-sizing: border-box;
+    padding: 20rpx 40rpx;
+}
+
+.menu .title {
+    padding: 20rpx;
+    text-align: center;
+    font-size: 4.5vw;
+}
+
+.menu .menu_content {
+    padding: 20rpx 0;
+    max-height: 30vh;
+    overflow: scroll;
+}
+
+.menu .menu_content .item {
+    display: flex;
+    line-height: 6vw;
+}
+
+.menu .menu_content .item>view:nth-child(1) {
+    color: #999999;
+}
+
+.menu .menu_content .item>view:nth-child(2) {
+    flex: 1;
+}
+
+.menu .menu_tip {
+    display: flex;
+    padding: 20rpx 0;
+    border-top: #ddd 2rpx solid;
+    color: #999999;
+}
+
+.menu .menu_tip view+view {
+    margin-left: 20rpx;
+}
+
+.menu .menu_btn {
+    width: 400rpx;
+    height: 80rpx;
+    color: #fff;
+    background: #aaa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20rpx auto;
+    border-radius: 10rpx;
+    font-size: 4vw;
+}
+
+.menu .menu_close {
+    position: absolute;
+    top: 20rpx;
+    right: 20rpx;
+}
+
+.menu2 {
+    position: fixed;
+    top: 15vh;
+    width: 94vw;
+    background: #fff;
+    z-index: 1000;
+    left: 3vw;
+    box-sizing: border-box;
+    padding: 0 30rpx;
+}
+
+.menu2 .menuTop {
+    padding: 30rpx 0;
+    display: flex;
+    align-items: center;
+}
+
+.menu2 .menuTop>image {
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 100%;
+}
+
+.menu2 .menuTop .menuR {
+    flex: 1;
+    margin-left: 20rpx;
+}
+
+.menu2 .menuTop .menuR .sp1 {
+    color: #999999;
+}
+
+.menu2 .menuTop .menuR .sp2 {
+    color: #ffc926;
+}
+
+.menu2 .menuTT {
+    font-size: 4.5vw;
+    line-height: 6.5vw;
+}
+
+.menu2 .itemC {
+    padding: 10rpx 0;
+}
+
+.menu2 .itemC .sp {
+    padding: 10rpx 0;
+    display: flex;
+    align-items: center;
+}
+
+.menu2 .itemC .sp.on {
+    color: #999999;
+}
+
+.menu2 .itemC .sp>view {
+    width: 20%;
+    text-align: center;
+}
+
+.menu2 .itemC .btn {
+    width: 100rpx;
+    text-align: center;
+    color: #fff;
+    height: 50rpx;
+    border-radius: 50rpx;
+    line-height: 50rpx;
+    margin: 0 auto;
+}
+
+.menu2 .menuYY {
+    padding: 40rpx 0;
+}
+
+.menu2 .menuYY .sp3 {
+    color: #777777;
+}
+
+.menu2 .menu_close {
+    position: absolute;
+    top: 20rpx;
+    right: 20rpx;
+}
+
+.menu2 .menu_close>icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

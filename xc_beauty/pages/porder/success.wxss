@@ -1,0 +1,25 @@
+.page>image {
+    width: 200rpx;
+    margin: 100rpx auto 0;
+}
+
+.page .tip {
+    font-size: 4.5vw;
+    text-align: center;
+    margin-top: 20rpx;
+}
+
+.page .btn {
+    width: 350rpx;
+    height: 80rpx;
+    border-radius: 80rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 60rpx auto 0;
+    background: #e5e5e5;
+}
+
+.page .btn+.btn {
+    margin-top: 30rpx;
+}

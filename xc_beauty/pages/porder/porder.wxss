@@ -1,0 +1,241 @@
+.list {
+    margin: 30rpx 30rpx 0;
+    background: #fff;
+    border-radius: 20rpx;
+    box-shadow: 0px 0px 10rpx 2rpx #fdeef3;
+    padding: 0 20rpx;
+}
+
+.list .item_t {
+    padding: 20rpx 0;
+    display: flex;
+}
+
+.list .item_t>image {
+    width: 100rpx;
+    height: 100rpx;
+}
+
+.list .item_t .item_r {
+    width: 530rpx;
+    margin-left: 20rpx;
+}
+
+.list .item_t .item_r .item {
+    display: flex;
+}
+
+.list .item_t .item_r .item>view:nth-child(1) {
+    flex: 1;
+}
+
+.list .item_t .item_r .item.curr {
+    font-size: 3vw;
+    color: #999999;
+}
+
+.list .item_t .item_r .item.curr>view:nth-child(2) {
+    text-decoration: line-through;
+}
+
+.list .item_b {
+    padding: 20rpx 0;
+    display: flex;
+    align-items: center;
+    border-top: #ddd 2rpx solid;
+}
+
+.list .item_b>view:nth-child(1) {
+    flex: 1;
+}
+
+.list .item_b .tip {
+    padding: 0 20rpx;
+}
+
+.list .item_b .num {
+    display: flex;
+    align-items: center;
+}
+
+.list .item_b .num>view:nth-child(1),.list .item_b .num>view:nth-child(3) {
+    border: #ddd 2rpx solid;
+    width: 34rpx;
+    height: 34rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.list .item_b .num>view:nth-child(2) {
+    margin: 0 10rpx;
+}
+
+.sign {
+    margin: 20rpx 30rpx 0;
+}
+
+.sign .content {
+    padding: 0 20rpx;
+}
+
+.sign .content .item {
+    display: flex;
+    padding: 10rpx 0;
+    align-items: center;
+}
+
+.sign .content .item>view:nth-child(1) {
+    color: #999999;
+}
+
+.sign .content .item>input {
+    flex: 1;
+}
+
+.sign .content .item>image {
+    width: 40rpx;
+}
+
+.sign .content .item+.item {
+    border-top: #ddd 2rpx solid;
+}
+
+.btn {
+    margin: 60rpx 30rpx;
+    height: 88rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    border-radius: 10rpx;
+    background: #aaa;
+}
+
+.sign .content .date {
+    display: flex;
+    align-items: center;
+    border-bottom: #ddd 2rpx solid;
+}
+
+.sign .content .date .date_l {
+    color: #999999;
+    font-size: 5vw;
+    transform: rotateY(180deg);
+}
+
+.sign .content .date .date_r {
+    color: #999999;
+    font-size: 5vw;
+}
+
+.sign .content .date .date_item {
+    text-align: center;
+    line-height: 4vw;
+    width: 120rpx;
+    padding: 10rpx 0;
+}
+
+.sign .content .date .date_item>view:nth-child(1) {
+    font-size: 4vw;
+}
+
+.sign .content .times {
+    padding-top: 20rpx;
+    overflow: hidden;
+}
+
+.sign .content .times>view {
+    color: #999999;
+    border: #999999 2rpx solid;
+    border-radius: 10rpx;
+    float: left;
+    width: 200rpx;
+    text-align: center;
+    height: 50rpx;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20rpx;
+}
+
+.sign .content .times>view:nth-child(3n),.sign .content .times>view:nth-child(3n-1) {
+    margin-left: 25rpx;
+}
+
+.sign .content .tip {
+    padding: 20rpx;
+    text-align: center;
+}
+
+.address {
+    padding: 30rpx;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.address>image {
+    width: 50rpx;
+    height: 50rpx;
+}
+
+.address .item {
+    width: 580rpx;
+    margin-left: 20rpx;
+    flex: 1;
+}
+
+.address .item>view:nth-child(2) {
+    font-size: 3VW;
+    color: #666666;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.address>view:nth-child(3) {
+    font-size: 5vw;
+    color: #dadada;
+}
+
+.address .line {
+    height: 4rpx;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.info_c {
+    margin-top: 10rpx;
+    padding: 20rpx 30rpx;
+    background: #fff;
+    display: flex;
+    color: #999999;
+    align-items: center;
+}
+
+.info_c+.info_c {
+    margin-top: 0;
+}
+
+.info_c>view:nth-child(1) {
+    flex: 1;
+}
+
+.info_c>view:nth-child(2) {
+    margin-right: 20rpx;
+}
+
+.info_c .check {
+    display: flex;
+    align-items: center;
+}
+
+.info_c .check icon {
+    display: flex;
+    align-items: center;
+    margin-right: 10rpx;
+}

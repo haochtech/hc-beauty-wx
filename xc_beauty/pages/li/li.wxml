@@ -1,0 +1,82 @@
+<import src="../common/common.wxml"></import>
+<view class="body" style="background:{{list.backcolor}};">
+    <view class="list">
+        <view class="title">
+            <view>{{list.name}}</view>
+            <view class="sp1">{{list.title}}</view>
+        </view>
+        <view class="item" wx:if="{{list.down_status==1}}">
+            <view class="itemTop">
+                <image mode="widthFix" src="../../resource/li_top.png"></image>
+                <view class="text">{{list.down_title}}</view>
+            </view>
+            <view class="content" wx:if="{{list.down_list}}">
+                <view class="citem" wx:for="{{list.down_list}}" wx:key="idx">
+                    <image src="{{item.simg}}"></image>
+                    <view class="citemT">
+                        <view>满{{item.amount}}元立减{{item.price}}元</view>
+                        <view>有效期至：{{item.end_time}}</view>
+                    </view>
+                    <navigator class="citemBtn" url="../mall/mall" wx:if="{{item.status==-1}}">去使用</navigator>
+                    <view class="citemBtn curr" wx:if="{{item.status==1}}">已使用</view>
+                    <view class="citemBtn curr" wx:if="{{item.status==2}}">已过期</view>
+                </view>
+            </view>
+        </view>
+        <view class="item" wx:if="{{list.order_status==1}}">
+            <view class="itemTop">
+                <image mode="widthFix" src="../../resource/li_top.png"></image>
+                <view class="text">{{list.order_title}}</view>
+            </view>
+            <view class="content" wx:if="{{list.order_list}}">
+                <view class="citem" wx:for="{{list.order_list}}" wx:key="idx">
+                    <view class="ccode">{{item.order_num}}</view>
+                    <image src="{{item.simg}}"></image>
+                    <view class="citemT curr">
+                        <view>消费{{item.amount}}元可领取</view>
+                        <view wx:if="{{item.order_type==1}}">优惠券一张</view>
+                        <view wx:if="{{item.order_type==2}}">店内精品礼品一份</view>
+                    </view>
+                    <view class="citemBtn" wx:if="{{item.status==-1}}">未完成</view>
+                    <view bindtap="getprize" class="citemBtn" data-index="{{index}}" wx:if="{{item.status==1&&item.prize==-1}}">领取</view>
+                    <view class="citemBtn" wx:if="{{item.status==1&&item.prize==1}}">已完成</view>
+                    <view class="citemBtn curr" wx:if="{{item.status==2}}">已过期</view>
+                    <view class="citemBtn curr" wx:if="{{item.status==3}}">待解锁</view>
+                </view>
+            </view>
+        </view>
+        <view class="item" wx:if="{{list.pay_type==1}}">
+            <view class="itemTop">
+                <image mode="widthFix" src="../../resource/li_top.png"></image>
+                <view class="text">{{list.pay_title}}</view>
+            </view>
+            <view class="content" wx:if="{{list.pay_list}}">
+                <view class="ditem" wx:for="{{list.pay_list}}" wx:key="idx">
+                    <view class="coupon">
+                        <image mode="widthFix" src="../../resource/li02.png"></image>
+                        <view class="couponBox">
+                            <view class="boxL">
+                                <view>￥</view>
+                                <view class="sp1">{{item.amount}}</view>
+                            </view>
+                            <view class="boxR">
+                                <view>首充即可使用</view>
+                                <view class="sp2">赠送￥{{item.price}}</view>
+                            </view>
+                        </view>
+                    </view>
+                    <navigator class="btn" url="../over/recharge?&edit=1" wx:if="{{item.status==-1}}">去充值</navigator>
+                    <view class="btn curr" wx:if="{{item.status==1}}">已充值</view>
+                    <view class="btn curr" wx:if="{{item.status==2}}">已过期</view>
+                </view>
+            </view>
+        </view>
+        <view class="rule" wx:if="{{list.content}}">
+            <view class="ruleT">活动规则</view>
+            <text class="ruleB" decode="true">{{list.content}}</text>
+        </view>
+    </view>
+    <image class="backT" mode="widthFix" src="{{list.bimgt}}"></image>
+    <image class="backB" mode="widthFix" src="{{list.bimgb}}"></image>
+    <template is="get_userinfo" data="{{shadow:shadow,get_userinfo:get_userinfo,config:config,can_bimg:can_bimg,app_step1:app_step1,app_step2:app_step2}}"></template>
+</view>

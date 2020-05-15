@@ -1,0 +1,52 @@
+page {
+    background: #f7f7f7;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    color: #fff;
+    padding: 30rpx 40rpx;
+}
+
+.nav .sp1 {
+    flex: 1;
+    text-align: center;
+}
+
+.list {
+}
+
+.list .item {
+    background: #fff;
+    padding: 20rpx;
+}
+
+.list .item+.item {
+    border-top: #ddd 2rpx solid;
+}
+
+.list .item .itemT {
+    display: flex;
+}
+
+.list .item .itemT .sp1 {
+    flex: 1;
+}
+
+.list .item .itemT .sp2 {
+    color: #ffbf00;
+}
+
+.list .item .itemB {
+    display: flex;
+    margin-top: 20rpx;
+}
+
+.list .item .itemB .sp3 {
+    color: #b8b8b8;
+}
+
+.list .item .itemB .sp4 {
+    margin-left: 30rpx;
+}

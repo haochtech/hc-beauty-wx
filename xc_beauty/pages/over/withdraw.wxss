@@ -1,0 +1,37 @@
+.page {
+    padding-top: 20rpx;
+    box-sizing: border-box;
+}
+
+.list {
+    margin: 0 30rpx;
+    border-radius: 20rpx;
+    box-shadow: 0px 0px 10rpx 2rpx #fdeef3;
+    padding: 0 20rpx;
+}
+
+.list.theme3 {
+    box-shadow: 0px 0px 10rpx 2rpx #ddd;
+}
+
+.list .item {
+    padding: 20rpx 0;
+}
+
+.list .item+.item {
+    border-top: #ddd 2rpx solid;
+}
+
+.list .item .item_t,.list .item .item_b {
+    display: flex;
+    align-content: center;
+}
+
+.list .item .item_t>view:nth-child(1),.list .item .item_b>view:nth-child(1) {
+    flex: 1;
+}
+
+.list .item .item_b {
+    font-size: 3vw;
+    color: #aaaaaa;
+}

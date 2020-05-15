@@ -1,0 +1,82 @@
+<import src="../common/common.wxml"></import>
+<view class="page">
+    <view class="nav">
+        <view bindtap="tab" data-index="1" style="color:{{curr==1?theme.color:''}};border-bottom:{{curr==1?theme.color+' 4rpx solid':''}};">全部</view>
+        <view bindtap="tab" data-index="2" style="color:{{curr==2?theme.color:''}};border-bottom:{{curr==2?theme.color+' 4rpx solid':''}};">待付款</view>
+        <view bindtap="tab" data-index="3" style="color:{{curr==3?theme.color:''}};border-bottom:{{curr==3?theme.color+' 4rpx solid':''}};">未使用</view>
+        <view bindtap="tab" data-index="4" style="color:{{curr==4?theme.color:''}};border-bottom:{{curr==4?theme.color+' 4rpx solid':''}};">已完成</view>
+        <view bindtap="tab" data-index="5" style="color:{{curr==5?theme.color:''}};border-bottom:{{curr==5?theme.color+' 4rpx solid':''}};" wx:if="{{config.refund_status==1}}">退款</view>
+    </view>
+    <view class="nav_block"></view>
+    <view class="list">
+        <view bindtap="to_detail" class="item {{theme.name}}" data-index="{{idx}}" wx:for="{{list}}" wx:for-index="idx" wx:key="idx">
+            <view class="item_t">
+                <view>订单编号：{{item.out_trade_no}}</view>
+                <image src="{{theme.icon[17]}}" wx:if="{{item.status==-1}}"></image>
+                <view style="color:{{theme.color}};" wx:if="{{item.status==-1}}">待付款</view>
+                <image src="{{theme.icon[18]}}" wx:if="{{item.status==1&&item.use==-1}}"></image>
+                <view style="color:{{theme.color}};" wx:if="{{item.status==1&&item.use==-1}}">未使用({{item.is_use}}/{{item.can_use}})</view>
+                <image src="{{theme.icon[19]}}" wx:if="{{item.status==1&&item.use==1}}"></image>
+                <view style="color:{{theme.color}};" wx:if="{{item.status==1&&item.use==1}}">已完成</view>
+                <view style="color:{{theme.color}};" wx:if="{{item.status==2&&item.refund_status==-1}}">退款中</view>
+                <view style="color:{{theme.color}};" wx:if="{{item.status==2&&item.refund_status==1}}">已退款</view>
+            </view>
+            <view class="item_c">
+                <image src="{{item.service_simg}}"></image>
+                <view class="title">{{item.service_name}}</view>
+                <view class="info">
+                    <view>¥{{item.price}}</view>
+                    <view>¥{{item.o_price}}</view>
+                    <view>×{{item.total}}</view>
+                </view>
+            </view>
+            <view class="item_b">
+                <view class="info">
+                    <view>下单时间：{{item.createtime}}</view>
+                    <view wx:if="{{item.status==-1}}">应付款：
+              <text class="price">¥{{item.amount}}</text>
+                    </view>
+                    <view wx:if="{{item.status==1}}">实付款：
+              <text class="price">¥{{item.o_amount}}</text>
+                    </view>
+                </view>
+                <view class="info" wx:if="{{item.failtime&&item.status==-1}}">
+                    <view>失效时间：{{item.failtime}}</view>
+                </view>
+                <view class="btn">
+                    <view class="check">
+                        <view class="item_check" wx:if="{{item.status==1&&item.yu_check==1&&item.yu_check_result==-1}}">
+                            <image mode="widthFix" src="../../resource/check01.png"></image>
+                            <view>审核中</view>
+                        </view>
+                        <view class="item_check" wx:if="{{item.status==2&&item.yu_check==1&&item.yu_check_result==2}}">
+                            <image mode="widthFix" src="../../resource/check02.png"></image>
+                            <view>审核失败</view>
+                        </view>
+                    </view>
+                    <view catchtap="order_del" class="btn1" data-index="{{idx}}" wx:if="{{item.status==-1}}">取消</view>
+                    <view class="btn2" style="background:{{theme.color}};" wx:if="{{item.status==-1}}">去支付</view>
+                    <view catchtap="menu_on" class="btn1" data-index="{{idx}}" wx:if="{{item.status==1&&item.use==-1&&config.refund_status==1&&(item.yu_check==-1||item.yu_check==1&&item.yu_check_result==1)}}">申请退款</view>
+                    <view catchtap="to_discuss" class="btn2" data-index="{{idx}}" style="background:{{theme.color}};" wx:if="{{item.status==1&&item.use==1&&item.discuss==-1}}">去评价</view>
+                    <view class="btn1" wx:if="{{item.status==1&&item.use==1&&item.discuss==1}}">已评价</view>
+                    <view catchtap="member_discuss" class="btn2" data-index="{{idx}}" style="background:{{theme.color}};" wx:if="{{item.status==1&&item.use==1&&item.member_discuss==-1&&item.member&&item.member>0}}">技师评价</view>
+                </view>
+            </view>
+        </view>
+        <view class="error" wx:if="{{list.length==0||!list}}">
+            <image mode="widthFix" src="../../resource/error01.png"></image>
+            <view>没有订单哦~</view>
+        </view>
+    </view>
+    <view class="shadow" wx:if="{{shadow}}"></view>
+    <view class="menu" wx:if="{{menu}}">
+        <icon bindtap="menu_close" class="menu_close" color="#aaa" size="23" type="cancel"></icon>
+        <view class="menu_item">
+            <view>退款说明：</view>
+            <textarea bindinput="input" fixed="true" value="{{content}}"></textarea>
+        </view>
+        <view bindtap="menu_btn" class="menu_btn" style="background:{{theme.color}}">确定</view>
+    </view>
+    <template is="footer" data="{{footer:footer,footerCurr:footerCurr,theme:theme,config:config}}"></template>
+    <template is="get_userinfo" data="{{shadow:shadow,get_userinfo:get_userinfo,config:config,can_bimg:can_bimg,app_step1:app_step1,app_step2:app_step2}}"></template>
+</view>

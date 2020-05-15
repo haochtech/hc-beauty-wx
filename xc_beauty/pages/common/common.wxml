@@ -1,0 +1,332 @@
+<template name="display">
+    <view class="list {{item.value.length==3?'style3':'style2'}}">
+        <view class="title">
+            <image src="../../resource/line.png"></image>{{item.title}}<image src="../../resource/line.png"></image>
+        </view>
+        <view class="content">
+            <navigator class="item" url="{{item2.url}}" wx:for="{{item.value}}" wx:for-index="idx" wx:for-item="item2" wx:key="idx">
+                <image mode="aspectFill" src="{{item2.simg}}"></image>
+                <view class="item_content">
+                    <view class="item_title">{{item2.name}}</view>
+                    <view class="item_btn">
+                        <view class="price" wx:if="{{!item2.score}}">¥{{item2.price}}</view>
+                        <view class="price" wx:if="{{item2.score}}">积分：{{item2.score}}</view>
+                        <view wx:if="{{item2.discuss_total}}">
+                            <image src="../../resource/comment.png"></image>{{item2.discuss_total}}</view>
+                    </view>
+                </view>
+            </navigator>
+        </view>
+    </view>
+</template>
+<template name="group">
+    <view class="group_title" wx:if="{{group&&group.length>0}}">
+        <view>拼团—<text style="color:#999;">爱拼才会赢</text>
+        </view>
+        <view></view>
+    </view>
+    <swiper autoplay="true" class="group_list" duration="500" interval="5000" wx:if="{{group&&group.length>0}}">
+        <swiper-item wx:for="{{group}}" wx:for-index="idx" wx:key="idx">
+            <navigator class="group" url="../service/detail?&id={{item.id}}">
+                <view class="group_t">
+                    <image class="group_img" src="{{item.simg}}"></image>
+                    <image class="group_tip" src="../../resource/group.png"></image>
+                    <view class="content">
+                        <view class="title">{{item.name}}</view>
+                        <view class="info">
+                            <view>已团：{{item.group_total}}件</view>
+                            <view></view>
+                        </view>
+                        <view class="price" style="color:{{theme.color}};border-top-color:{{theme.color}};">原价：¥{{item.price}}</view>
+                        <view class="item_btn">
+                            <view>{{item.group_number}}人团：¥{{item.group_price}}</view>
+                            <view>去开团</view>
+                            <image src="{{theme.icon[28]}}"></image>
+                        </view>
+                    </view>
+                </view>
+            </navigator>
+        </swiper-item>
+    </swiper>
+    <view class="group_title" wx:if="{{flash&&flash.length>0}}">
+        <view>限时特惠·<text style="color:#999;">准点开抢</text>
+        </view>
+        <view></view>
+    </view>
+    <swiper autoplay="true" class="group_list" duration="500" interval="5000" wx:if="{{flash&&flash.length>0}}">
+        <swiper-item wx:for="{{flash}}" wx:for-index="idx" wx:key="idx">
+            <navigator class="group" url="../service/detail?&id={{item.id}}">
+                <view class="group_t">
+                    <image class="group_img" src="{{item.simg}}"></image>
+                    <view class="content">
+                        <view class="title">{{item.name}}</view>
+                        <view class="info">
+                            <view>已售：{{item.sold}}件</view>
+                            <view></view>
+                        </view>
+                        <view class="times">
+                            <view>剩余:</view>
+                            <view class="time_box" style="background:{{theme.color}};">{{item.day}}</view>
+                            <view>天</view>
+                            <view class="time_box" style="background:{{theme.color}};">{{item.hour}}</view>
+                            <view>:</view>
+                            <view class="time_box" style="background:{{theme.color}};">{{item.min}}</view>
+                            <view>:</view>
+                            <view class="time_box" style="background:{{theme.color}};">{{item.second}}</view>
+                        </view>
+                        <view class="item_btn">
+                            <view>秒杀价：¥{{item.flash_price}}</view>
+                            <view>去抢购</view>
+                            <image src="{{theme.icon[28]}}"></image>
+                        </view>
+                    </view>
+                </view>
+            </navigator>
+        </swiper-item>
+    </swiper>
+</template>
+<template name="pclass">
+    <view class="pclass curr" wx:if="{{pclass.length<=5}}">
+        <navigator class="item" url="../service/service?&cid={{item.id}}" wx:for="{{pclass}}" wx:for-index="idx" wx:key="idx">
+            <image src="{{item.bimg}}"></image>
+            <text style="border-bottom:{{curr==idx?theme.color+' 4rpx solid':''}};">{{item.name}}</text>
+        </navigator>
+    </view>
+    <scroll-view scrollX class="pclass" wx:if="{{pclass.length>5}}">
+        <navigator class="item" url="../service/service?&cid={{item.id}}" wx:for="{{pclass}}" wx:for-index="idx" wx:key="idx">
+            <image src="{{item.bimg}}"></image>
+            <text style="border-bottom:{{curr==idx?theme.color+' 4rpx solid':''}};">{{item.name}}</text>
+        </navigator>
+    </scroll-view>
+</template>
+<template name="nav">
+    <view class="pclass curr" style="height:120rpx;" wx:if="{{nav.length<=5}}">
+        <navigator class="item" url="{{item.link}}" wx:for="{{nav}}" wx:for-index="idx" wx:key="idx">
+            <image src="{{item.simg}}" style="width:80rpx;height:80rpx;"></image>
+            <text style="border-bottom:{{curr==idx?theme.color+' 4rpx solid':''}};">{{item.name}}</text>
+        </navigator>
+    </view>
+    <scroll-view scrollX class="pclass" style="height:120rpx;" wx:if="{{nav.length>5}}">
+        <navigator class="item" url="{{item.link}}" wx:for="{{nav}}" wx:for-index="idx" wx:key="idx">
+            <image src="{{item.simg}}" style="width:80rpx;height:80rpx;"></image>
+            <text style="border-bottom:{{curr==idx?theme.color+' 4rpx solid':''}};">{{item.name}}</text>
+        </navigator>
+    </scroll-view>
+</template>
+<template name="ads">
+    <view bindtap="ads_link" class="ads" data-index="{{item.link}}">
+        <image mode="widthFix" src="{{item.img}}"></image>
+    </view>
+</template>
+<template name="prize">
+    <navigator class="li" url="../../pages/li/li?&id={{prize.id}}" wx:if="{{prize}}">
+        <image mode="widthFix" src="{{config.prize_img?config.prize_img:can_bimg.li}}"></image>
+    </navigator>
+</template>
+<template name="coupon">
+    <view class="coupon" wx:if="{{coupon}}">
+        <view class="title" style="color:{{theme.color}};">优惠券大放送</view>
+        <scroll-view scrollX class="coupon_c">
+            <block wx:for="{{coupon}}" wx:for-index="idx" wx:key="idx">
+                <view bindtap="getcoupon" class="item" data-index="{{idx}}" wx:if="{{idx%2==0}}">
+                    <image src="{{can_bimg.coupon01}}"></image>
+                    <view class="item_content">
+                        <view>¥<text class="price">{{item.name}}</text>
+                        </view>
+                        <view>{{item.user==1?'已领取':'点击领取＞'}}</view>
+                    </view>
+                </view>
+                <view bindtap="getcoupon" class="item" data-index="{{idx}}" wx:if="{{idx%2!=0}}">
+                    <image src="{{can_bimg.coupon02}}"></image>
+                    <view class="item_content">
+                        <view>¥<text class="price">{{item.name}}</text>
+                        </view>
+                        <view>{{item.user==1?'已领取':'点击领取＞'}}</view>
+                    </view>
+                </view>
+            </block>
+        </scroll-view>
+    </view>
+</template>
+<template name="ad">
+    <view class="announcement" wx:if="{{ad}}">
+        <image src="../../resource/audio.png"></image>
+        <view class="box" wx:if="{{ad_type==1}}">
+            <view class="box_t">
+                <text bindtap="link" data-link="{{item.link}}" wx:for="{{ad}}" wx:key="idx">{{item.content}}</text>
+            </view>
+        </view>
+        <swiper autoplay="true" class="box2" vertical="true" wx:if="{{ad_type==2}}">
+            <swiper-item wx:for="{{ad}}" wx:key="idx">
+                <view bindtap="link" data-link="{{item.link}}">{{item.content}}</view>
+            </swiper-item>
+        </swiper>
+    </view>
+</template>
+<template name="map">
+    <view class="address" wx:if="{{map&&map.content.store!=1&&config.store_status!=1}}">
+        <image src="{{theme.icon[0]}}"></image>
+        <view class="address_right">
+            <view class="address_item">
+                <view>位置：{{map.content.address}}</view>
+                <image bindtap="map" src="{{theme.icon[1]}}"></image>
+            </view>
+            <view class="address_item">
+                <view>电话：{{map.content.mobile}}</view>
+                <image bindtap="call" src="{{theme.icon[2]}}"></image>
+            </view>
+        </view>
+    </view>
+    <navigator class="address" url="../store/index" wx:if="{{map&&map.content.store==1&&map.content.store_list&&config.store_status!=1}}">
+        <image src="{{theme.icon[0]}}"></image>
+        <view class="address_right">
+            <view class="address_item">
+                <view>{{map.content.store_list.name}}</view>
+            </view>
+            <view class="address_item">
+                <view>电话：{{map.content.mobile}}</view>
+            </view>
+        </view>
+        <image class="address_r" src="../../resource/arrow.png" style="margin:20rpx 0 0 0;width:40rpx;height:40rpx;"></image>
+    </navigator>
+    <navigator class="map2" url="../store/detail?&id={{map.content.store_list.id}}" wx:if="{{map&&map.content.store_list&&config.store_status==1}}">
+        <image class="map2Back" mode="widthFix" src="{{map.content.store_list.bimg}}"></image>
+        <navigator class="map_btn" hoverStopPropagation="true" style="background:{{theme.color}};" url="../store/index">
+            <image mode="widthFix" src="../../resource/store03.png"></image>
+            <view>更多门店</view>
+        </navigator>
+        <view class="map_box">
+            <view class="mapT">{{map.content.store_list.name}}</view>
+            <view class="mapB">
+                <view>{{map.content.store_list.plan_date}}</view>
+                <image mode="widthFix" src="../../resource/map02.png"></image>
+                <view>距离<text wx:if="{{map.content.store_list.distance}}">{{map.content.store_list.distance}}km</text>
+                    <text wx:if="{{!map.content.store_list.distance}}">未知</text>
+                </view>
+            </view>
+        </view>
+    </navigator>
+</template>
+<template name="banner">
+    <swiper autoplay="{{autoplay}}" bindchange="bindchange" class="banner" duration="{{duration}}" indicatorActiveColor="{{theme.color}}" indicatorColor="#ffffff" indicatorDots="{{indicatorDots}}" interval="{{interval}}" style="height:{{imgheights[current]}}rpx;" wx:if="{{banner}}">
+        <swiper-item wx:for="{{banner}}" wx:key="idx">
+            <image bindload="imageLoad" bindtap="link" class="slide-image" data-appid="{{item.appid}}" data-link="{{item['link']}}" src="{{item.bimg}}"></image>
+        </swiper-item>
+    </swiper>
+</template>
+<template name="get_userinfo">
+    <view bindtap="user_close" class="shadow" wx:if="{{shadow}}"></view>
+    <view class="get_userinfo" wx:if="{{get_userinfo}}">
+        <view>请授权用户信息</view>
+        <view class="userinfo_btn">
+            <view bindtap="user_close" class="userinfo_b">取消</view>
+            <button bindgetuserinfo="updateUserInfo" bindtap="user_close" class="userinfo_b" openType="getUserInfo" size="mini">确定</button>
+        </view>
+    </view>
+    <view class="appCont1" wx:if="{{app_step1}}">
+        <image class="appContBack" mode="widthFix" src="{{can_bimg.app01}}"></image>
+        <view bindtap="app_step_next" class="appContItem">
+            <view class="appContText">
+                <view class="appContBlock">
+                    <view>点击“</view>
+                    <view class="sp1"></view>
+                    <view class="sp2"></view>
+                    <view class="sp1"></view>
+                    <view>”添加到我的小程序，</view>
+                </view>
+                <view class="appContBlock2">微信首页下拉即可快速访问店铺</view>
+            </view>
+            <image mode="widthFix" src="{{can_bimg.app02}}"></image>
+        </view>
+    </view>
+    <view class="appCont2" wx:if="{{app_step2}}">
+        <view class="appContMenu">
+            <view class="appContItem">
+                <view class="appContTit">
+                    <view>1.点击右上角</view>
+                    <view class="appContBlock">
+                        <view class="sp1"></view>
+                        <view class="sp2"></view>
+                        <view class="sp1"></view>
+                    </view>
+                </view>
+            </view>
+            <view class="appContItem">
+                <view class="appContTit">
+                    <view>2.选择“添加到我的小程序”</view>
+                </view>
+                <view class="appContEt">
+                    <view class="sp1">转发</view>
+                    <view class="sp2">添加到我的小程序</view>
+                    <view class="sp1">关于{{config.title}}</view>
+                </view>
+            </view>
+            <view class="appContItem">
+                <view class="appContTit">
+                    <view>3.微信首页下拉→长按“{{config.title}}”小程序图标移到最前→查找更方便！</view>
+                </view>
+                <view class="appContEd">
+                    <view class="sp1">最近使用</view>
+                    <view class="appContEdt">
+                        <view class="sp2"></view>
+                        <view class="sp2"></view>
+                        <view class="sp2"></view>
+                    </view>
+                    <view class="sp1">我的小程序</view>
+                    <view class="appContEdt">
+                        <view class="sp2 sp3 sp5" style="background:#EA68A2;"></view>
+                        <view class="sp2 sp3" style=""></view>
+                        <view class="sp2 sp3 sp4" style=""></view>
+                        <view class="sp2 sp3 sp4" style="opacity:0.5"></view>
+                        <view class="sp2 sp3 sp4" style="opacity:0.2"></view>
+                    </view>
+                    <image class="appContUp" mode="widthFix" src="{{can_bimg.app04}}"></image>
+                </view>
+            </view>
+            <view bindtap="app_step_end" class="appContBtn">马上添加</view>
+        </view>
+        <image class="appContArrow" mode="widthFix" src="{{can_bimg.app03}}"></image>
+    </view>
+</template>
+<template name="manage">
+    <view class="footer_block {{filters.toPhone(config.model)?'curr':''}}"></view>
+    <view class="footer {{filters.toPhone(config.model)?'curr':''}}">
+        <navigator class="footer-item" openType="reLaunch" url="../index/index">
+            <image src="../../resource/{{footer_curr==1?'footer001':'footer01'}}.png"></image>
+            <view style="color:{{theme.color}};">首页</view>
+        </navigator>
+        <navigator class="footer-item" openType="reLaunch" url="../manage/order">
+            <image src="../../resource/{{footer_curr==2?'footer006':'footer06'}}.png"></image>
+            <view style="color:{{theme.color}};">订单</view>
+        </navigator>
+        <navigator class="footer-item" openType="reLaunch" url="../manage/online">
+            <image src="../../resource/{{footer_curr==4?'footer007':'footer07'}}.png"></image>
+            <view style="color:{{theme.color}};">预约</view>
+        </navigator>
+        <navigator class="footer-item" openType="reLaunch" url="../manage/prize">
+            <image src="../../resource/{{footer_curr==5?'footer008':'footer08'}}.png"></image>
+            <view style="color:{{theme.color}};">奖品</view>
+        </navigator>
+        <navigator class="footer-item" openType="reLaunch" url="../manage/index">
+            <image src="../../resource/{{footer_curr==3?'footer005':'footer05'}}.png"></image>
+            <view style="color:{{theme.color}};">我的</view>
+        </navigator>
+    </view>
+</template>
+<template name="footer">
+    <view bindtap="call_mobile" class="customer_service call" wx:if="{{config.mobile_status==1}}">
+        <image src="{{config.mobile_simg?config.mobile_simg:'../../resource/mobile.png'}}"></image>
+    </view>
+    <button class="customer_service" openType="contact" wx:if="{{config.online_status==1}}">
+        <image src="{{config.online_simg?config.online_simg:'../../resource/online.png'}}" wx:if="{{theme.name!='theme3'}}"></image>
+        <image src="{{config.online_simg?config.online_simg:'../../resource/online02.png'}}" wx:if="{{theme.name=='theme3'}}"></image>
+    </button>
+    <view class="footer_block {{filters.toPhone(config.model)?'curr':''}}"></view>
+    <view class="footer {{filters.toPhone(config.model)?'curr':''}}">
+        <view bindtap="g_footer" class="footer-item" data-url="{{item.pagePath}}" wx:if="{{item.status==1}}" wx:for="{{footer}}" wx:for-index="idx" wx:key="idx">
+            <image src="{{footerCurr==idx+1?item.selectedIconPath:item.iconPath}}"></image>
+            <view style="color:{{theme.color}};">{{item.text}}</view>
+        </view>
+    </view>
+</template>
+<wxs module="filters" src="common.wxs" />

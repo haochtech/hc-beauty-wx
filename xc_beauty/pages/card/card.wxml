@@ -1,0 +1,55 @@
+<import src="../../ui2/common/common.wxml"></import>
+<view class="page">
+    <view class="top">
+        <image class="back" mode="widthFix" src="{{card.content.card?card.content.card:can_bimg.card}}" wx:if="{{userinfo.card!=1&&card}}"></image>
+        <image class="back" mode="widthFix" src="{{card.content.card_on?card.content.card_on:can_bimg.card_on}}" wx:if="{{userinfo.card==1&&card}}"></image>
+        <view class="userinfo">
+            <image src="{{userinfo.avatar}}"></image>
+            <view>{{userinfo.nick}}</view>
+        </view>
+    </view>
+    <view bindtap="to_edit" class="btn" data-index="1" style="background:{{theme.color}};" wx:if="{{userinfo.card!=1}}">立即开通</view>
+    <view bindtap="to_edit" class="btn" data-index="2" style="background:{{theme.color}};" wx:if="{{userinfo.card==1}}">绑定信息</view>
+    <view class="info" wx:if="{{card.content.score_status==1}}">
+        <view class="title">开通会员，即可享受以下专属权益</view>
+        <view class="content">
+            <view class="item" wx:if="{{card.content.score_status==1}}">
+                <view class="img" style="background:{{theme.color}};">
+                    <image src="{{card.content.score_icon?card.content.score_icon:'../../resource/card01.png'}}"></image>
+                </view>
+                <view>攒积分</view>
+                <view wx:if="{{card.content.score_attr&&card.content.score_value}}">{{card.content.score_attr}}元={{card.content.score_value}}积分</view>
+            </view>
+            <view class="item" wx:if="{{card.content.discount_status==1}}">
+                <view class="img" style="background:{{theme.color}};">
+                    <image src="{{card.content.discount_icon?card.content.discount_icon:'../../resource/card02.png'}}"></image>
+                </view>
+                <view>付款享折扣</view>
+                <view>享{{card.content.discount}}折优惠</view>
+            </view>
+        </view>
+    </view>
+    <scroll-view class="list" scrollX="true" wx:if="{{coupon}}">
+        <view class="item {{item.user==1?'status2':''}}" wx:for="{{coupon}}" wx:for-index="idx" wx:key="idx">
+            <image class="itemBack" src="../../resource/xc07.png" wx:if="{{item.user!=1}}"></image>
+            <image class="itemBack" src="../../resource/xc08.png" wx:if="{{item.user==1}}"></image>
+            <view class="itemBox">
+                <view class="item_l">
+                    <view class="tip" style="background:{{item.user==1?'#d0d0d0':theme.color}};">会员专享</view>
+                    <view class="price">¥{{item.name}}</view>
+                    <view>{{item.condition?'满'+item.condition+'元可用':'无消费金额限制'}}</view>
+                </view>
+                <view bindtap="to_get" class="item_r" data-index="{{idx}}">{{item.user==1?'已经领取':'立即领取'}}</view>
+            </view>
+        </view>
+    </scroll-view>
+    <view class="detail" wx:if="{{card.content.card_rules}}">
+        <view class="title">
+            <view style="background:{{theme.color}};"></view>
+            <view>会员卡使用须知</view>
+        </view>
+        <text class="content">{{card.content.card_rules}}</text>
+    </view>
+    <template is="footer" data="{{footer:footer,footerCurr:footerCurr,theme:theme,config:config}}" wx:if="{{theme.name!='theme3'}}"></template>
+    <template is="get_userinfo" data="{{shadow:shadow,get_userinfo:get_userinfo,config:config,can_bimg:can_bimg,app_step1:app_step1,app_step2:app_step2}}"></template>
+</view>

@@ -1,0 +1,27 @@
+@import "../../../wxParse/wxParse.wxss";
+
+.btn {
+    height: 12vw;
+    background: #e74479;
+    color: #fff;
+    text-align: center;
+    line-height: 12vw;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    z-index: 99;
+    width: 100%;
+}
+
+.btn_block {
+    height: 12vw;
+}
+
+.to_index {
+    position: fixed;
+    width: 10vw;
+    height: 10vw;
+    border-radius: 100%;
+    bottom: 20vw;
+    right: 2vw;
+}

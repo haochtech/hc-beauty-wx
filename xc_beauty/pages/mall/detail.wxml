@@ -1,0 +1,104 @@
+<import src="../../../wxParse/wxParse.wxml"></import>
+<import src="../common/common.wxml"></import>
+<view class="body">
+    <swiper autoplay="true" bindchange="bindchange" class="detailCont1" indicatorDots="true" style="height:{{imgheights[current]}}rpx;" wx:if="{{list.bimg}}">
+        <swiper-item wx:for="{{list.bimg}}" wx:key="index">
+            <image bindload="imageLoad" data-index="{{index}}" src="{{item}}"></image>
+        </swiper-item>
+    </swiper>
+    <view class="detailCont2" style="background-color:#fff;">
+        <view class="h1">{{list.name}}</view>
+        <view class="h2">{{list.title}}</view>
+        <view class="p" decode="true">
+            <text class="sp1 sp2">￥{{format==-1?list.price:list.format[format]['price']}}</text>已售：
+      <text class="sp2">{{list.sold}}</text>库存：
+      <text class="sp2" wx:if="{{list.kucun==-1&&format==-1}}">充足</text>
+            <text class="sp2" wx:if="{{list.kucun!=-1&&format==-1}}">{{list.kucun}}</text>
+            <text class="sp2" wx:if="{{list.format[format]['kucun']==-1&&format!=-1}}">充足</text>
+            <text class="sp2" wx:if="{{list.format[format]['kucun']!=-1&&format!=-1}}">{{list.format[format]['kucun']?list.format[format]['kucun']:0}}</text>
+        </view>
+        <label bindtap="share_on" class="shareBlock">
+            <image src="../../resource/share02.png"></image>
+            <text>分享</text>
+        </label>
+    </view>
+    <view class="detailCont3" style="background-color:#fff;">
+        <view class="inputBlock flex-display" wx:if="{{list.format}}">
+            <view class="name">规格：</view>
+            <radio-group bindchange="radiochange" class="input flex-flex1">
+                <label class="radioBox {{format==index?'curr':''}}" style="color:{{format==index?theme.color:''}};border-color:{{format==index?theme.color:''}};" wx:for="{{list.format}}" wx:key="value">
+                    <text>{{item.name}}</text>
+                    <radio checked="{{format==index?'true':''}}" value="{{index}}"></radio>
+                </label>
+            </radio-group>
+        </view>
+        <view class="inputBlock flex-display">
+            <view class="name">数量：</view>
+            <view class="numBlock clearfix">
+                <view bindtap="numMinus" class="nbtn fl">-</view>
+                <view class="input fl">
+                    <input bindblur="valChange" name="number" style="color:{{theme.color}};" type="number" value="{{numbervalue}}"></input>
+                </view>
+                <view bindtap="numPlus" class="nbtn fl">+</view>
+            </view>
+            <view class="flex-flex1"></view>
+        </view>
+    </view>
+    <view class="detailCont5" style="background-color:#fff;">
+        <view class="title">
+            <text>图文详情</text>
+            <view class="border" style="background-color:{{theme.color}};"></view>
+            <view class="p">
+                <text class="b" style="background-color:#fff;">GRAPHIC DETAILS</text>
+            </view>
+        </view>
+        <view class="edit">
+            <template is="wxParse" data="{{wxParseData:article.nodes}}"></template>
+        </view>
+    </view>
+    <view class="bottomBlank2 {{filters.toPhone(config.model)?'curr':''}}"></view>
+    <view class="buyBlock flex-display flex-alignC type2 {{filters.toPhone(config.model)?'curr':''}}" style="background-color:#fff;">
+        <view bindtap="to_index" class="navBox">
+            <image src="../../resource/theme3_14.png"></image>
+        </view>
+        <view class="border"></view>
+        <view bindtap="submit" class="btn bg2 flex-flex1" style="background-color:{{theme.color}};">
+      立即购买
+    </view>
+    </view>
+    <template is="get_userinfo" data="{{shadow:shadow,get_userinfo:get_userinfo,config:config,can_bimg:can_bimg,app_step1:app_step1,app_step2:app_step2}}"></template>
+    <view bindtap="closeShare" class="shade" hidden="{{!showShare}}">
+        <view catchtap="void" class="shareLayer">
+            <view class="title">
+                <view class="b">分享到</view>
+            </view>
+            <view class="btns flex-display flex-alignC">
+                <view class="btn flex-flex1">
+                    <label class="navBox">
+                        <image src="../../resource/share_wx.png"></image>
+                        <view>微信好友</view>
+                        <button openType="share"></button>
+                    </label>
+                </view>
+                <view class="border"></view>
+                <view class="btn flex-flex1">
+                    <view catchtap="showhb" class="navBox">
+                        <image src="../../resource/share_hb.png"></image>
+                        <view>生成海报</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="shade" hidden="{{!showhb}}">
+        <view class="hbLayer">
+            <view class="closeBtn">
+                <image bindtap="closehb" src="../../resource/close.png"></image>
+            </view>
+            <image class="hbimg" mode="widthFix" src="{{code}}"></image>
+            <view bindtap="dlimg" class="dlBtn">
+                <image src="../../resource/dl.png"></image>保存图片</view>
+        </view>
+    </view>
+</view>
+<wxs module="filters" src="../common/common.wxs" />

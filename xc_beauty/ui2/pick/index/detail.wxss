@@ -1,0 +1,102 @@
+page {
+    background: #f7f7f7;
+}
+
+.page {
+    padding-top: 10rpx;
+    box-sizing: border-box;
+}
+
+.list {
+    background: #fff;
+    padding: 0 30rpx;
+}
+
+.list+.list {
+    margin-top: 10rpx;
+}
+
+.list .title {
+    padding: 20rpx 0;
+    text-align: center;
+    font-size: 4vw;
+}
+
+.list .title>view:nth-child(2) {
+    width: 60rpx;
+    height: 6rpx;
+    margin: 0 auto;
+}
+
+.list .item {
+    display: flex;
+    padding: 20rpx 0;
+    border-top: #ddd 2rpx dashed;
+}
+
+.list .item>view:nth-child(1) {
+    flex: 1;
+}
+
+.list .item>view:nth-child(2) {
+    color: #BABABA;
+    width: 200rpx;
+    text-align: center;
+}
+
+.list .item>view:nth-child(3) {
+    width: 150rpx;
+    text-align: center;
+}
+
+.list .amount {
+    border-top: #ddd 2rpx dashed;
+    padding: 20rpx 0;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.list .amount>view {
+    padding: 0 20rpx;
+}
+
+.list .amount .attr {
+    color: #BABABA;
+}
+
+.list .item2 {
+    display: flex;
+    padding: 20rpx 0;
+    border-top: #ddd 2rpx dashed;
+    align-items: center;
+}
+
+.list .item2>view:nth-child(1) {
+    color: #B9B9B9;
+    width: 150rpx;
+}
+
+.list .item2>view:nth-child(2) {
+    flex: 1;
+}
+
+.list .item2 .btn {
+    width: 160rpx;
+    height: 50rpx;
+    line-height: 50rpx;
+    border-radius: 50rpx;
+    color: #fff;
+    text-align: center;
+}
+
+.list .item2 .btn.type1 {
+    background: #ffbf00;
+}
+
+.list .item2 .btn.type2 {
+    background: #00b285;
+}
+
+.list .item2 .btn.type3 {
+    background: #bbbbbb;
+}

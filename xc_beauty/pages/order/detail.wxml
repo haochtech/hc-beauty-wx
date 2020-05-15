@@ -1,0 +1,75 @@
+<view class="page">
+    <view class="top" style="background:{{theme.color}};">
+        <block wx:if="{{list.status==-1}}">
+            <image src="../../resource/order01.png"></image>
+            <view>待付款</view>
+        </block>
+        <block wx:if="{{list.status==1&&list.use==-1&&list.yu_check==1&&list.yu_check_result==-1}}">
+            <image src="../../resource/check05.png"></image>
+            <view>待审核</view>
+        </block>
+        <block wx:if="{{list.status==1&&list.use==-1&&(list.yu_check==-1||list.yu_check==1&&list.yu_check_result==1)}}">
+            <image src="../../resource/order02.png"></image>
+            <view>待使用</view>
+        </block>
+        <block wx:if="{{list.status==2&&list.use==-1&&list.yu_check==1&&list.yu_check_result==2}}">
+            <image src="../../resource/check06.png"></image>
+            <view>审核失败</view>
+        </block>
+        <block wx:if="{{list.status==1&&list.use==1}}">
+            <image src="../../resource/order03.png"></image>
+            <view>已使用</view>
+        </block>
+    </view>
+    <view class="item_c">
+        <image src="{{list.service_simg}}"></image>
+        <view class="title">{{list.service_name}}</view>
+        <view class="item_info">
+            <view>¥{{list.price}}</view>
+            <view>¥{{list.o_price}}</view>
+            <view>×{{list.total}}</view>
+        </view>
+    </view>
+    <view class="tip">
+        <view wx:if="{{list.status==-1}}">应付款</view>
+        <view wx:if="{{list.status==-1}}">¥{{list.amount}}</view>
+        <view wx:if="{{list.status==1}}">实付款</view>
+        <view wx:if="{{list.status==1}}">¥{{list.o_amount}}</view>
+    </view>
+    <view class="code {{theme.name}}" wx:if="{{list.status==1&&(list.yu_check==-1||list.yu_check==1&&list.yu_check_result==1)}}">
+        <view>使用凭证</view>
+        <view class="code_fail" wx:if="{{list.status==1&&list.use==-1&&list.plan_fail==1}}">
+            <icon color="#fff" size="20" type="warn"></icon>
+            <view>已过期</view>
+        </view>
+        <canvas canvasId="mycanvas" wx:else></canvas>
+        <view class="item" style="color:{{theme.color}};">{{list.use==1?'已使用':'未使用'}} <text wx:if="{{list.use!=1}}">({{list.is_use}}/{{list.can_use}})</text>
+        </view>
+        <view>使用方式：到店出示该二维码，店家核销</view>
+    </view>
+    <view class="info">
+        <view>订单号：{{list.out_trade_no}}</view>
+        <view>下单时间：{{list.createtime}}</view>
+        <view wx:if="{{list.status==-1&&list.failtime}}">失效时间：{{list.failtime}}</view>
+        <view wx:if="{{list.plan_date}}">预约时间：{{list.plan_date}}</view>
+        <view wx:if="{{list.store}}">门店：{{list.store_list.name}}</view>
+        <view wx:if="{{list.member_name}}">店员：{{list.member_name}}</view>
+        <view wx:if="{{list.status==1}}">支付方式：{{list.pay_type==1?'微信支付':'余额支付'}}</view>
+        <view wx:if="{{list.he_log}}">核销记录：
+      <view wx:for="{{list.he_log}}" wx:key="index">{{item.time}}</view>
+        </view>
+    </view>
+    <block wx:if="{{list.yu_check==1&&list.yu_check_content}}">
+        <view class="tip">
+            <view>备注消息</view>
+        </view>
+        <view class="info">
+            <view>{{list.yu_check_content}}</view>
+        </view>
+    </block>
+    <view class="btn" wx:if="{{list.status==-1}}">
+        <view bindtap="order_del" class="btn1">取消订单</view>
+        <view bindtap="pay" class="btn2" style="background:{{theme.color}};">立即付款</view>
+    </view>
+    <view class="bottom"></view>
+</view>

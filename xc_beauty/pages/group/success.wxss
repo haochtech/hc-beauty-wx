@@ -1,0 +1,53 @@
+.list {
+    padding: 30rpx;
+}
+
+.list .item_t {
+    display: flex;
+    font-size: 4.5vw;
+    justify-content: center;
+    align-items: center;
+    color: #1bcf18;
+}
+
+.list .item_t>icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10rpx;
+}
+
+.list .imgs {
+    overflow: hidden;
+    margin-top: 20rpx;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.list .imgs>image {
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 100%;
+}
+
+.list .tip {
+    text-align: center;
+    color: #999999;
+    margin-top: 20rpx;
+}
+
+.list .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80rpx;
+    background: #fff;
+    border: #ddd 2rpx solid;
+    border-radius: 10rpx;
+    margin-top: 40rpx;
+}
+
+.list .btn+.btn {
+    margin-top: 20rpx;
+}

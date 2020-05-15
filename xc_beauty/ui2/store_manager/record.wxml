@@ -1,0 +1,45 @@
+<view class="page">
+    <view class="nav">
+        <view bindtap="tab" class="{{curr==1?'curr':''}}" data-index="1" style="color:{{theme.name!='theme3'&&curr==1?theme.color:''}};border-bottom-color:{{theme.name!='theme3'&&curr==1?theme.color:''}};">收银记录</view>
+        <view bindtap="tab" class="{{curr==2?'curr':''}}" data-index="2" style="color:{{theme.name!='theme3'&&curr==2?theme.color:''}};border-bottom-color:{{theme.name!='theme3'&&curr==2?theme.color:''}};">充值记录</view>
+    </view>
+    <view class="nav_block"></view>
+    <view class="date" wx:if="{{curr==1}}">
+        <image src="../../resource/xc04.png"></image>
+        <picker bindchange="bindDateChange" class="sp1" fields="month" mode="date" value="{{date}}">
+            <view class="picker">{{date}}</view>
+        </picker>
+        <view class="sp2">{{buy.amount}}</view>
+    </view>
+    <view class="date_block" wx:if="{{curr==1}}"></view>
+    <view class="list2" wx:if="{{curr==1}}">
+        <block wx:for="{{buy.list}}" wx:key="idx">
+            <view bindtap="choose" class="item" data-index="{{index}}">
+                <view class="sp1">{{item.date}}</view>
+                <view class="sp2">
+                    <text class="sp3">{{item.amount}}</text>(
+        <image src="../../resource/theme3_52.png"></image>{{item.user_amount}}
+        <image src="../../resource/theme3_53.png"></image>{{item.store_amount}})</view>
+            </view>
+            <view class="list3" wx:if="{{item.status==1}}">
+                <view class="item2" wx:for="{{item.list}}" wx:for-index="index2" wx:for-item="item2">
+                    <image src="../../resource/{{item.buy_type==1?'theme3_52':'theme3_53'}}.png"></image>
+                    <view class="sp1">{{item2.createtime}} {{item2.name}}/{{item2.pay_type==1?'W':'Y'}}</view>
+                    <view>{{item2.o_amount}}</view>
+                </view>
+            </view>
+        </block>
+    </view>
+    <view class="list" wx:if="{{curr==2}}">
+        <view class="item" wx:for="{{recharge}}" wx:key="idx">
+            <image src="../../resource/theme3_55.png"></image>
+            <view>{{item.createtime}} {{item.name}}  <text>{{item.recharge_type==2?'管理端充值':'会员充值'}}</text>
+            </view>
+            <view>充
+          <text class="price">{{item.amount}}</text>
+                <text wx:if="{{item.gift}}">赠<text class="price">{{item.gift}}</text>
+                </text>
+            </view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,135 @@
+page {
+    background: #f7f7f7;
+}
+
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    display: flex;
+    z-index: 1000;
+}
+
+.nav>view {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90rpx;
+}
+
+.nav_block {
+    height: 90rpx;
+}
+
+.page .item {
+    background: #fff;
+    padding: 30rpx;
+    display: flex;
+    color: #999;
+    margin: 30rpx 50rpx;
+    box-shadow: 0px 0px 10rpx 2rpx #ddd;
+    border-radius: 20rpx;
+    position: relative;
+}
+
+.page .item .simg {
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 100%;
+}
+
+.page .item .item_r {
+    margin-left: 30rpx;
+    flex: 1;
+}
+
+.page .item .item_r .item_name {
+    display: flex;
+    color: #333;
+    font-size: 4.5vw;
+    line-height: 6.5vw;
+}
+
+.page .item .item_r .item_name .sp1 {
+    flex: 1;
+    text-align: right;
+}
+
+.page .item .item_r .item_date {
+    display: flex;
+    align-items: center;
+    font-size: 4vw;
+    line-height: 6vw;
+}
+
+.page .item .item_r .item_date image {
+    width: 40rpx;
+    height: 40rpx;
+    margin-right: 10rpx;
+}
+
+.page .item .item_btn {
+    width: 140rpx;
+    line-height: 60rpx;
+    color: #fff;
+    text-align: center;
+    border-radius: 60rpx;
+    position: absolute;
+    bottom: 30rpx;
+    right: 30rpx;
+}
+
+.page .item .item_fail {
+    width: 100rpx;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+}
+
+.page .item .item_check {
+    position: absolute;
+    bottom: 90rpx;
+    right: 30rpx;
+    color: #D55179;
+    display: flex;
+    align-items: center;
+}
+
+.page .item .item_check.curr {
+    bottom: 30rpx;
+}
+
+.page .item .item_check>image {
+    width: 30rpx;
+    margin-right: 10rpx;
+}
+
+.page .item .item_block {
+    height: 60rpx;
+}
+
+.page .item .item_check_fail {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    bottom: 30rpx;
+    box-sizing: border-box;
+    padding: 0 30rpx;
+    display: flex;
+    align-items: center;
+    color: #AAAAAA;
+    font-size: 3vw;
+}
+
+.page .item .item_check_fail image {
+    width: 30rpx;
+    margin-right: 10rpx;
+}
+
+.page .item .item_check_fail .sp1 {
+    flex: 1;
+    color: #D55179;
+}

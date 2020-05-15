@@ -1,0 +1,114 @@
+<view class="page">
+    <view class="banner">
+        <view class="blist">
+            <image class="blist_l" src="{{list.simg}}"></image>
+            <view class="blist_c">
+                <view>{{list.name}}</view>
+                <view>{{list.task}}</view>
+                <view>{{list.tag?list.tag:''}}</view>
+            </view>
+            <view bindtap="zan" class="blist_r" style="background:{{list.is_zan==1?'':theme.color}};">
+                <image src="../../resource/zan.png"></image>
+                <view>{{list.is_zan==1?'已点赞':'赞一下'}}</view>
+            </view>
+        </view>
+        <view class="content">
+            <view class="title">个人简介</view>
+            <view class="tip">
+                <view>擅长：</view>
+                <view class="tip_b" wx:for="{{list.service}}" wx:key="idx">{{item.name}}</view>
+            </view>
+            <text class="info" decode="true">{{list.content?list.content:''}}</text>
+        </view>
+        <navigator class="store" url="detail?&id={{list.store.id}}">
+            <image class="logo" src="{{list.store.simg}}"></image>
+            <view>{{list.store.name}}</view>
+            <image class="left" src="../../resource/arrow.png"></image>
+        </navigator>
+    </view>
+    <view class="service">
+        <view class="title">
+            <view class="line"></view>
+            <view class="yuan"></view>
+            <view class="tet">服务项目</view>
+            <view class="yuan"></view>
+            <view class="line"></view>
+        </view>
+        <view class="item" wx:for="{{list.service}}" wx:key="idx">
+            <view>{{item.name}}</view>
+            <view>{{item.price}}元</view>
+        </view>
+    </view>
+    <view class="service" wx:if="{{list.zuo_pin}}">
+        <view class="title">
+            <view class="line"></view>
+            <view class="yuan"></view>
+            <view class="tet">{{list.title?list.title:'相关作品'}}</view>
+            <view class="yuan"></view>
+            <view class="line"></view>
+        </view>
+        <view class="zuo">
+            <image bindtap="link" data-index="{{index}}" mode="aspectFill" src="{{item.simg}}" wx:for="{{list.zuo_pin}}" wx:key="idx"></image>
+        </view>
+    </view>
+    <view class="discuss">
+        <navigator class="title" url="../discuss/index2?&id={{list.id}}">
+            <view>评论</view>
+            <view>查看全部（{{list.discuss}}）</view>
+            <image class="left" src="../../resource/arrow.png"></image>
+        </navigator>
+        <scroll-view scrollX class="list" wx:if="{{list.discuss_list}}">
+            <view class="item" wx:for="{{list.discuss_list}}" wx:key="idx">
+                <view class="item_t">
+                    <image src="{{item.avatar}}"></image>
+                    <view>{{item.nick}}</view>
+                </view>
+                <view class="item_b">{{item.content}}</view>
+            </view>
+        </scroll-view>
+    </view>
+    <view class="bottom_block {{filters.toPhone(config.model)?'curr':''}}"></view>
+    <view class="bottom {{filters.toPhone(config.model)?'curr':''}}">
+        <view bindtap="to_index" class="icon">
+            <image src="../../resource/theme3_14.png"></image>
+        </view>
+        <view bindtap="share_on" class="icon">
+            <image src="../../resource/theme3_27.png"></image>
+        </view>
+        <view bindtap="submit" class="btn" style="background:{{theme.color}};">立即预约</view>
+    </view>
+    <view bindtap="closeShare" class="shade" hidden="{{!showShare}}">
+        <view catchtap="void" class="shareLayer">
+            <view class="title">
+                <view class="b">分享到</view>
+            </view>
+            <view class="btns flex-display flex-alignC">
+                <view class="btn flex-flex1">
+                    <label class="navBox">
+                        <image src="../../resource/share_wx.png"></image>
+                        <view>微信好友</view>
+                        <button openType="share"></button>
+                    </label>
+                </view>
+                <view class="border"></view>
+                <view class="btn flex-flex1">
+                    <view catchtap="showhb" class="navBox">
+                        <image src="../../resource/share_hb.png"></image>
+                        <view>生成海报</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="shade" hidden="{{!showhb}}">
+        <view class="hbLayer">
+            <view class="closeBtn">
+                <image bindtap="closehb" src="../../resource/close.png"></image>
+            </view>
+            <image class="hbimg" mode="widthFix" src="{{code}}"></image>
+            <view bindtap="dlimg" class="dlBtn">
+                <image src="../../resource/dl.png"></image>保存图片</view>
+        </view>
+    </view>
+</view>
+<wxs module="filters" src="../common/common.wxs" />

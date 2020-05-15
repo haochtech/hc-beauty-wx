@@ -1,0 +1,374 @@
+page {
+    background: #f7f7f7;
+}
+
+.top {
+    height: 200rpx;
+    position: relative;
+}
+
+.top .top_t {
+    position: absolute;
+    width: 92vw;
+    top: 50rpx;
+    left: 4vw;
+}
+
+.top .top_t .item_t {
+    display: flex;
+    padding: 20rpx 30rpx;
+    background: #fff;
+    border-radius: 20rpx 20rpx 0 0;
+}
+
+.top .top_t .item_t.curr {
+    height: 160rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+.top .top_t .item_t.curr .item_choose {
+    width: 350rpx;
+    height: 70rpx;
+    line-height: 70rpx;
+    text-align: center;
+    color: #fff;
+    border-radius: 70rpx;
+    margin: 0 auto;
+}
+
+.top .top_t .item_t>image {
+    width: 120rpx;
+    height: 120rpx;
+    border-radius: 100%;
+}
+
+.top .top_t .item_t .item_l {
+    flex: 1;
+    width: 450rpx;
+    box-sizing: border-box;
+    padding-left: 20rpx;
+}
+
+.top .top_t .item_t .item_l>view {
+    width: 500rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #999;
+    line-height: 5vw;
+}
+
+.top .top_t .item_t .item_l>view:nth-child(1) {
+    color: #333;
+    font-size: 4.5vw;
+    margin-bottom: 10rpx;
+}
+
+.top .top_t .item_t .item_r {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    line-height: 4vw;
+    color: #999;
+    border-left: #f3a7bf 2rpx dashed;
+    padding-left: 20rpx;
+    width: 100rpx;
+    box-sizing: border-box;
+}
+
+.top .top_t .item_b {
+    display: flex;
+}
+
+.top .top_t .item_b>view {
+    flex: 1;
+    height: 70rpx;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.top .top_t .item_b>view:nth-child(1) {
+    border-radius: 0 0 0 20rpx;
+    background: #f3a7bf;
+}
+
+.page.theme3 .top .top_t .item_b>view:nth-child(1) {
+    border-radius: 0 0 0 20rpx;
+    background: #686a6a;
+}
+
+.top .top_t .item_b>view:nth-child(2) {
+    border-radius: 0 0 20rpx 0;
+}
+
+.top .top_t .item_b image {
+    width: 30rpx;
+    height: 30rpx;
+    margin-right: 14rpx;
+}
+
+.top .top_t .item_btn {
+    position: absolute;
+    right: 0;
+    top: 20rpx;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    padding: 10rpx 20rpx;
+    border-radius: 30rpx 0 0 30rpx;
+}
+
+.top .top_t .item_btn>image {
+    width: 40rpx;
+    margin-right: 10rpx;
+}
+
+.top_block {
+    height: 80rpx;
+}
+
+.info_c {
+    margin-top: 10rpx;
+    padding: 20rpx 30rpx;
+    background: #fff;
+    display: flex;
+    color: #999999;
+}
+
+.info_c>view:nth-child(1) {
+    flex: 1;
+}
+
+.info_c>view:nth-child(2) {
+    margin-right: 20rpx;
+}
+
+.info_c .check {
+    display: flex;
+    align-items: center;
+}
+
+.info_c .check icon {
+    display: flex;
+    align-items: center;
+    margin-right: 10rpx;
+}
+
+.sign {
+    padding: 30rpx 30rpx;
+    background: #fff;
+    margin-top: 10rpx;
+}
+
+.sign .content {
+    padding: 0 20rpx;
+}
+
+.sign .content .item {
+    display: flex;
+    padding: 10rpx 0;
+    align-items: center;
+}
+
+.sign .content .item>view:nth-child(1) {
+    color: #999999;
+}
+
+.sign .content .item>input {
+    flex: 1;
+}
+
+.sign .content .item>image {
+    width: 40rpx;
+}
+
+.sign .content .item+.item {
+    border-top: #ddd 2rpx solid;
+}
+
+.btn {
+    margin: 60rpx 30rpx;
+    height: 88rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    border-radius: 10rpx;
+}
+
+.sign .content .date {
+    display: flex;
+    align-items: center;
+    border-bottom: #ddd 2rpx solid;
+}
+
+.sign .content .date .date_l {
+    color: #999999;
+    font-size: 5vw;
+    transform: rotateY(180deg);
+}
+
+.sign .content .date .date_r {
+    color: #999999;
+    font-size: 5vw;
+}
+
+.sign .content .date .date_item {
+    text-align: center;
+    line-height: 4vw;
+    width: 120rpx;
+    padding: 10rpx 0;
+}
+
+.sign .content .date .date_item>view:nth-child(1) {
+    font-size: 4vw;
+}
+
+.sign .content .times {
+    padding-top: 20rpx;
+    overflow: hidden;
+}
+
+.sign .content .times>view {
+    color: #999999;
+    border: #999999 2rpx solid;
+    border-radius: 10rpx;
+    float: left;
+    width: 200rpx;
+    text-align: center;
+    height: 50rpx;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20rpx;
+}
+
+.sign .content .times>view:nth-child(3n),.sign .content .times>view:nth-child(3n-1) {
+    margin-left: 25rpx;
+}
+
+.sign .sign_btn {
+    text-align: center;
+    color: #fff;
+    margin-top: 50rpx;
+    line-height: 80rpx;
+    border-radius: 10rpx;
+    font-size: 4vw;
+    border: none;
+}
+
+.sign .content .tip {
+    padding: 20rpx;
+    text-align: center;
+}
+
+.member_page .list .item {
+    background: #fff;
+    display: flex;
+    padding: 20rpx;
+}
+
+.member_page .list .item+.item {
+    margin-top: 10rpx;
+}
+
+.member_page .list .item>image {
+    width: 100rpx;
+    height: 100rpx;
+    border: #ddd 2rpx solid;
+    border-radius: 100%;
+}
+
+.member_page .list .item .item_r {
+    margin-left: 20rpx;
+    flex: 1;
+    width: 560rpx;
+    padding: 10rpx 0;
+    position: relative;
+}
+
+.member_page .list .item .item_r .name {
+    font-size: 4vw;
+    padding-right: 100rpx;
+}
+
+.member_page .list .item .item_r .name .task {
+    color: #B9B9B9;
+    font-size: 3.5vw;
+}
+
+.member_page .list .item .item_r .tip {
+    overflow: hidden;
+    color: #B9B9B9;
+    margin-top: 10rpx;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 560rpx;
+    height: 40rpx;
+}
+
+.member_page .list .item .item_r .tip>view {
+    float: left;
+}
+
+.member_page .list .item .item_r .tip .tip_b {
+    background: #ffbfbf;
+    border-radius: 20rpx;
+    padding: 0 20rpx;
+    color: #fff;
+}
+
+.member_page .list .item .item_r .tip .tip_b+.tip_b {
+    margin-left: 10rpx;
+}
+
+.member_page .list .item .item_r .zan {
+    position: absolute;
+    top: 10rpx;
+    right: 0;
+    display: flex;
+    align-items: center;
+    color: #b5b5b5;
+    font-size: 4vw;
+}
+
+.member_page .list .item .item_r .zan>image {
+    width: 30rpx;
+    height: 30rpx;
+    margin-right: 10rpx;
+}
+
+.pack {
+    background: #fff;
+    padding: 10rpx 30rpx;
+    margin-top: 10rpx;
+}
+
+.pack .item {
+    padding: 10rpx 0;
+    display: flex;
+    align-items: center;
+}
+
+.pack .item .itemL {
+    flex: 1;
+}
+
+.pack .item .itemR {
+    flex: 1;
+    text-align: right;
+}
+
+.pack .item>icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10rpx;
+}
